@@ -3,12 +3,7 @@ const ship = require ('./ship.js')
 describe('generate a ship', ()=> {
     let newship;
     beforeEach(() => {
-        newship = new ship;
-    });
-
-    test ('set length', () => {
-        newship.length = 3;
-        expect(newship.length).toBe(3);
+        newship = new ship('submarine');
     });
     
     test ('return sunk', () => {
@@ -21,11 +16,17 @@ describe('generate a ship', ()=> {
         expect(newship.damage).toBe(2);
     });
 
-    test ('damage', ()=> {
-        newship.hit();
+    test ('ship sunk', ()=> {
+        for (let i = 0; i < 3; i++){
+            newship.hit();
+        }
         newship.isSunk();
         expect(newship.sunk).toBe(true);
     });
+
+    test ('ship type and length', ()=> {
+        expect(newship.length).toBe(3);
+    }); 
 })
 
 
