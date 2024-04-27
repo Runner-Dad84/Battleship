@@ -4,7 +4,7 @@ const ship = require ('./ship.js')
 //to access square on board us me board.board[r][c]
 
 //utility: converts column letter to number for lookUp
-function colCovert (letter){
+function colConvert (letter){
     const alphabet = [...Array(7)].map((_,i) => String.fromCharCode(i +97));
         const item = (el) => el === letter;
         const num = alphabet.findIndex(item);
@@ -13,7 +13,7 @@ function colCovert (letter){
 //enter board as variablename.board, returns the value of the board
 function lookUp (Let, Num, board){
     const c = Num;
-    const r = colCovert(Let);
+    const r = colConvert(Let);
     const target = board.find((el) => board[c, r]);
     return target[c];
 }
