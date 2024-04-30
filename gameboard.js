@@ -10,15 +10,15 @@ function colConvert (letter){
         const num = alphabet.findIndex(item);
         return num
 };
-//enter board as variablename.board, returns the value of the board
-function lookUp (Let, Num, board){
-    const c = Num;
-    const r = colConvert(Let);
-    const target = board.find((el) => board[c, r]);
-    return target[c];
+//utility: board as variablename.board, only works for first row
+export function lookUp (Let, Num, array){
+    const c = colConvert(Let);
+    const r = Num;
+    const target = array.board[c][r];
+    return target;
 }
 
-class gameboard {
+export class gameboard {
     constructor (row, col) {
         this.row = row;
         this.col = col;
@@ -36,20 +36,23 @@ class gameboard {
         }
         return gameBoard;
     }
-    shipLocation(type, origin, dir) {
-        let newShip = new ship(type);
-        return newShip;
+    updateBoardSqVal (co, ro, val) {
+        return this.board[co][ro] = val;
     }
 
-
-
+  
 
 }
 
+
 let board1 = new gameboard(7, 7);
-board1.board[0][6] = "X";
+board1.board[1][0] = "Z"
+//console.log(board1.board);
+console.log(board1.board[1][0]);
+console.log((lookUp('b', 0, board1)));
 
-console.log(lookUp('a', 6, board1.board));
 
 
-module.exports = gameboard
+
+
+//module.exports = gameboard;
