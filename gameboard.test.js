@@ -49,4 +49,12 @@ describe('gameboard', ()=> {
         board3.updateBoardSqVal(2, 4, 'X');
         expect(board3.board[2][4]).toBe('X');
     });
+
+    test('set ship', () => {
+        board3.placeNewShip('submarine', 1, 1)
+        expect(board3.board[1][1]).toBe('S');
+        expect(board3.board[1][2]).toBe('S');
+        expect(board3.board[1][3]).toBe('S');
+    });
+   
 })

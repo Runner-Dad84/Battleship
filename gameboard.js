@@ -19,9 +19,9 @@ export function lookUp (Let, Num, array){
 }
 
 export class gameboard {
-    constructor (row, col) {
-        this.row = row;
+    constructor (col, row) {
         this.col = col;
+        this.row = row;
         this.board = this.createBoard();
     }
     createBoard() {
@@ -39,17 +39,29 @@ export class gameboard {
     updateBoardSqVal (co, ro, val) {
         return this.board[co][ro] = val;
     }
+    placeNewShip(type, col, row, dir) {
+        let newShip = new ship(type);
+        let c = col;
+        let r = row;
+        this.board[c][r] = newShip.id;
+        if (dir = 'east'){
+            console.log('east');
+            for (let i = row; i < (r + newShip.length); i++) {
+                console.log(this.board[col][row++] = newShip.id)
+            }
+            return 
 
-  
-
+        }
+    }
 }
 
-
+/*
 let board1 = new gameboard(7, 7);
-board1.board[1][0] = "Z"
-//console.log(board1.board);
-console.log(board1.board[1][0]);
-console.log((lookUp('b', 0, board1)));
+board1.placeNewShip('patrol', 3, 1, 'north');
+console.log(board1.board);
+*/
+//console.log(board1.board[1][0]);
+//console.log((lookUp('b', 0, board1)));
 
 
 
