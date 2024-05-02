@@ -45,14 +45,27 @@ export class gameboard {
         let r = row;
         this.board[c][r] = newShip.id;
         if (dir = 'east'){
-            console.log('east');
             for (let i = row; i < (r + newShip.length); i++) {
-                console.log(this.board[col][row++] = newShip.id)
+                this.board[col][row++] = newShip.id;
             }
-            return 
+        if (dir = 'north'){
+            for (let i = row; i < (c + newShip.length); i++) {
+                this.board[col++][row] = newShip.id;
+            }
+        if (dir = 'west'){
+            for (let i = row; i > (r + newShip.length); i--) {
+                this.board[col][row++] = newShip.id;
+            }
+            
+           
+            
+        
+            
 
         }
     }
+}
+}
 }
 
 /*
@@ -67,4 +80,4 @@ console.log(board1.board);
 
 
 
-//module.exports = gameboard;
+//module.exports = gameboard

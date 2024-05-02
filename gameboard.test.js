@@ -50,11 +50,19 @@ describe('gameboard', ()=> {
         expect(board3.board[2][4]).toBe('X');
     });
 
-    test('set ship', () => {
-        board3.placeNewShip('submarine', 1, 1)
+    test('set ship east', () => {
+        board3.placeNewShip('submarine', 1, 1, 'east')
         expect(board3.board[1][1]).toBe('S');
         expect(board3.board[1][2]).toBe('S');
         expect(board3.board[1][3]).toBe('S');
+    });
+
+    test('set ship north', () => {
+        board3.placeNewShip('battleship', 0, 0, 'north')
+        expect(board3.board[0][0]).toBe('B');
+        expect(board3.board[0][1]).toBe('B');
+        expect(board3.board[0][2]).toBe('B');
+        expect(board3.board[0][3]).toBe('B');
     });
    
 })
