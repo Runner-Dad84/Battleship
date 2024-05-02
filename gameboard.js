@@ -44,40 +44,43 @@ export class gameboard {
         let c = col;
         let r = row;
         this.board[c][r] = newShip.id;
-        if (dir = 'east'){
+        if (dir === 'north'){
+            for (let i = col; i < (c + newShip.length); i++) {
+                this.board[col++][row] = newShip.id;
+            }
+        }
+        if (dir === 'east'){
             for (let i = row; i < (r + newShip.length); i++) {
                 this.board[col][row++] = newShip.id;
             }
-        if (dir = 'north'){
-            for (let i = row; i < (c + newShip.length); i++) {
-                this.board[col++][row] = newShip.id;
-            }
-        if (dir = 'west'){
-            for (let i = row; i > (r + newShip.length); i--) {
-                this.board[col][row++] = newShip.id;
-            }
-            
-           
-            
-        
-            
-
         }
+        
+          
     }
 }
-}
-}
+
+
 
 /*
 let board1 = new gameboard(7, 7);
 board1.placeNewShip('patrol', 3, 1, 'north');
+board1.placeNewShip('submarine', 0, 0, 'east');
+
+board1.board[0][1] = 'A';
+board1.board[0][2] = 'A';
+board1.board[0][3] = 'A';
+
+board1.board[2][1] = 'B';
+board1.board[3][1] = 'B';
+board1.board[4][1] = 'B';
+
 console.log(board1.board);
-*/
+
 //console.log(board1.board[1][0]);
 //console.log((lookUp('b', 0, board1)));
+*/
 
 
 
 
-
-//module.exports = gameboard
+// don't use -- module.exports = gameboard;
