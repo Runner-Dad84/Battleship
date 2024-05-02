@@ -49,9 +49,19 @@ export class gameboard {
                 this.board[col++][row] = newShip.id;
             }
         }
+        if (dir === 'south'){
+            for (let i = col; i > (c - newShip.length); i--) {
+                this.board[col--][row] = newShip.id;
+            }
+        }
         if (dir === 'east'){
             for (let i = row; i < (r + newShip.length); i++) {
                 this.board[col][row++] = newShip.id;
+            }
+        }
+        if (dir === 'west'){
+            for (let i = row; i > (r - newShip.length); i--) {
+                this.board[col][row--] = newShip.id;
             }
         }
         

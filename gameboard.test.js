@@ -50,7 +50,7 @@ describe('gameboard', ()=> {
         expect(board3.board[2][4]).toBe('X');
     });
 
-    test('set ship east', () => {
+    test('set submarine east', () => {
         board3.placeNewShip('submarine', 1, 1, 'east')
         expect(board3.board[1][1]).toBe('S');
         expect(board3.board[1][2]).toBe('S');
@@ -58,7 +58,7 @@ describe('gameboard', ()=> {
         expect(board3.board[1][4]).toBe(0);
     });
 
-    test('set ship north', () => {
+    test('set battleship north', () => {
         board3.placeNewShip('battleship', 0, 0, 'north')
         expect(board3.board[0][0]).toBe('B');
         expect(board3.board[1][0]).toBe('B');
@@ -67,14 +67,25 @@ describe('gameboard', ()=> {
         expect(board3.board[4][0]).toBe(0);
     });
 
-    test('set ship north carrier', () => {
-        board3.placeNewShip('carrier', 2, 0, 'east')
-        expect(board3.board[2][0]).toBe('C');
-        expect(board3.board[2][1]).toBe('C');
-        expect(board3.board[2][2]).toBe('C');
-        expect(board3.board[2][3]).toBe('C');
+    test('set carrier west', () => {
+        board3.placeNewShip('carrier', 2, 6, 'west')
+        expect(board3.board[2][6]).toBe('C');
+        expect(board3.board[2][5]).toBe('C');
         expect(board3.board[2][4]).toBe('C');
-        expect(board3.board[2][5]).toBe(0);
+        expect(board3.board[2][3]).toBe('C');
+        expect(board3.board[2][2]).toBe('C');
+        expect(board3.board[2][1]).toBe(0);
     });
+
+    test('set destroyer south', () => {
+        board3.placeNewShip('destroyer', 5, 2, 'south')
+        expect(board3.board[6][2]).toBe(0);
+        expect(board3.board[5][2]).toBe('D');
+        expect(board3.board[4][2]).toBe('D');
+        expect(board3.board[3][2]).toBe('D');
+        expect(board3.board[2][2]).toBe(0);
+    });
+
+    
    
 })
