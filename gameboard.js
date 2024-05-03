@@ -18,6 +18,12 @@ export function lookUp (Let, Num, array){
     return target;
 }
 
+function checkOnBoard (col, row){
+    if ((col < 0) || (row < 0) || (col > 6) || (row > 6)) {
+        return false
+    }
+}
+
 export class gameboard {
     constructor (col, row) {
         this.col = col;
@@ -40,27 +46,43 @@ export class gameboard {
         return this.board[co][ro] = val;
     }
     placeNewShip(type, col, row, dir) {
+        if (checkOnBoard(col, row) === false){
+            return TypeError;
+        }
+
         let newShip = new ship(type);
         let c = col;
         let r = row;
         this.board[c][r] = newShip.id;
         if (dir === 'north'){
             for (let i = col; i < (c + newShip.length); i++) {
+                if (checkOnBoard(col, row) === false){
+                    return TypeError;
+                }
                 this.board[col++][row] = newShip.id;
             }
         }
         if (dir === 'south'){
             for (let i = col; i > (c - newShip.length); i--) {
+                if (checkOnBoard(col, row) === false){
+                    return TypeError;
+                }
                 this.board[col--][row] = newShip.id;
             }
         }
         if (dir === 'east'){
             for (let i = row; i < (r + newShip.length); i++) {
+                if (checkOnBoard(col, row) === false){
+                    return TypeError;
+                }
                 this.board[col][row++] = newShip.id;
             }
         }
         if (dir === 'west'){
             for (let i = row; i > (r - newShip.length); i--) {
+                if (checkOnBoard(col, row) === false){
+                    return TypeError;
+                }
                 this.board[col][row--] = newShip.id;
             }
         }
