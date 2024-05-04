@@ -92,7 +92,10 @@ describe('gameboard', ()=> {
     test('attempt to start off board', () => {
         expect(board3.placeNewShip('destroyer', 5, 1, 'north')).toBe(TypeError);
     });
-
+    test('attempt place ship on ship', () => {
+        board3.placeNewShip('carrier', 1, 1, 'north')
+        expect(board3.placeNewShip('destroyer', 1, 1, 'north')).toBe(TypeError);
+    });
 
     
    

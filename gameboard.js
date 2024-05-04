@@ -18,12 +18,6 @@ export function lookUp (Let, Num, array){
     return target;
 }
 
-function checkOnBoard (col, row){
-    if ((col < 0) || (row < 0) || (col > 6) || (row > 6)) {
-        return false
-    }
-}
-
 export class gameboard {
     constructor (col, row) {
         this.col = col;
@@ -42,21 +36,38 @@ export class gameboard {
         }
         return gameBoard;
     }
+    //utility function
     updateBoardSqVal (co, ro, val) {
         return this.board[co][ro] = val;
     }
+    //utility function
+    checkOnBoard (x, y){
+        if ((x < 0) || (y < 0) || (x > 6) || (y > 6)) {
+            return false
+        }
+    }
+    //need to add this one in
+    checkOpenBoard (x, y){
+        if (this.board[x][y] !== 0) {
+            return false
+        }
+    }
+
     placeNewShip(type, col, row, dir) {
-        if (checkOnBoard(col, row) === false){
+        if (this.checkOnBoard(col, row) === false){
             return TypeError;
         }
 
         let newShip = new ship(type);
         let c = col;
         let r = row;
-        this.board[c][r] = newShip.id;
+        
         if (dir === 'north'){
             for (let i = col; i < (c + newShip.length); i++) {
-                if (checkOnBoard(col, row) === false){
+                if (this.checkOnBoard(col, row) === false){
+                    return TypeError;
+                }
+                if (this.checkOpenBoard(col, row) === false){
                     return TypeError;
                 }
                 this.board[col++][row] = newShip.id;
@@ -64,7 +75,10 @@ export class gameboard {
         }
         if (dir === 'south'){
             for (let i = col; i > (c - newShip.length); i--) {
-                if (checkOnBoard(col, row) === false){
+                if (this.checkOnBoard(col, row) === false){
+                    return TypeError;
+                }
+                if (this.checkOpenBoard(col, row) === false){
                     return TypeError;
                 }
                 this.board[col--][row] = newShip.id;
@@ -72,7 +86,10 @@ export class gameboard {
         }
         if (dir === 'east'){
             for (let i = row; i < (r + newShip.length); i++) {
-                if (checkOnBoard(col, row) === false){
+                if (this.checkOnBoard(col, row) === false){
+                    return TypeError;
+                }
+                if (this.checkOpenBoard(col, row) === false){
                     return TypeError;
                 }
                 this.board[col][row++] = newShip.id;
@@ -80,7 +97,10 @@ export class gameboard {
         }
         if (dir === 'west'){
             for (let i = row; i > (r - newShip.length); i--) {
-                if (checkOnBoard(col, row) === false){
+                if (this.checkOnBoard(col, row) === false){
+                    return TypeError;
+                }
+                if (this.checkOpenBoard(col, row) === false){
                     return TypeError;
                 }
                 this.board[col][row--] = newShip.id;
