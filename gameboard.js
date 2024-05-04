@@ -36,17 +36,14 @@ export class gameboard {
         }
         return gameBoard;
     }
-    //utility function
-    updateBoardSqVal (co, ro, val) {
-        return this.board[co][ro] = val;
-    }
+    
     //utility function
     checkOnBoard (x, y){
         if ((x < 0) || (y < 0) || (x > 6) || (y > 6)) {
             return false
         }
     }
-    //need to add this one in
+    //utility function
     checkOpenBoard (x, y){
         if (this.board[x][y] !== 0) {
             return false
@@ -57,7 +54,6 @@ export class gameboard {
         if (this.checkOnBoard(col, row) === false){
             return TypeError;
         }
-
         let newShip = new ship(type);
         let c = col;
         let r = row;
@@ -106,8 +102,13 @@ export class gameboard {
                 this.board[col][row--] = newShip.id;
             }
         }
-        
-          
+    }
+    
+    receiveAttack (col, row) {
+        if (this.checkOnBoard(col, row) === false){
+            return TypeError;
+        }
+        return this.board[col][row] = '!';
     }
 }
 

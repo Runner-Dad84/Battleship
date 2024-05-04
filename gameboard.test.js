@@ -45,11 +45,6 @@ describe('gameboard', ()=> {
         board3 = new gameboard(7,7);
     });
 
-    test ('change value', () => {
-        board3.updateBoardSqVal(2, 4, 'X');
-        expect(board3.board[2][4]).toBe('X');
-    });
-
     test('set submarine east', () => {
         board3.placeNewShip('submarine', 1, 1, 'east')
         expect(board3.board[1][1]).toBe('S');
@@ -92,11 +87,21 @@ describe('gameboard', ()=> {
     test('attempt to start off board', () => {
         expect(board3.placeNewShip('destroyer', 5, 1, 'north')).toBe(TypeError);
     });
+
     test('attempt place ship on ship', () => {
         board3.placeNewShip('carrier', 1, 1, 'north')
         expect(board3.placeNewShip('destroyer', 1, 1, 'north')).toBe(TypeError);
     });
 
-    
-   
+    test('fire on board', () => {
+        board3.receiveAttack(3,3)
+        expect(board3.board[3][3]).toBe('!');
+    });
+
+    test('fire off board', () => {
+        expect(board3.receiveAttack(8,9)).toBe(TypeError);
+    });
+
+
+
 })
