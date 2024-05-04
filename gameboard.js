@@ -23,6 +23,7 @@ export class gameboard {
         this.col = col;
         this.row = row;
         this.board = this.createBoard();
+        this.ships = [];
     }
     createBoard() {
         let gameBoard = [];
@@ -54,7 +55,9 @@ export class gameboard {
         if (this.checkOnBoard(col, row) === false){
             return TypeError;
         }
-        let newShip = new ship(type);
+        const newShip = new ship(type);
+        this.ships.push(newShip);
+    
         let c = col;
         let r = row;
         
@@ -108,6 +111,12 @@ export class gameboard {
         if (this.checkOnBoard(col, row) === false){
             return TypeError;
         }
+        //logic to change ship hit
+        if (this.board[col][row] === 'C'){
+            
+        }
+
+
         return this.board[col][row] = '!';
     }
 }

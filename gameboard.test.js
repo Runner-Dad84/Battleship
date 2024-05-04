@@ -102,6 +102,25 @@ describe('gameboard', ()=> {
         expect(board3.receiveAttack(8,9)).toBe(TypeError);
     });
 
+    test('fire on a ship', () => {
+        board3.placeNewShip('carrier', 1, 1, 'north')
+        expect(board3.receiveAttack(3,3)).toBe('!');
+    });
+})
 
+describe('gameboard', ()=> {
+    let newBoard1;
+    
+    beforeEach(() => {
+        newBoard1 = new gameboard(7,7);
+    });
 
+    test('gameboard stores ship', () => {
+
+        newBoard1.placeNewShip('submarine', 1, 1, 'east')
+        newBoard1.placeNewShip('patrol', 2, 2, 'north')
+        expect(newBoard1.ships.length = 2);
+        expect(newBoard1.ships[0].type = 'submarine');
+      
+    });
 })
