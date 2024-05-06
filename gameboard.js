@@ -108,16 +108,34 @@ export class gameboard {
     }
     
     receiveAttack (col, row) {
-        if (this.checkOnBoard(col, row) === false){
-            return TypeError;
+        let c = col;
+        let r = row;
+        //if water record miss
+        if (this.board[c][r] === 0){
+            return this.board[c][r] = 'X';
         }
-        //logic to change ship hit
-        if (this.board[col][row] === 'C'){
-            
+        //if hit carrier record hit
+        if (this.board[c][r] === 'C'){
+            this.ships[0].hit();
         }
-
-
-        return this.board[col][row] = '!';
+        //if hit batteship record hit
+        if (this.board[c][r] === 'B'){
+            this.ships[1].hit();
+        }
+        //if hit destoryer record hit
+        if (this.board[c][r] === 'D'){
+            this.ships[2].hit();
+        }
+        //if hit submarine record hit
+        if (this.board[c][r] === 'S'){
+            this.ships[3].hit();
+        }
+        //if hit submarine record hit
+        if (this.board[c][r] === 'P'){
+            this.ships[4].hit();
+        }
+        //record hit to board
+        return this.board[c][r] = '!';
     }
 }
 

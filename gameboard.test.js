@@ -95,16 +95,13 @@ describe('gameboard', ()=> {
 
     test('fire on board', () => {
         board3.receiveAttack(3,3)
-        expect(board3.board[3][3]).toBe('!');
+        expect(board3.board[3][3]).toBe('X');
     });
 
-    test('fire off board', () => {
-        expect(board3.receiveAttack(8,9)).toBe(TypeError);
-    });
 
     test('fire on a ship', () => {
         board3.placeNewShip('carrier', 1, 1, 'north')
-        expect(board3.receiveAttack(3,3)).toBe('!');
+        expect(board3.receiveAttack(1,1)).toBe('!');
     });
 })
 
@@ -115,12 +112,21 @@ describe('gameboard', ()=> {
         newBoard1 = new gameboard(7,7);
     });
 
-    test('gameboard stores ship', () => {
+    test('gameboard stores ship and damage to ship', () => {
 
-        newBoard1.placeNewShip('submarine', 1, 1, 'east')
-        newBoard1.placeNewShip('patrol', 2, 2, 'north')
-        expect(newBoard1.ships.length = 2);
-        expect(newBoard1.ships[0].type = 'submarine');
+        newBoard1.placeNewShip('carrier', 0, 0, 'north')
+        newBoard1.placeNewShip('battleship', 1, 1, 'north')
+        newBoard1.placeNewShip('destroyer', 2, 2, 'north')
+        newBoard1.placeNewShip('submarine', 3, 3, 'north')
+        newBoard1.placeNewShip('patrol', 4, 4, 'north')
+        newBoard1.receiveAttack(2,2)
+        expect(newBoard1.ships[2].type).toBe('destroyer');
+        expect(newBoard1.board[2][2]).toBe('!');
+        expect(newBoard1.ships[2].damage).toBe(1);
+
+        
       
     });
+
+
 })
