@@ -123,10 +123,21 @@ describe('gameboard', ()=> {
         expect(newBoard1.ships[2].type).toBe('destroyer');
         expect(newBoard1.board[2][2]).toBe('!');
         expect(newBoard1.ships[2].damage).toBe(1);
-
-        
-      
     });
 
+    test('check all sunk', () => {
+        newBoard1.placeNewShip('carrier', 0, 0, 'north')
+        newBoard1.placeNewShip('battleship', 1, 1, 'north')
+        newBoard1.placeNewShip('destroyer', 2, 2, 'north')
+        newBoard1.placeNewShip('submarine', 3, 3, 'north')
+        newBoard1.placeNewShip('patrol', 4, 4, 'north')
+        newBoard1.ships[0].damage = 5;
+        newBoard1.ships[1].damage = 4;
+        newBoard1.ships[2].damage = 3;
+        newBoard1.ships[3].damage = 3;
+        newBoard1.ships[4].damage = 2;
+        expect(newBoard1.checkSunk()).toBe(true);
+
+    });
 
 })

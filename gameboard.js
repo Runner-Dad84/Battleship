@@ -137,6 +137,16 @@ export class gameboard {
         //record hit to board
         return this.board[c][r] = '!';
     }
+//need to write a test
+    checkSunk (){
+        let status = [];
+        status.push(this.ships[0].isSunk());
+        status.push(this.ships[1].isSunk());
+        status.push(this.ships[2].isSunk());
+        status.push(this.ships[3].isSunk());
+        status.push(this.ships[4].isSunk());
+        return status.every(item => item === true)
+    }
 }
 
 
