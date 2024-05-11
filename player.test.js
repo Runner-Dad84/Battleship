@@ -1,3 +1,5 @@
+//const humanPlayer = require ('./player.js')
+//const compPlayer = require ('./player.js')
 import { humanPlayer, compPlayer } from './player.js'
 
 describe('create players', ()=> {
@@ -5,14 +7,19 @@ describe('create players', ()=> {
     const eddie = new humanPlayer('Eddie', 'easy')
     
         
-    test ('make human player', () => {
+    test ('make computer player', () => {
         expect(dave.name).toBe('Dave');
         expect(dave.level).toBe('easy');
     });
-    test ('make computer player', () => {
+    test ('make human player', () => {
         expect(eddie.name).toBe('Eddie');
-        expect(eddie.level).toBe('easy');
-        expect(eddie.board.length).toBe(49);
+        expect(eddie.wins).toBe(0);
     });
+
+    test ('set board value on computer', () => {
+        dave.comp.board[4][6] = '!';
+        expect(dave.comp.board[4][6]).toBe('!');
+        
+    })
 
 })
