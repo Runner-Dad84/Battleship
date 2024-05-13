@@ -1,5 +1,3 @@
-//const ship = require ('./ship.js');
-//const gameboard = require ('./gameboard.js')
 import { gameboard } from './gameboard.js'
 
 

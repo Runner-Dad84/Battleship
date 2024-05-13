@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Battleship and TDD",
   "main": "index.js",
+  "type":"module",
   "scripts": {
     "test": "jest",
     "dev":"nodemon --exec babel-node index.js"

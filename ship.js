@@ -1,4 +1,4 @@
-class ship {
+export class ship {
     constructor(type) {
         this.type = type;
         this.id = 0;
@@ -42,6 +42,6 @@ class ship {
     }
 };
 
-export default ship;
+//export default ship
 //module.exports = ship
 
