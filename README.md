@@ -18,6 +18,18 @@ D = destoryer (not hit)
 S = submarine (not hit)
 P = patrol (not hit)
 
+Board
+[
+     a   b  c  d  e  f  g
+   1 [0, 0, 0, 0, 0, 0, 0]
+   2 [0, 0, 0, 0, 0, 0, 0]
+   3 [0, 0, 0, 0, 0, 0, 0]
+   4 [0, 0, 0, 0, 0, 0, 0]
+   5 [0, 0, 0, 0, 0, 0, 0]
+   6 [0, 0, 0, 0, 0, 0, 0]
+   7 [0, 0, 0, 0, 0, 0, 0]
+]
+
 Actions
 (1) Place Ships,
 (2) First Player Turn,
