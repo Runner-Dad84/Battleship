@@ -1,5 +1,5 @@
 //const gameboard = require ('./gameboard.js')
-import { gameboard, lookUp } from './gameboard.js'
+import { gameboard, lookUp } from '../modules/gameboard.js'
 
 
 

@@ -1,5 +1,5 @@
 //const ship = require ('./ship.js')
-import { ship } from './ship.js';
+import { ship } from '../modules/ship.js';
 
 describe('generate a ship', ()=> {
     let newship;

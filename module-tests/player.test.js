@@ -1,6 +1,6 @@
 //const humanPlayer = require ('./player.js')
 //const compPlayer = require ('./player.js')
-import { humanPlayer, compPlayer } from './player.js'
+import { humanPlayer, compPlayer } from '../modules/player.js'
 
 describe('create players', ()=> {
     const dave = new compPlayer('Dave', 'easy')
