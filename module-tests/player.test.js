@@ -17,8 +17,8 @@ describe('create players', ()=> {
     });
 
     test ('set board value on computer', () => {
-        dave.comp.board[4][6] = '!';
-        expect(dave.comp.board[4][6]).toBe('!');
+        dave.gb.board[4][6] = '!';
+        expect(dave.gb.board[4][6]).toBe('!');
         
     })
 
