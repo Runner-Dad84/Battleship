@@ -1,4 +1,4 @@
-import { gameboard } from './gameboard.js'
+import { gameboard } from './modules/gameboard.js'
 
 
 export class humanPlayer {
