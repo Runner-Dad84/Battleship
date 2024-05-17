@@ -1,6 +1,6 @@
-import { gameboard } from './gameboard.js'
-import { ship } from './ship.js'
-import { humanPlayer, compPlayer } from './player.js'
+import { gameboard } from './modules/gameboard.js'
+import { ship } from './modules/ship.js'
+import { humanPlayer, compPlayer } from './modules/player.js'
 
 let player1 = new humanPlayer('Andrew');
 let computer = new compPlayer('computer', 'easy');
