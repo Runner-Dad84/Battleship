@@ -1,30 +1,51 @@
 const path = require('path');
-//import path from 'path';
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-//import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 module.exports = {
     mode: 'development',
     watch: false,
-    entry: {
-        index: './src/index.js',
-    },
+    entry:'./src/index.js',
     devtool: 'inline-source-map',
     devServer: {
-        static: './dist',
+      static: {
+        directory: path.join(__dirname, 'dist'),
+      },
+        compress: true,
+        port: 9000,
+        open: true,
       },
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'Development',
+            template: './src/index.template.html',
         }),
       ],
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
-    publicPath: '/',
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env'],
+          },
+        },
+      },
+    ],
+  },
+  resolve: {
+    extensions: ['.js'],
+    modules: [path.resolve(__dirname, 'src'), 'node_modules'],
   },
   optimization: {
     runtimeChunk: 'single',
+    splitChunks: {
+      chunks: 'all',
+    }
   },
 };
