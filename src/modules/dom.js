@@ -1,20 +1,22 @@
 import { gameboard } from './gameboard.js'
 
-function printBoard (player){
+export function printBoard (target){
     //row - loop through the rows
-    for (let i = 0; i < board.length; i++){
+    let grid = [];
+    for (let i = 0; i < target.length; i++){
         let rowDiv = document.createElement('div');
         rowDiv.classList.add('row');
 
-        for(let j = 0; j < board.length; j++){
+        for(let j = 0; j < i.length; j++){
             let cellDiv = document.createElement('div');
             cellDiv.classList.add('cell');
-            cellDiv.innerHTML = player.gb.board[c][r];
+            cellDiv.innerHTML = target[i][j];
             rowDiv.appendChild(cellDiv);
         }
-
-        }
+        grid.push(rowDiv);
     }
+    return grid;
+}
      //create a div called row
      //div class is row
       //column - for each row loop through the columns
@@ -23,5 +25,3 @@ function printBoard (player){
     //content
       //cell contect = designation
       //add class
-
-}
