@@ -1,7 +1,14 @@
-
-
-#container-p1,
+#gameboard-container,
 #container-p2 {
     display: grid;
-
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
 };
+
+.cell {
+    width: 5px;
+    height: 5px;
+    align-items: center;
+    justify-content: center;
+    outline: solid black 1px;
+}
