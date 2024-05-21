@@ -2,13 +2,15 @@
 #container-p2 {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 8px;
-};
+    width: 50vh;
+    height: 50vh;
+    gap: 0;
+    
+}
 
-.cell {
-    width: 5px;
-    height: 5px;
+#gameboard-container .cell {
+    display: flex;
     align-items: center;
     justify-content: center;
-    outline: solid black 1px;
+    border: solid black 1px;
 }
