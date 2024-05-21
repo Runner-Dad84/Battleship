@@ -1,14 +1,15 @@
-#gameboard-container,
+#container-p1,
 #container-p2 {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     width: 50vh;
     height: 50vh;
     gap: 0;
-    
+    border: 2px solid black;
 }
 
-#gameboard-container .cell {
+#container-p1 .cell,
+#container-p2 .cell {
     display: flex;
     align-items: center;
     justify-content: center;

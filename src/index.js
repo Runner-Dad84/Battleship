@@ -11,6 +11,5 @@ player1.gb.placeNewShip('carrier', 0, 0, 'north');
 player1.gb.placeNewShip('battleship', 4, 1, 'east');
 player1.gb.placeNewShip('submarine', 1, 1, 'east');
 
-let containerP1 = document.getElementById('container-p1');
 let containerP2 = document.getElementById('container-p2');
-printBoard(player1.gb.board);
+printBoard(player1.gb.board, 'container-p1');

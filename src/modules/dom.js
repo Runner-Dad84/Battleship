@@ -1,7 +1,7 @@
 import { gameboard } from './gameboard.js'
 
-export function printBoard (board){
-    let gb = document.getElementById('gameboard-container');
+export function printBoard (board, container){
+    let gb = document.getElementById(container);
     for (let row of board){
         for(let cell of row){
             let cellEl = document.createElement('div');
