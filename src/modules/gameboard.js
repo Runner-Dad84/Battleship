@@ -61,7 +61,7 @@ export class gameboard {
         let c = col;
         let r = row;
         
-        if (dir === 'north'){
+        if (dir === 'south'){
             for (let i = col; i < (c + newShip.length); i++) {
                 if (this.checkOnBoard(col, row) === false){
                     return TypeError;
@@ -72,7 +72,7 @@ export class gameboard {
                 this.board[col++][row] = newShip.id;
             }
         }
-        if (dir === 'south'){
+        if (dir === 'north'){
             for (let i = col; i > (c - newShip.length); i--) {
                 if (this.checkOnBoard(col, row) === false){
                     return TypeError;
