@@ -7,6 +7,9 @@ export function printBoard (board, container){
             let cellEl = document.createElement('div');
             cellEl.classList.add('cell');
             cellEl.textContent = cell;
+            cellEl.addEventListener('click', ()=> {
+                console.log(cellEl.innerText);
+            })
             gb.appendChild(cellEl);
         }
     }
