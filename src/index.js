@@ -26,7 +26,9 @@ printBoard(computer.gb.board, 'container-p2');
 
 let boardTest = player1.gb.board;
 
-console.log(boardTest);
 console.log(boardTest[0][0].value);
 console.log(boardTest[3][4].c);
 console.log(boardTest[3][4].r);
+
+player1.gb.receiveAttack(0, 1);
+console.log(boardTest);

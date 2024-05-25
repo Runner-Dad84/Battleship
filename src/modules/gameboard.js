@@ -84,12 +84,12 @@ export class gameboard {
             }
         };
     }
-    receiveAttack (col, row) {
-        let c = col;
-        let r = row;
+    receiveAttack (r, c) {
+        let row = r;
+        let col = c;
         //if water record miss
-        if (this.board[c][r] === 0){
-            return this.board[c][r] = 'X';
+        if (this.board[r][c].value === 0){
+            return this.board[r][c].value = 'X';
         }
         //if hit carrier record hit
         if (this.board[c][r] === 'C'){
