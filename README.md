@@ -41,5 +41,12 @@ Actions
 (3) New Player Turn
 
 
+index = current spot (number space of the ship index)
+start = start position of ship
+end = end of ship (start + ship.length)
+Ex. adding positions
+if (start + index < end) {run code}
+
+
 
 

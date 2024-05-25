@@ -27,11 +27,11 @@ export class gameboard {
     }
     createBoard() {
         let gameBoard = [];
-        for (let i = 0; i < this.row; i++){
+        for (let r = 0; r < this.row; r++){
             let rows = [];
-            for (let j = 0; j < this.col; j++){
+            for (let c = 0; c < this.col; c++){
                 let value = 0;
-                rows.push(value);
+                rows.push({ value, r, c });
             }
             gameBoard.push(rows);
         }
@@ -51,62 +51,82 @@ export class gameboard {
         }
     }
 
-    placeNewShip(type, col, row, dir) {
-        if (this.checkOnBoard(col, row) === false){
+    placeNewShip(type, r, c, dir) {
+        const row = r;
+        const col = c;
+        
+        /*if (this.checkOnBoard(col, row) === false){
             return TypeError;
-        }
+        */
         const newShip = new ship(type);
         this.ships.push(newShip);
-    
-        let c = col;
-        let r = row;
-        
+
+        this.board[row][col].value = newShip.id;
+
         if (dir === 'south'){
-            for (let i = col; i < (c + newShip.length); i++) {
-                if (this.checkOnBoard(col, row) === false){
-                    return TypeError;
-                }
-                if (this.checkOpenBoard(col, row) === false){
-                    return TypeError;
-                }
-                this.board[col++][row] = newShip.id;
+            for (let i = 0; (r + i) < (r + newShip.length); i++) {
+                this.board[r++][c].value = newShip.id;
             }
-        }
+        };
+        if (dir === 'north'){
+            for (let i = 0; (r - i) > (r - newShip.length); i++) {
+                this.board[r--][c].value = newShip.id;
+            }
+        };
+        if (dir === 'east'){
+            for (let i = 0; (c + i) < (c + newShip.length); i++) {
+                this.board[r][c++].value = newShip.id;
+            }
+        };
+        if (dir === 'west'){
+            for (let i = 0; (c - i) > (c - newShip.length); i++) {
+                this.board[r][c--].value = newShip.id;
+            }
+        };
+
+
+
+
+        /*
+        let c = this.board.c;
+        let r = this.board.r;
+
         if (dir === 'north'){
             for (let i = col; i > (c - newShip.length); i--) {
-                if (this.checkOnBoard(col, row) === false){
+               /* if (this.checkOnBoard(col, row) === false){
                     return TypeError;
                 }
                 if (this.checkOpenBoard(col, row) === false){
                     return TypeError;
-                }
-                this.board[col--][row] = newShip.id;
+                } 
+                this.board[col--][row].value = newShip.id;
             }
         }
         if (dir === 'east'){
             for (let i = row; i < (r + newShip.length); i++) {
-                if (this.checkOnBoard(col, row) === false){
+               /* if (this.checkOnBoard(col, row) === false){
                     return TypeError;
                 }
                 if (this.checkOpenBoard(col, row) === false){
                     return TypeError;
-                }
-                this.board[col][row++] = newShip.id;
+                } 
+                this.board[col][row++].value = newShip.id;
             }
         }
         if (dir === 'west'){
             for (let i = row; i > (r - newShip.length); i--) {
-                if (this.checkOnBoard(col, row) === false){
+                /*if (this.checkOnBoard(col, row) === false){
                     return TypeError;
                 }
                 if (this.checkOpenBoard(col, row) === false){
                     return TypeError;
-                }
-                this.board[col][row--] = newShip.id;
+                } 
+                this.board[col][row--].value = newShip.id;
             }
         }
-    }
+        */
     
+    }
     receiveAttack (col, row) {
         let c = col;
         let r = row;

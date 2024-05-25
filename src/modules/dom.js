@@ -6,7 +6,7 @@ export function printBoard (board, container){
         for(let cell of row){
             let cellEl = document.createElement('div');
             cellEl.classList.add('cell');
-            cellEl.textContent = cell;
+            cellEl.textContent = cell.value;
             cellEl.addEventListener('click', ()=> {
                 console.log(cellEl.innerText);
             })
