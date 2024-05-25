@@ -31,4 +31,10 @@ console.log(boardTest[3][4].c);
 console.log(boardTest[3][4].r);
 
 player1.gb.receiveAttack(0, 1);
+player1.gb.receiveAttack(1, 0);
+player1.gb.receiveAttack(6, 1);
+player1.gb.receiveAttack(1, 1);
+player1.gb.receiveAttack(0, 4);
 console.log(boardTest);
+console.log(player1.gb.ships);
+console.log(player1.gb.ships[0]);

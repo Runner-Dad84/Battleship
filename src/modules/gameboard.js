@@ -85,34 +85,33 @@ export class gameboard {
         };
     }
     receiveAttack (r, c) {
-        let row = r;
-        let col = c;
+        
         //if water record miss
         if (this.board[r][c].value === 0){
             return this.board[r][c].value = 'X';
         }
         //if hit carrier record hit
-        if (this.board[c][r] === 'C'){
+        if (this.board[r][c].value === 'C'){
             this.ships[0].hit();
         }
         //if hit batteship record hit
-        if (this.board[c][r] === 'B'){
+        if (this.board[r][c].value === 'B'){
             this.ships[1].hit();
         }
         //if hit destoryer record hit
-        if (this.board[c][r] === 'D'){
+        if (this.board[r][c].value === 'D'){
             this.ships[2].hit();
         }
         //if hit submarine record hit
-        if (this.board[c][r] === 'S'){
+        if (this.board[r][c].value === 'S'){
             this.ships[3].hit();
         }
         //if hit submarine record hit
-        if (this.board[c][r] === 'P'){
+        if (this.board[r][c].value === 'P'){
             this.ships[4].hit();
         }
         //record hit to board
-        return this.board[c][r] = '!';
+        return this.board[r][c].value = '!';
     }
     checkSunk (){
         let status = [];
