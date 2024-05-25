@@ -83,49 +83,6 @@ export class gameboard {
                 this.board[r][c--].value = newShip.id;
             }
         };
-
-
-
-
-        /*
-        let c = this.board.c;
-        let r = this.board.r;
-
-        if (dir === 'north'){
-            for (let i = col; i > (c - newShip.length); i--) {
-               /* if (this.checkOnBoard(col, row) === false){
-                    return TypeError;
-                }
-                if (this.checkOpenBoard(col, row) === false){
-                    return TypeError;
-                } 
-                this.board[col--][row].value = newShip.id;
-            }
-        }
-        if (dir === 'east'){
-            for (let i = row; i < (r + newShip.length); i++) {
-               /* if (this.checkOnBoard(col, row) === false){
-                    return TypeError;
-                }
-                if (this.checkOpenBoard(col, row) === false){
-                    return TypeError;
-                } 
-                this.board[col][row++].value = newShip.id;
-            }
-        }
-        if (dir === 'west'){
-            for (let i = row; i > (r - newShip.length); i--) {
-                /*if (this.checkOnBoard(col, row) === false){
-                    return TypeError;
-                }
-                if (this.checkOpenBoard(col, row) === false){
-                    return TypeError;
-                } 
-                this.board[col][row--].value = newShip.id;
-            }
-        }
-        */
-    
     }
     receiveAttack (col, row) {
         let c = col;
