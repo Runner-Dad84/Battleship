@@ -22,7 +22,7 @@ computer.gb.placeNewShip('destroyer', 6, 4, 'east');
 computer.gb.placeNewShip('patrol', 4, 6, 'north');
 
 
-let boardTest = player1.gb.board;
+globalThis.boardTest = player1.gb.board;
 /*
 console.log(boardTest[0][0].value);
 console.log(boardTest[3][4].c);
@@ -45,5 +45,39 @@ printBoard(computer.gb.board, 'container-p2', computer.gb);
 console.log(boardTest);
 console.log(player1.gb.ships);
 console.log(player1.gb.ships[0]);
+
+const btnCom = document.getElementById('btnCom');
+const btnPlay = document.getElementById('btnPlay');
+
+function updatePlay () {
+    console.log('update players')
+    printBoard(player1.gb.board, 'container-p1', player1.gb);
+}
+
+document.addEventListener('DOMContentLoaded', ()=> {
+    btnPlay.addEventListener('click', updatePlay)})
+
+
+/*
+function updatePlay () {
+    console.log('update players')
+    printBoard(player1.gb.board, 'container-p1', player1.gb);
+}
+
+function updateCom () {
+    console.log('update computer');
+    printBoard(computer.gb.board, 'container-p2', computer.gb);
+}
+
+document.addEventListener('DOMContentLoaded', ()=> {
+    btnPlay.addEventListener('click', updatePlay());
+})
+
+document.addEventListener('DOMContentLoaded', ()=> {
+    btnCom.addEventListener('click', updateCom());
+})
+*/
+
+
 
 

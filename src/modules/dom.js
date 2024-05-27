@@ -2,6 +2,7 @@ import { gameboard } from './gameboard.js'
 
 export function printBoard (board, container, player){
     let gb = document.getElementById(container);
+    gb.innerHTML = "";
     for (let row of board){
         for(let cell of row){
             let element = document.createElement('div');
@@ -14,17 +15,14 @@ export function printBoard (board, container, player){
                 let col = element.dataset.col;
                 
                 player.receiveAttack(row, col);
-                //console.log(element);
+                console.log(element);
             })
             gb.appendChild(element);
         }
     }
 }
-     //create a div called row
-     //div class is row
-      //column - for each row loop through the columns
-       //create a div cell
-       //div class is cell
-    //content
-      //cell contect = designation
-      //add class
+
+
+
+
+
