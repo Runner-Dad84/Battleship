@@ -41,42 +41,34 @@ computer.gb.receiveAttack(6, 4);
 printBoard(player1.gb.board, 'container-p1', player1.gb);
 printBoard(computer.gb.board, 'container-p2', computer.gb);
 
-
-console.log(boardTest);
+//how to print ships
+/*console.log(boardTest);
 console.log(player1.gb.ships);
 console.log(player1.gb.ships[0]);
+*/
+
+//listen for player turn
+function updatePlayer () {
+    console.log('update players')
+    printBoard(player1.gb.board, 'container-p1', player1.gb);
+}
+
+let playerContainer = document.getElementById('container-p1');
+
+document.addEventListener('DOMContentLoaded', ()=> {
+    playerContainer.addEventListener ('click', updatePlayer)
+}
+);
+
+
+//for test purposes only
 
 const btnCom = document.getElementById('btnCom');
 const btnPlay = document.getElementById('btnPlay');
-
-function updatePlay () {
-    console.log('update players')
-    printBoard(player1.gb.board, 'container-p1', player1.gb);
-}
-
-document.addEventListener('DOMContentLoaded', ()=> {
-    btnPlay.addEventListener('click', updatePlay)})
-
-
 /*
-function updatePlay () {
-    console.log('update players')
-    printBoard(player1.gb.board, 'container-p1', player1.gb);
-}
-
-function updateCom () {
-    console.log('update computer');
-    printBoard(computer.gb.board, 'container-p2', computer.gb);
-}
-
-document.addEventListener('DOMContentLoaded', ()=> {
-    btnPlay.addEventListener('click', updatePlay());
-})
-
-document.addEventListener('DOMContentLoaded', ()=> {
-    btnCom.addEventListener('click', updateCom());
-})
+btnPlay.addEventListener('click', updatePlay)})
 */
+
 
 
 

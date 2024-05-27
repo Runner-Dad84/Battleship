@@ -1,5 +1,6 @@
 import { gameboard } from './gameboard.js'
 
+//print player/ computer gameboard
 export function printBoard (board, container, player){
     let gb = document.getElementById(container);
     gb.innerHTML = "";
