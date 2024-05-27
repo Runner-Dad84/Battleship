@@ -48,15 +48,13 @@ console.log(player1.gb.ships[0]);
 */
 
 //listen for player turn
-function updatePlayer () {
-    console.log('update players')
-    printBoard(player1.gb.board, 'container-p1', player1.gb);
-}
-
 let playerContainer = document.getElementById('container-p1');
 
 document.addEventListener('DOMContentLoaded', ()=> {
-    playerContainer.addEventListener ('click', updatePlayer)
+    playerContainer.addEventListener ('click', ()=> {
+        console.log('update players')
+        printBoard(player1.gb.board, 'container-p1', player1.gb);
+    })
 }
 );
 
