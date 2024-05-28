@@ -49,14 +49,29 @@ console.log(player1.gb.ships[0]);
 
 //listen for player turn
 let playerContainer = document.getElementById('container-p1');
+let compContainer = document.getElementById('container-p2');
 
 document.addEventListener('DOMContentLoaded', ()=> {
     playerContainer.addEventListener ('click', ()=> {
-        console.log('update players')
+        console.log('player moves');
         printBoard(player1.gb.board, 'container-p1', player1.gb);
     })
+
 }
 );
+
+playerContainer.addEventListener ('click', function () {
+    setTimeout(function(){
+        let random = Math.floor(Math.random() * 7);
+        computer.gb.receiveAttack(random, random);
+        printBoard(computer.gb.board, 'container-p2', computer.gb);
+        console.log('computer moves');
+    }, 2000);
+});
+
+
+    
+
 
 
 //for test purposes only
