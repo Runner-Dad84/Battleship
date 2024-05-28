@@ -7,11 +7,37 @@
     gap: 0;
     border: 2px solid black;
 }
-
 #container-p1 .cell,
-#container-p2 .cell {
+#container-p2 .cell,
+#container-p1 .hit,
+#container-p2 .hit,
+#container-p1 .boat,
+#container-p2 .boat,
+#container-p1 .miss,
+#container-p2 .miss {
     display: flex;
     align-items: center;
     justify-content: center;
     border: solid black 1px;
+}
+
+#container-p1 .cell,
+#container-p2 .cell {
+    background-color: navy;
+    color: white;
+}
+
+#container-p1 .hit,
+#container-p2 .hit {
+    background-color: red;
+}
+
+#container-p1 .boat,
+#container-p2 .boat {
+    background-color: darkgray;
+}
+
+#container-p1 .miss,
+#container-p2 .miss {
+    background-color: rgb(109, 109, 244);
 }
