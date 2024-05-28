@@ -52,19 +52,19 @@ let playerContainer = document.getElementById('container-p1');
 let compContainer = document.getElementById('container-p2');
 
 document.addEventListener('DOMContentLoaded', ()=> {
-    playerContainer.addEventListener ('click', ()=> {
+    compContainer.addEventListener ('click', ()=> {
         console.log('player moves');
-        printBoard(player1.gb.board, 'container-p1', player1.gb);
+        printBoard(computer.gb.board, 'container-p2', computer.gb);
     })
 
 }
 );
 
-playerContainer.addEventListener ('click', function () {
+compContainer.addEventListener ('click', function () {
     setTimeout(function(){
         let random = Math.floor(Math.random() * 7);
-        computer.gb.receiveAttack(random, random);
-        printBoard(computer.gb.board, 'container-p2', computer.gb);
+        player1.gb.receiveAttack(random, random);
+        printBoard(player1.gb.board, 'container-p1', player1.gb);
         console.log('computer moves');
     }, 2000);
 });
