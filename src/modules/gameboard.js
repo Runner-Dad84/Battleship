@@ -46,8 +46,9 @@ export class gameboard {
     }
     */
     //utility function
-    checkOpenBoard (x, y){
-        if (this.board[x][y] !== 0) {
+    checkOpenBoard (r, c){
+        if (this.board[r][c].value === 'X' ||
+        this.board[r][c].value === '!') {
             return alert('You already fired here!')
         }
     }
@@ -86,7 +87,7 @@ export class gameboard {
         };
     }
     receiveAttack (r, c) {
-        
+
         //if water record miss
         if (this.board[r][c].value === 0){
             return this.board[r][c].value = 'X';
