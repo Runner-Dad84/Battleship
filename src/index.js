@@ -62,8 +62,9 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
 compContainer.addEventListener ('click', function () {
     setTimeout(function(){
-        let random = Math.floor(Math.random() * 7);
-        player1.gb.receiveAttack(random, random);
+        let randomRow = Math.floor(Math.random() * 7);
+        let randomCol = Math.floor(Math.random() * 7);
+        player1.gb.receiveAttack(randomRow, randomCol);
         printBoard(player1.gb.board, 'container-p1', player1.gb);
         console.log('computer moves');
     }, 1000);
