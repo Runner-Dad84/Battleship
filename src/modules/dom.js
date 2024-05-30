@@ -28,12 +28,16 @@ export function printBoard (board, container, player){
             
             element.dataset.row = cell.r;
             element.dataset.col = cell.c;
+            //click board to attack
             element.addEventListener('click', ()=> {
                 let row = element.dataset.row;
                 let col = element.dataset.col;
-                
+                //record attack
                 player.receiveAttack(row, col);
-                console.log(element);
+                //check if player wins game
+                if (player.checkSunk() === true) {
+                    return alert('Game Over!');
+                };
             })
             gb.appendChild(element);
         }

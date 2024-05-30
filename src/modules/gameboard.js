@@ -38,16 +38,17 @@ export class gameboard {
         return gameBoard;
     }
     
-    //utility function
+    /*
     checkOnBoard (x, y){
         if ((x < 0) || (y < 0) || (x > 6) || (y > 6)) {
             return false
         }
     }
+    */
     //utility function
     checkOpenBoard (x, y){
         if (this.board[x][y] !== 0) {
-            return false
+            return alert('You already fired here!')
         }
     }
 
@@ -85,7 +86,7 @@ export class gameboard {
         };
     }
     receiveAttack (r, c) {
-        console.log('attack');
+        
         //if water record miss
         if (this.board[r][c].value === 0){
             return this.board[r][c].value = 'X';
