@@ -49,7 +49,8 @@ export class gameboard {
     checkOpenBoard (r, c){
         if (this.board[r][c].value === 'X' ||
         this.board[r][c].value === '!') {
-            return alert('You already fired here!')
+            console.log('You already fired here!')
+            return false
         }
     }
 

@@ -51,6 +51,7 @@ console.log(player1.gb.ships[0]);
 let playerContainer = document.getElementById('container-p1');
 let compContainer = document.getElementById('container-p2');
 
+//Listen for player click on computer board to log attack
 document.addEventListener('DOMContentLoaded', ()=> {
     compContainer.addEventListener ('click', ()=> {
         console.log('player moves');
@@ -59,11 +60,20 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
 }
 );
-
-compContainer.addEventListener ('click', function () {
-    setTimeout(function(){
+//Listen for computer board click by player, handler is computer attack
+compContainer.addEventListener ('click', function RandomMove () {
+    setTimeout(function RandomMove (){
+        //check if square is open, if not generate new numbers and check again
+        function findOpen (){
+            if (player1.gb.checkOpenBoard(randomRow, randomCol) === false) {
+                randomRow = Math.floor(Math.random() * 7);
+                randomCol = Math.floor(Math.random() * 7);
+                findOpen(randomRow, randomCol)
+            };
+        }
         let randomRow = Math.floor(Math.random() * 7);
         let randomCol = Math.floor(Math.random() * 7);
+        findOpen();
         player1.gb.receiveAttack(randomRow, randomCol);
         printBoard(player1.gb.board, 'container-p1', player1.gb);
         console.log('computer moves');
