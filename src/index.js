@@ -81,19 +81,4 @@ compContainer.addEventListener ('click', function RandomMove () {
 });
 
 
-    
-
-
-
-//for test purposes only
-
-const btnCom = document.getElementById('btnCom');
-const btnPlay = document.getElementById('btnPlay');
-/*
-btnPlay.addEventListener('click', updatePlay)})
-*/
-
-
-
-
 
