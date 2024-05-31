@@ -28,6 +28,18 @@ export function printBoard (board, container, player){
             
             element.dataset.row = cell.r;
             element.dataset.col = cell.c;
+            //hover to reveal space dataset
+            element.addEventListener('mouseover', ()=> {
+                let row = Number(element.dataset.row) + 1;
+                let col = Number(element.dataset.col) + 1;
+                element.textContent = `${row}, ${col}`;
+            })
+            //hover out
+            element.addEventListener('mouseout', ()=> {
+                let row = element.dataset.row;
+                let col = element.dataset.col;
+                element.textContent = cell.value;
+            })
             //click board to attack
             element.addEventListener('click', ()=> {
                 let row = element.dataset.row;

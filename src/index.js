@@ -31,9 +31,7 @@ console.log(boardTest[3][4].r);
 //attacks
 player1.gb.receiveAttack(0, 1);
 player1.gb.receiveAttack(1, 0);
-player1.gb.receiveAttack(6, 1);
-player1.gb.receiveAttack(1, 1);
-player1.gb.receiveAttack(0, 4);
+
 computer.gb.receiveAttack(0, 0);
 computer.gb.receiveAttack(6, 4);
 
