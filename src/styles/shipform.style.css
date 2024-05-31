@@ -1,0 +1,18 @@
+#placement {
+    display:none;
+    border: 2px solid black;
+    border-radius: 4px;
+}
+
+.formLable {
+    width: 1rem;
+    margin-right: .1rem;
+}
+
+.formInput {
+    flex:1;
+    max-width: .5rem;
+    border: 1px solid black;
+    border-radius: 4px;
+
+}
