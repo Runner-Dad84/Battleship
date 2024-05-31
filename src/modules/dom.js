@@ -56,6 +56,13 @@ export function printBoard (board, container, player){
     }
 }
 
+//
+function addShip (){
+    let shipForm = document.getElementById('placement');
+
+
+}
+
 
 
 
