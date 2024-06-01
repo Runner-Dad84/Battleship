@@ -66,22 +66,22 @@ export class gameboard {
 
         this.board[row][col].value = newShip.id;
 
-        if (dir === 'south'){
+        if (dir === 'Down'){
             for (let i = 0; (r + i) < (r + newShip.length); i++) {
                 this.board[r++][c].value = newShip.id;
             }
         };
-        if (dir === 'north'){
+        if (dir === 'Up'){
             for (let i = 0; (r - i) > (r - newShip.length); i++) {
                 this.board[r--][c].value = newShip.id;
             }
         };
-        if (dir === 'east'){
+        if (dir === 'Right'){
             for (let i = 0; (c + i) < (c + newShip.length); i++) {
                 this.board[r][c++].value = newShip.id;
             }
         };
-        if (dir === 'west'){
+        if (dir === 'Left'){
             for (let i = 0; (c - i) > (c - newShip.length); i++) {
                 this.board[r][c--].value = newShip.id;
             }
