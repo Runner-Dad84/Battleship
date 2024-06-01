@@ -30,8 +30,8 @@ export function printBoard (board, container, player){
             element.dataset.col = cell.c;
             //hover to reveal space dataset
             element.addEventListener('mouseover', ()=> {
-                let row = Number(element.dataset.row) + 1;
-                let col = Number(element.dataset.col) + 1;
+                let row = Number(element.dataset.row);
+                let col = Number(element.dataset.col);
                 element.textContent = `${row}, ${col}`;
             })
             //hover out
@@ -66,7 +66,7 @@ document.getElementById('p1-C').addEventListener('click', () => {
 //Click halder for Battleship
 document.getElementById('p1-B').addEventListener('click', () => {
     document.getElementById('placement').style.display = 'grid';
-    document.getElementById('formTitle').innerText = 'Battle Ship';
+    document.getElementById('formTitle').innerText = 'Battleship';
 })
 //Click handler for Destroyer
 document.getElementById('p1-D').addEventListener('click', () => {
