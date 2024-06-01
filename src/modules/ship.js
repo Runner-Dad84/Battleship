@@ -6,27 +6,27 @@ export class ship {
         this.damage = 0;
         this.sunk = false;
 
-        if (this.type === 'carrier'){
+        if (this.type === 'Carrier'){
             this.length = 5;
             this.id = 'C';
         };
 
-        if (this.type === 'battleship'){
+        if (this.type === 'Battleship'){
             this.length = 4;
             this.id = 'B';
         };
 
-        if (this.type === 'destroyer'){
+        if (this.type === 'Destroyer'){
             this.length = 3;
             this.id = 'D';
         };
 
-        if (this.type === 'submarine'){
+        if (this.type === 'Submarine'){
             this.length = 3;
             this.id = 'S';
         };
 
-        if (this.type === 'patrol'){
+        if (this.type === 'Patrol Boat'){
             this.length = 2;
             this.id = 'P';
         };
