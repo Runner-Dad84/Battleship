@@ -10,6 +10,7 @@ let player1 = new humanPlayer('Andrew');
 let computer = new compPlayer('computer', 'easy');
 
 //set ships
+/*
 player1.gb.placeNewShip('carrier', 0, 0, 'south');
 player1.gb.placeNewShip('battleship', 4, 1, 'east');
 player1.gb.placeNewShip('submarine', 1, 1, 'east');
@@ -21,7 +22,7 @@ computer.gb.placeNewShip('battleship', 0, 0, 'east');
 computer.gb.placeNewShip('submarine', 0, 6, 'west');
 computer.gb.placeNewShip('destroyer', 6, 4, 'east');
 computer.gb.placeNewShip('patrol', 4, 6, 'north');
-
+*/
 
 globalThis.boardTest = player1.gb.board;
 /*
@@ -30,12 +31,13 @@ console.log(boardTest[3][4].c);
 console.log(boardTest[3][4].r);
 */
 //attacks
+/*
 player1.gb.receiveAttack(0, 1);
 player1.gb.receiveAttack(1, 0);
 
 computer.gb.receiveAttack(0, 0);
 computer.gb.receiveAttack(6, 4);
-
+*/
 //update game board
 printBoard(player1.gb.board, 'container-p1', player1.gb);
 printBoard(computer.gb.board, 'container-p2', computer.gb);
@@ -45,6 +47,18 @@ printBoard(computer.gb.board, 'container-p2', computer.gb);
 console.log(player1.gb.ships);
 console.log(player1.gb.ships[0]);
 */
+
+//place ships on board
+
+document.addEventListener('DOMContentLoaded', ()=> {
+    const form = document.getElementById('placement')
+    form.addEventListener ('submit', function (event) {
+        event.preventDefault();
+        let row = document.getElementById('shipRow').value;
+        let col = document.getElementById('shipCol').value;
+        console.log(row);
+        console.log(col);
+    })})
 
 //listen for player turn
 let playerContainer = document.getElementById('container-p1');
@@ -78,6 +92,3 @@ compContainer.addEventListener ('click', function RandomMove () {
         console.log('computer moves');
     }, 1000);
 });
-
-
-

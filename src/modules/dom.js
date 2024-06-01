@@ -60,27 +60,27 @@ export function printBoard (board, container, player){
 
 //Click handler for Carrier
 document.getElementById('p1-C').addEventListener('click', () => {
-    document.getElementById('placement').style.display = 'block';
+    document.getElementById('placement').style.display = 'grid';
     document.getElementById('formTitle').innerText = 'Carrier';
 })
 //Click halder for Battleship
 document.getElementById('p1-B').addEventListener('click', () => {
-    document.getElementById('placement').style.display = 'block';
+    document.getElementById('placement').style.display = 'grid';
     document.getElementById('formTitle').innerText = 'Battle Ship';
 })
 //Click handler for Destroyer
 document.getElementById('p1-D').addEventListener('click', () => {
-    document.getElementById('placement').style.display = 'block';
+    document.getElementById('placement').style.display = 'grid';
     document.getElementById('formTitle').innerText = 'Destroyer';
 })
 //Click handler for Submarine
 document.getElementById('p1-S').addEventListener('click', () => {
-    document.getElementById('placement').style.display = 'block';
+    document.getElementById('placement').style.display = 'grid';
     document.getElementById('formTitle').innerText = 'Submarine';
 })
 //Click handler for Patrol Boat
 document.getElementById('p1-P').addEventListener('click', () => {
-    document.getElementById('placement').style.display = 'block';
+    document.getElementById('placement').style.display = 'grid';
     document.getElementById('formTitle').innerText = 'Patrol Boat';
 })
 

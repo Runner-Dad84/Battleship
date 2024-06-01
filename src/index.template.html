@@ -22,15 +22,15 @@
     <button class="p1" id="p1-S">Submarine</button>
     <button class="p1" id="p1-P">Patrol Boat</button>
 
-<form action="POST" id="placement" title="Place Ship">
+<form id="placement" title="Place Ship">
     <h1 id="formTitle">Ship Title</h1>
     
     <label for="shipRow" class="formLabel">Row:</label>
     <input type="number" id="shipRow" name="shipRow" min="1" max="7" class="formInput"required>
-    <br>
+    
     <label for="shipCol" class="formLabel">Column:</label>
     <input type="number" id="shipCol" name="shipCol" class="formInput" min="1" max="7" required>
-    <br>
+    
     <label for="direction" class="formLabel">Direction</label>
     <select type="select" id="direction" name="diretion" required>
       <option value="up">Up</option>
@@ -38,7 +38,7 @@
       <option value="right">Right</option>
       <option value="left">Left</option>
     </select>
-    <button type="submit">Deploy Ship</button>
+    <button type="submit" id="placeBtn">Deploy Ship</button>
 </form>
     
 </body>
