@@ -3,6 +3,7 @@ import { ship } from './modules/ship.js'
 import { humanPlayer, compPlayer } from './modules/player.js'
 import { printBoard } from './modules/dom.js'
 import './styles/gameboard.style.css';
+import './styles/shipform.style.css';
 
 //create players
 let player1 = new humanPlayer('Andrew');

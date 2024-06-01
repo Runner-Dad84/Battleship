@@ -1,18 +1,22 @@
 #placement {
     display:none;
+    width: 20vw;
+    height: 20vh;
     border: 2px solid black;
     border-radius: 4px;
+    padding: 2em;
 }
 
-.formLable {
-    width: 1rem;
-    margin-right: .1rem;
+#placement .formLable {
+    width: 5em;
+    margin-right: 1em;
+    padding: 1em;
 }
 
-.formInput {
-    flex:1;
-    max-width: .5rem;
+#placement .formInput {
+    max-width: 3em;
     border: 1px solid black;
     border-radius: 4px;
+    padding: 1em;
 
 }
