@@ -68,7 +68,7 @@ export class gameboard {
 
         if (dir === 'Down'){
             try {
-                if ((r-1) + newShip.length > 6) throw "Off board! Redepoy ship"
+                if ((r-1) + newShip.length > 6) throw "Off board! Redeploy ship"
             }
             catch (err) {
                 return console.log(err)
@@ -79,7 +79,7 @@ export class gameboard {
         };
         if (dir === 'Up'){
             try {
-                if ((r+1) - newShip.length < 0) throw "Off board! Redepoy ship"
+                if ((r+1) - newShip.length < 0) throw "Off board! Redeploy ship"
             }
             catch (err) {
                 return console.log(err)
@@ -88,8 +88,13 @@ export class gameboard {
                 this.board[r--][c].value = newShip.id;
             }
         }
-    
         if (dir === 'Right'){
+            try {
+                if ((c-1) + newShip.length > 6) throw "Off board! Redeploy ship"
+            }
+            catch(err){
+                return console.log(err)
+            }
             for (let i = 0; (c + i) < (c + newShip.length); i++) {
                 this.board[r][c++].value = newShip.id;
             }
