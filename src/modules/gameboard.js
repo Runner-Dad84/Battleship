@@ -78,10 +78,17 @@ export class gameboard {
             }
         };
         if (dir === 'Up'){
+            try {
+                if ((r+1) - newShip.length < 0) throw "Off board! Redepoy ship"
+            }
+            catch (err) {
+                return console.log(err)
+            }
             for (let i = 0; (r - i) > (r - newShip.length); i++) {
                 this.board[r--][c].value = newShip.id;
             }
-        };
+        }
+    
         if (dir === 'Right'){
             for (let i = 0; (c + i) < (c + newShip.length); i++) {
                 this.board[r][c++].value = newShip.id;
