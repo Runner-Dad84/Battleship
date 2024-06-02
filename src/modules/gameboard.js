@@ -64,9 +64,15 @@ export class gameboard {
         const newShip = new ship(type);
         this.ships.push(newShip);
 
-        this.board[row][col].value = newShip.id;
+        
 
         if (dir === 'Down'){
+            try {
+                if ((r-1) + newShip.length > 6) throw "Off board! Redepoy ship"
+            }
+            catch (err) {
+                return console.log(err)
+            }
             for (let i = 0; (r + i) < (r + newShip.length); i++) {
                 this.board[r++][c].value = newShip.id;
             }
