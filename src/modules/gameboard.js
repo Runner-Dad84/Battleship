@@ -100,6 +100,12 @@ export class gameboard {
             }
         };
         if (dir === 'Left'){
+            try {
+                if ((c+1) - newShip.length < 0) throw "Off board! Redeploy ship"
+            }
+            catch(err){
+                return console.log(err)
+            }
             for (let i = 0; (c - i) > (c - newShip.length); i++) {
                 this.board[r][c--].value = newShip.id;
             }
