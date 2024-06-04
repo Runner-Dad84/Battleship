@@ -38,13 +38,6 @@ export class gameboard {
         return gameBoard;
     }
     
-    /*
-    checkOnBoard (x, y){
-        if ((x < 0) || (y < 0) || (x > 6) || (y > 6)) {
-            return false
-        }
-    }
-    */
     //utility function
     checkOpenBoard (r, c){
         if (this.board[r][c].value === 'X' ||
@@ -55,28 +48,33 @@ export class gameboard {
     }
 
     placeNewShip(type, r, c, dir) {
-        const row = r;
-        const col = c;
+        let row = r;
+        let col = c;
         
-        /*if (this.checkOnBoard(col, row) === false){
-            return TypeError;
-        */
         const newShip = new ship(type);
         this.ships.push(newShip);
 
-        
-
         if (dir === 'Down'){
+            //check if ship on board
             try {
-                if ((r-1) + newShip.length > 6) throw "Off board! Redeploy ship"
+                if ((r-1) + newShip.length > 6) throw "You've gone off course! Redeploy ship."
             }
             catch (err) {
                 return console.log(err)
             }
+            //check if spaces are available
+            try {
+                for (let i = 0; (row + i) < (row + newShip.length); i++){
+                    if ((this.board[row++][c]).value !== 0) throw 'Near collison! Move that ship.'
+                }
+            }
+            catch (err) {
+                return console.log(err);
+            }
             for (let i = 0; (r + i) < (r + newShip.length); i++) {
                 this.board[r++][c].value = newShip.id;
             }
-        };
+        }
         if (dir === 'Up'){
             try {
                 if ((r+1) - newShip.length < 0) throw "Off board! Redeploy ship"

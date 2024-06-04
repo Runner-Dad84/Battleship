@@ -31,13 +31,13 @@ console.log(boardTest[3][4].c);
 console.log(boardTest[3][4].r);
 */
 //attacks
-
+/*
 player1.gb.receiveAttack(0, 1);
 player1.gb.receiveAttack(1, 0);
 
 computer.gb.receiveAttack(0, 0);
 computer.gb.receiveAttack(6, 4);
-
+*/
 //update game board
 printBoard(player1.gb.board, 'container-p1', player1.gb);
 printBoard(computer.gb.board, 'container-p2', computer.gb);
