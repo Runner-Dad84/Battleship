@@ -49,7 +49,7 @@ export class gameboard {
 
     placeNewShip(type, r, c, dir) {
         let row = r;
-        let col = c;
+        
         
         const newShip = new ship(type);
         this.ships.push(newShip);
@@ -71,17 +71,30 @@ export class gameboard {
             catch (err) {
                 return console.log(err);
             }
+            //if no errors place ship
             for (let i = 0; (r + i) < (r + newShip.length); i++) {
                 this.board[r++][c].value = newShip.id;
             }
         }
         if (dir === 'Up'){
+            //check if ship on board
             try {
-                if ((r+1) - newShip.length < 0) throw "Off board! Redeploy ship"
+                if ((r+1) - newShip.length < 0) {throw new Error('Off board! Redeploy ship');
             }
-            catch (err) {
-                return console.log(err)
+            } catch (error) {
+                console.error('The token is paced off the board:', error.message);
+                return
             }
+            //check if spaces are available
+            try {
+                for (let i = 0; (row - i) > (row - newShip.length); i++){
+                    if (this.board[row--][c].value !== 0) throw new Error('Spaces are occupied');
+                }
+            } catch (error) {
+                console.error('Near collison! Move that ship:', error.message);
+                return
+            }
+            //if no errors place ship
             for (let i = 0; (r - i) > (r - newShip.length); i++) {
                 this.board[r--][c].value = newShip.id;
             }
