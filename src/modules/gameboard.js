@@ -49,7 +49,7 @@ export class gameboard {
 
     placeNewShip(type, r, c, dir) {
         let row = r;
-        
+        let col = c;
         
         const newShip = new ship(type);
         this.ships.push(newShip);
@@ -60,7 +60,7 @@ export class gameboard {
                 if ((r-1) + newShip.length > 6) {throw new Error("You've gone off course! Redeploy ship.")
                 }
             } catch (error) {
-                console.error('The token is paced off the board:', error.message);
+                console.error('The token is placed off the board:', error.message);
                 return
             }
             //check if spaces are available
@@ -84,7 +84,7 @@ export class gameboard {
                 if (r - (newShip.length-1) < 0) {throw new Error("You've gone off course! Redeploy ship.");
             }
             } catch (error) {
-                console.error('The token is paced off the board:', error.message);
+                console.error('The token is placed off the board:', error.message);
                 return
             }
             //check if spaces are available
@@ -103,12 +103,23 @@ export class gameboard {
             }
         }
         if (dir === 'Right'){
+            //check if ship on board
             try {
-                if ((c-1) + newShip.length > 6) throw "Off board! Redeploy ship"
+                if ((c-1) + newShip.length > 6) {throw new Error ("You've gone off course! Redeploy ship.")}
+            } catch(error){
+                return console.error('The token is placed off the board:', error.message);
             }
-            catch(err){
-                return console.log(err)
+            //
+            try {
+                for (let i = 0; (col + i) < (col + newShip.length); i++) {
+                   if (this.board[r][col++].value !== 0){throw new Error ('Near collison! Move that ship');
+                   }
+                } 
+            } catch (error) {
+                console.error('Spaces are occupied:', error.message);
+                return
             }
+            //if no errors place ship
             for (let i = 0; (c + i) < (c + newShip.length); i++) {
                 this.board[r][c++].value = newShip.id;
             }
