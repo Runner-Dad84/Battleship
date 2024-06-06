@@ -109,7 +109,7 @@ export class gameboard {
             } catch(error){
                 return console.error('The token is placed off the board:', error.message);
             }
-            //
+            //check if spaces are available
             try {
                 for (let i = 0; (col + i) < (col + newShip.length); i++) {
                    if (this.board[r][col++].value !== 0){throw new Error ('Near collison! Move that ship');
@@ -125,12 +125,24 @@ export class gameboard {
             }
         };
         if (dir === 'Left'){
+            //check if ship on board
             try {
-                if ((c+1) - newShip.length < 0) throw "Off board! Redeploy ship"
+                if (c - (newShip.length + 1) < 0) {throw new Error ("You've gone off course! Redeploy ship.")}
+            } catch(error){
+                console.error('The token is placed off the board:', error.message);
+                return
             }
-            catch(err){
-                return console.log(err)
-            }
+            //check if spaces are available
+            try {
+                for (let i = 0; (col - i) > (col - newShip.length); i++) {
+                    if (this.board[r][col--].value !== 0){throw new Error ('Near collison! Move that ship');
+                    }
+                }
+                } catch(error) {
+                    console.error('Spaces are occupied:', error.message);
+                    return
+                }
+            //if no errors place ship
             for (let i = 0; (c - i) > (c - newShip.length); i++) {
                 this.board[r][c--].value = newShip.id;
             }
