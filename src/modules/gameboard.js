@@ -52,7 +52,6 @@ export class gameboard {
         let col = c;
         
         const newShip = new ship(type);
-        this.ships.push(newShip);
 
         if (dir === 'Down'){
             //check if ship on board
@@ -147,6 +146,7 @@ export class gameboard {
                 this.board[r][c--].value = newShip.id;
             }
         };
+        this.ships.push(newShip);
     }
     receiveAttack (r, c) {
 
