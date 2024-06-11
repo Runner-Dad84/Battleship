@@ -57,31 +57,52 @@ export function printBoard (board, container, player){
 }
 
 //Player placements of ships
+export let shipsDOM = [];
 
 //Click handler for Carrier
 document.getElementById('p1-C').addEventListener('click', () => {
     document.getElementById('placement').style.display = 'grid';
-    document.getElementById('formTitle').innerText = 'Carrier';
+    const shipType = document.getElementById('formTitle').innerText = 'Carrier';
+    const placeBtn = document.getElementById('placeBtn');
+    if (shipsDOM.some(ship => ship.includes(shipType)) === true) {
+        placeBtn.style.display = 'none';
+    } else {placeBtn.style.display = 'block'}
 })
 //Click halder for Battleship
 document.getElementById('p1-B').addEventListener('click', () => {
     document.getElementById('placement').style.display = 'grid';
-    document.getElementById('formTitle').innerText = 'Battleship';
+    const shipType = document.getElementById('formTitle').innerText = 'Battleship';
+    const placeBtn = document.getElementById('placeBtn');
+    if (shipsDOM.some(ship => ship.includes(shipType)) === true) {
+        placeBtn.style.display = 'none';
+    } else {placeBtn.style.display = 'block'}
 })
 //Click handler for Destroyer
 document.getElementById('p1-D').addEventListener('click', () => {
     document.getElementById('placement').style.display = 'grid';
-    document.getElementById('formTitle').innerText = 'Destroyer';
+    const shipType = document.getElementById('formTitle').innerText = 'Destroyer';
+    const placeBtn = document.getElementById('placeBtn');
+    if (shipsDOM.some(ship => ship.includes(shipType)) === true) {
+        placeBtn.style.display = 'none';
+    } else {placeBtn.style.display = 'block'}
 })
 //Click handler for Submarine
 document.getElementById('p1-S').addEventListener('click', () => {
     document.getElementById('placement').style.display = 'grid';
-    document.getElementById('formTitle').innerText = 'Submarine';
+    const shipType = document.getElementById('formTitle').innerText = 'Submarine';
+    const placeBtn = document.getElementById('placeBtn');
+    if (shipsDOM.some(ship => ship.includes(shipType)) === true) {
+        placeBtn.style.display = 'none';
+    } else {placeBtn.style.display = 'block'}
 })
 //Click handler for Patrol Boat
 document.getElementById('p1-P').addEventListener('click', () => {
     document.getElementById('placement').style.display = 'grid';
-    document.getElementById('formTitle').innerText = 'Patrol Boat';
+    const shipType = document.getElementById('formTitle').innerText = 'Patrol Boat';
+    const placeBtn = document.getElementById('placeBtn');
+    if (shipsDOM.some(ship => ship.includes(shipType)) === true) {
+        placeBtn.style.display = 'none';
+    } else {placeBtn.style.display = 'block'}
 })
 
 
