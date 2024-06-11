@@ -16,11 +16,19 @@ const randomNum = {
         return Math.floor(Math.random() * 7);
     }
 };
+//Utility function, random direction
+function randomDir (){
+    let value = Math.floor(Math.random() * 4);
+        if (value === 0){ return 'Up' } 
+        if (value === 1){ return 'Down' }
+        if (value === 2){ return 'Right' }
+        if (value === 3){ return 'Left' }
+};
 
 (function placeCarrier () {
   function tryAgain (){
     let length = computer.gb.ships.length;
-    computer.gb.placeNewShip('Carrier', randomNum.value, randomNum.value, 'Up');
+    computer.gb.placeNewShip('Carrier', randomNum.value, randomNum.value, randomDir ());
     if (computer.gb.ships.length === length){
         tryAgain();
     };
@@ -31,7 +39,7 @@ const randomNum = {
 (function placeBattleShip (){
     function tryAgain (){
         let length = computer.gb.ships.length;
-        computer.gb.placeNewShip('Battleship', randomNum.value, randomNum.value, 'Up');
+        computer.gb.placeNewShip('Battleship', randomNum.value, randomNum.value, randomDir ());
         if (computer.gb.ships.length === length){
             tryAgain();
         };
@@ -42,7 +50,7 @@ const randomNum = {
 (function placeDestroyer (){
     function tryAgain (){
         let length = computer.gb.ships.length;
-        computer.gb.placeNewShip('Destroyer', randomNum.value, randomNum.value, 'Right');
+        computer.gb.placeNewShip('Destroyer', randomNum.value, randomNum.value, randomDir ());
         if (computer.gb.ships.length === length){
             tryAgain();
         };
@@ -53,7 +61,7 @@ const randomNum = {
 (function placeSubmarine (){
     function tryAgain (){
         let length = computer.gb.ships.length;
-        computer.gb.placeNewShip('Submarine', randomNum.value, randomNum.value, 'Up');
+        computer.gb.placeNewShip('Submarine', randomNum.value, randomNum.value, randomDir ());
         if (computer.gb.ships.length === length){
             tryAgain();
         };
@@ -64,7 +72,7 @@ const randomNum = {
 (function placePatrol (){
     function tryAgain (){
         let length = computer.gb.ships.length;
-        computer.gb.placeNewShip('Patrol Boat', randomNum.value, randomNum.value, 'Up');
+        computer.gb.placeNewShip('Patrol Boat', randomNum.value, randomNum.value, randomDir ());
         if (computer.gb.ships.length === length){
             tryAgain();
         };
