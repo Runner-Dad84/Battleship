@@ -9,7 +9,6 @@ import './styles/shipform.style.css';
 let player1 = new humanPlayer('Andrew');
 let computer = new compPlayer('computer', 'easy');
 
-//set computer ships randomly
 //Utility function, random row/col
 const randomNum = {
     get value (){
@@ -24,7 +23,7 @@ function randomDir (){
         if (value === 2){ return 'Right' }
         if (value === 3){ return 'Left' }
 };
-
+//set computer ships randomly
 (function placeCarrier () {
   function tryAgain (){
     let length = computer.gb.ships.length;
@@ -85,6 +84,10 @@ globalThis.boardTest = player1.gb.board;
 printBoard(computer.gb.board, 'container-p2', computer.gb);
 printBoard(player1.gb.board, 'container-p1', player1.gb);
 
+
+
+
+
 //console.log(computer.gb.ships);
 
 /*
@@ -123,6 +126,8 @@ document.addEventListener('DOMContentLoaded', ()=> {
         const direction = document.getElementById('direction').value;
         player1.gb.placeNewShip(shipType, row, col, direction);
         printBoard(player1.gb.board, 'container-p1', player1.gb);
+        console.log('click click')
+        form.style.display = 'none';
     })})
 
 //listen for player turn
