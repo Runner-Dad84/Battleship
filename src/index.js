@@ -41,63 +41,6 @@ placeShip ('Submarine');
 placeShip ('Destroyer');
 placeShip ('Patrol Boat');
 
-/*
-//set computer ships randomly
-(function placeCarrier () {
-  function tryAgain (){
-    let length = computer.gb.ships.length;
-    computer.gb.placeNewShip('Carrier', randomNum.value, randomNum.value, randomDir ());
-    if (computer.gb.ships.length === length){
-        tryAgain();
-    };
- }
- tryAgain();    
-})();
-
-(function placeBattleShip (){
-    function tryAgain (){
-        let length = computer.gb.ships.length;
-        computer.gb.placeNewShip('Battleship', randomNum.value, randomNum.value, randomDir ());
-        if (computer.gb.ships.length === length){
-            tryAgain();
-        };
-     }
-     tryAgain();
-})();
-
-(function placeDestroyer (){
-    function tryAgain (){
-        let length = computer.gb.ships.length;
-        computer.gb.placeNewShip('Destroyer', randomNum.value, randomNum.value, randomDir ());
-        if (computer.gb.ships.length === length){
-            tryAgain();
-        };
-     }
-     tryAgain();
-})();
-
-(function placeSubmarine (){
-    function tryAgain (){
-        let length = computer.gb.ships.length;
-        computer.gb.placeNewShip('Submarine', randomNum.value, randomNum.value, randomDir ());
-        if (computer.gb.ships.length === length){
-            tryAgain();
-        };
-     }
-     tryAgain();
-})();
-
-(function placePatrol (){
-    function tryAgain (){
-        let length = computer.gb.ships.length;
-        computer.gb.placeNewShip('Patrol Boat', randomNum.value, randomNum.value, randomDir ());
-        if (computer.gb.ships.length === length){
-            tryAgain();
-        };
-     }
-     tryAgain();
-})();
-*/
 globalThis.boardTest = player1.gb.board;
 
 printBoard(computer.gb.board, 'container-p2', computer.gb);
