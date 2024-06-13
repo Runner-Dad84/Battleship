@@ -9,33 +9,8 @@ import './styles/shipform.style.css';
 //create players
 let player1 = new humanPlayer('Andrew');
 let computer = new compPlayer('computer', 'easy');
-/*
-//Utility function, random row/col
-const randomNum = {
-    get value (){
-        return Math.floor(Math.random() * 7);
-    }
-};
-//Utility function, random direction
-function randomDir (){
-    let value = Math.floor(Math.random() * 4);
-        if (value === 0){ return 'Up' } 
-        if (value === 1){ return 'Down' }
-        if (value === 2){ return 'Right' }
-        if (value === 3){ return 'Left' }
-};
 
-function placeShip (ship, comp) {
-    function tryAgain (){
-      let length = comp.gb.ships.length;
-      computer.gb.placeNewShip(ship, randomNum.value, randomNum.value, randomDir ());
-      if (computer.gb.ships.length === length){
-          tryAgain();
-      };
-   }
-   tryAgain();    
-  };
-*/
+//place computer ships randomly
 placeShip ('Carrier', computer);
 placeShip ('Battleship', computer);
 placeShip ('Submarine', computer);
