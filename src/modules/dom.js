@@ -61,50 +61,81 @@ export let shipsDOM = [];
 
 //Click handler for Carrier
 document.getElementById('p1-C').addEventListener('click', () => {
-    document.getElementById('placement').style.display = 'grid';
+    const placement = document.getElementById('placement');
     const shipType = document.getElementById('formTitle').innerText = 'Carrier';
     const placeBtn = document.getElementById('placeBtn');
+    const deployed = document.getElementById('deployed')
+    let shipDisplay = document.getElementById('shipDisplay');
+    placement.style.display = 'grid';
     if (shipsDOM.some(ship => ship.includes(shipType)) === true) {
-        placeBtn.style.display = 'none';
+        document.getElementById('deployTitle').innerText = 'Carrier';
+        placement.style.display = 'none';
+        deployed.style.display = 'grid';
     } else {placeBtn.style.display = 'block'}
 })
 //Click halder for Battleship
 document.getElementById('p1-B').addEventListener('click', () => {
-    document.getElementById('placement').style.display = 'grid';
+    const placement = document.getElementById('placement');
     const shipType = document.getElementById('formTitle').innerText = 'Battleship';
     const placeBtn = document.getElementById('placeBtn');
+    const deployed = document.getElementById('deployed')
+    placement.style.display = 'grid';
     if (shipsDOM.some(ship => ship.includes(shipType)) === true) {
-        placeBtn.style.display = 'none';
+        document.getElementById('deployTitle').innerText = 'Battleship';
+        placement.style.display = 'none';
+        deployed.style.display = 'grid';
     } else {placeBtn.style.display = 'block'}
 })
 //Click handler for Destroyer
 document.getElementById('p1-D').addEventListener('click', () => {
-    document.getElementById('placement').style.display = 'grid';
+    const placement = document.getElementById('placement');
     const shipType = document.getElementById('formTitle').innerText = 'Destroyer';
     const placeBtn = document.getElementById('placeBtn');
+    const deployed = document.getElementById('deployed')
+    placement.style.display = 'grid';
     if (shipsDOM.some(ship => ship.includes(shipType)) === true) {
-        placeBtn.style.display = 'none';
+        document.getElementById('deployTitle').innerText = 'Destroyer';
+        placement.style.display = 'none';
+        deployed.style.display = 'grid';
     } else {placeBtn.style.display = 'block'}
 })
 //Click handler for Submarine
 document.getElementById('p1-S').addEventListener('click', () => {
-    document.getElementById('placement').style.display = 'grid';
+    const placement = document.getElementById('placement');
     const shipType = document.getElementById('formTitle').innerText = 'Submarine';
     const placeBtn = document.getElementById('placeBtn');
+    const deployed = document.getElementById('deployed')
+    placement.style.display = 'grid';
     if (shipsDOM.some(ship => ship.includes(shipType)) === true) {
-        placeBtn.style.display = 'none';
+        document.getElementById('deployTitle').innerText = 'Submarine';
+        placement.style.display = 'none';
+        deployed.style.display = 'grid';
     } else {placeBtn.style.display = 'block'}
 })
 //Click handler for Patrol Boat
 document.getElementById('p1-P').addEventListener('click', () => {
-    document.getElementById('placement').style.display = 'grid';
+    const placement = document.getElementById('placement');
     const shipType = document.getElementById('formTitle').innerText = 'Patrol Boat';
     const placeBtn = document.getElementById('placeBtn');
+    const deployed = document.getElementById('deployed')
+    placement.style.display = 'grid';
     if (shipsDOM.some(ship => ship.includes(shipType)) === true) {
-        placeBtn.style.display = 'none';
+        document.getElementById('deployTitle').innerText = 'Patrol Boat';
+        placement.style.display = 'none';
+        deployed.style.display = 'grid';
     } else {placeBtn.style.display = 'block'}
-})
+});
 
+
+(function shipBtnHander (){
+const shipButtons = document.querySelectorAll('.p1');
+shipButtons.forEach(btn => {
+    btn.addEventListener('click', (event)=> {
+        let shipType = event.target.getAttribute('data-ship-type');
+        return console.log(shipType);
+    })
+})
+})();
 
 
 
