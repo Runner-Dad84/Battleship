@@ -2,13 +2,14 @@ import { gameboard,  } from './modules/gameboard.js'
 import { ship } from './modules/ship.js'
 import { humanPlayer, compPlayer } from './modules/player.js'
 import { printBoard, shipsDOM } from './modules/dom.js'
+import { placeShip } from './modules/computer.js'
 import './styles/gameboard.style.css';
 import './styles/shipform.style.css';
 
 //create players
 let player1 = new humanPlayer('Andrew');
 let computer = new compPlayer('computer', 'easy');
-
+/*
 //Utility function, random row/col
 const randomNum = {
     get value (){
@@ -24,9 +25,9 @@ function randomDir (){
         if (value === 3){ return 'Left' }
 };
 
-function placeShip (ship) {
+function placeShip (ship, comp) {
     function tryAgain (){
-      let length = computer.gb.ships.length;
+      let length = comp.gb.ships.length;
       computer.gb.placeNewShip(ship, randomNum.value, randomNum.value, randomDir ());
       if (computer.gb.ships.length === length){
           tryAgain();
@@ -34,12 +35,12 @@ function placeShip (ship) {
    }
    tryAgain();    
   };
-
-placeShip ('Carrier');
-placeShip ('Battleship');
-placeShip ('Submarine');
-placeShip ('Destroyer');
-placeShip ('Patrol Boat');
+*/
+placeShip ('Carrier', computer);
+placeShip ('Battleship', computer);
+placeShip ('Submarine', computer);
+placeShip ('Destroyer', computer);
+placeShip ('Patrol Boat', computer);
 
 globalThis.boardTest = player1.gb.board;
 
