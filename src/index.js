@@ -23,6 +23,25 @@ function randomDir (){
         if (value === 2){ return 'Right' }
         if (value === 3){ return 'Left' }
 };
+
+function placeShip (ship) {
+    function tryAgain (){
+      let length = computer.gb.ships.length;
+      computer.gb.placeNewShip(ship, randomNum.value, randomNum.value, randomDir ());
+      if (computer.gb.ships.length === length){
+          tryAgain();
+      };
+   }
+   tryAgain();    
+  };
+
+placeShip ('Carrier');
+placeShip ('Battleship');
+placeShip ('Submarine');
+placeShip ('Destroyer');
+placeShip ('Patrol Boat');
+
+/*
 //set computer ships randomly
 (function placeCarrier () {
   function tryAgain (){
@@ -78,7 +97,7 @@ function randomDir (){
      }
      tryAgain();
 })();
-
+*/
 globalThis.boardTest = player1.gb.board;
 
 printBoard(computer.gb.board, 'container-p2', computer.gb);
