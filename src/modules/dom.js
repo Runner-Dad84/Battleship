@@ -58,7 +58,7 @@ export function printBoard (board, container, player){
 
 //Player placements of ships
 export let shipsDOM = [];
-
+/*
 //Click handler for Carrier
 document.getElementById('p1-C').addEventListener('click', () => {
     const placement = document.getElementById('placement');
@@ -125,14 +125,26 @@ document.getElementById('p1-P').addEventListener('click', () => {
         deployed.style.display = 'grid';
     } else {placeBtn.style.display = 'block'}
 });
-
+*/
 
 (function shipBtnHander (){
-const shipButtons = document.querySelectorAll('.p1');
+    const placement = document.getElementById('placement');
+    const shipType = document.getElementById('formTitle');
+    const placeBtn = document.getElementById('placeBtn');
+    const deployed = document.getElementById('deployed')
+    const shipButtons = document.querySelectorAll('.p1');
+
 shipButtons.forEach(btn => {
     btn.addEventListener('click', (event)=> {
-        let shipType = event.target.getAttribute('data-ship-type');
-        return console.log(shipType);
+        let dataShipType = event.target.getAttribute('data-ship-type');
+        shipType.innerText = dataShipType;
+        placement.style.display = 'grid';
+        if (shipsDOM.some(ship => ship.includes(dataShipType )) === true) {
+            document.getElementById('deployTitle').innerText = dataShipType;
+            placement.style.display = 'none';
+            deployed.style.display = 'grid';
+        } else {placeBtn.style.display = 'block'}
+        
     })
 })
 })();
