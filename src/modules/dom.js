@@ -4,9 +4,18 @@ import { player1, boardSize } from '../index.js'
 //print player/ computer gameboard
 export function printBoard (board, container, player){
     let gb = document.getElementById(container);
+    let shipRow = document.getElementById('shipRow');
+    let shipCol = document.getElementById('shipCol');
+
+    //dynamically set the max row/col size on placement form
+    shipRow.max = boardSize;
+    shipCol.max = boardSize;
+
+    //dynamically set the grid size
     gb.style.gridTemplateRows = `repeat(${boardSize}, 1fr)`;
     gb.style.gridTemplateColumns = `repeat(${boardSize}, 1fr)`;
 
+    //print each cell with values
     gb.innerHTML = "";
     for (let row of board){
         for(let cell of row){
