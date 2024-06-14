@@ -1,9 +1,12 @@
 //import { gameboard } from './gameboard.js'
-import { player1 } from '../index.js'
+import { player1, boardSize } from '../index.js'
 
 //print player/ computer gameboard
 export function printBoard (board, container, player){
     let gb = document.getElementById(container);
+    gb.style.gridTemplateRows = `repeat(${boardSize}, 1fr)`;
+    gb.style.gridTemplateColumns = `repeat(${boardSize}, 1fr)`;
+
     gb.innerHTML = "";
     for (let row of board){
         for(let cell of row){
