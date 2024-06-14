@@ -24,6 +24,24 @@
       <button class="p1" id="p1-S" data-ship-type="Submarine">Submarine</button>
       <button class="p1" id="p1-P" data-ship-type="Patrol Boat">Patrol Boat</button>
 
+<form id="welcome" title="welcome">
+  <label for="name">Player Name:</label>
+  <input type="text" id="name" name="name">
+  <label for="level">Level</label>
+  <select name="level" id="level">
+    <option value="easy" selected>Easy</option>
+  </select>
+  <label for="boadsize">Board Size</label>
+   <select name="size" id="size">
+    <option value="small">Small (7 x 7)</option>
+    <option value="medium">Traditional (10 x 10)</option>
+    <option value="large">Large (12 x 12)</option>
+   </select>
+   <button type="submit" id="startBtn">Start</button>
+</form>
+
+
+
 <form id="placement" title="Place Ship">
     <h1 id="formTitle">Ship Title</h1>
     
