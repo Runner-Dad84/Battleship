@@ -1,7 +1,6 @@
 #container-p1,
 #container-p2 {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
     width: 50vh;
     height: 50vh;
     gap: 0;
