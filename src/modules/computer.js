@@ -1,5 +1,6 @@
 import { gameboard } from '../modules/gameboard.js'
 import { ship } from '../modules/ship.js'
+import { boardSize } from './index.js/ship.js'
 
 //Utility function, random row/col
 const randomNum = {

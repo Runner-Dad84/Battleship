@@ -7,6 +7,7 @@ import './styles/gameboard.style.css';
 import './styles/shipform.style.css';
 
 //welcome form
+export let boardSize;
 (function welcomeForm (){
     document.addEventListener('DOMContentLoaded', ()=> {
         const welcomeForm = document.getElementById('welcome');
@@ -14,9 +15,9 @@ import './styles/shipform.style.css';
         window.onload = function () {
             welcomeForm.style.display = 'block';
         };
-        let boardSize = document.getElementById('size').value;
         welcomeForm.addEventListener ('submit', function (event) {
             event.preventDefault();
+            boardSize = document.getElementById('size').value;
             console.log(boardSize);
             welcomeForm.style.display = 'none';
     })})
