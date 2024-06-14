@@ -1,11 +1,12 @@
 //const ship = require ('./ship.js')
 import { ship } from '../modules/ship.js'
+import { boardSize } from '../index.js'
 
 //to access square on board us me board.board[r][c]
 
 //utility: converts column letter to number for lookUp
 function colConvert (letter){
-    const alphabet = [...Array(7)].map((_,i) => String.fromCharCode(i +97));
+    const alphabet = [...Array(boardSize)].map((_,i) => String.fromCharCode(i +97));
         const item = (el) => el === letter;
         const num = alphabet.findIndex(item);
         return num
@@ -56,7 +57,7 @@ export class gameboard {
         if (dir === 'Down'){
             //check if ship on board
             try {
-                if ((r-1) + newShip.length > 6) {throw new Error("You've gone off course! Redeploy ship.")
+                if ((r-1) + newShip.length > (boardSize-1)) {throw new Error("You've gone off course! Redeploy ship.")
                 }
             } catch (error) {
                 console.error('The token is placed off the board:', error.message);
@@ -104,7 +105,7 @@ export class gameboard {
         if (dir === 'Right'){
             //check if ship on board
             try {
-                if ((c-1) + newShip.length > 6) {throw new Error ("You've gone off course! Redeploy ship.")}
+                if ((c-1) + newShip.length > (boardSize-1)) {throw new Error ("You've gone off course! Redeploy ship.")}
             } catch(error){
                 return console.error('The token is placed off the board:', error.message);
             }

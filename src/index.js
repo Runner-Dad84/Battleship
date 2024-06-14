@@ -6,6 +6,9 @@ import { placeShip } from './modules/computer.js'
 import './styles/gameboard.style.css';
 import './styles/shipform.style.css';
 
+let player1;
+let computer;
+
 //welcome form
 export let boardSize;
 (function welcomeForm (){
@@ -19,28 +22,31 @@ export let boardSize;
             event.preventDefault();
             boardSize = document.getElementById('size').value;
             console.log(boardSize);
+
+            //create players
+            player1 = new humanPlayer('Andrew');
+            computer = new compPlayer('computer', 'easy');
+            //
+            placeComputer(computer);
+            //print boards
+            printBoard(computer.gb.board, 'container-p2', computer.gb);
+            printBoard(player1.gb.board, 'container-p1', player1.gb);
+            //remove start screen
             welcomeForm.style.display = 'none';
+
     })})
 })();
 
-//create players
-let player1 = new humanPlayer('Andrew');
-let computer = new compPlayer('computer', 'easy');
-
 //place computer ships randomly
-placeShip ('Carrier', computer);
-placeShip ('Battleship', computer);
-placeShip ('Submarine', computer);
-placeShip ('Destroyer', computer);
-placeShip ('Patrol Boat', computer);
+function placeComputer (com) {
+    placeShip ('Carrier', com);
+    placeShip ('Battleship', com);
+    placeShip ('Submarine', com);
+    placeShip ('Destroyer', com);
+    placeShip ('Patrol Boat', com);
+};
 
-globalThis.boardTest = player1.gb.board;
-
-printBoard(computer.gb.board, 'container-p2', computer.gb);
-printBoard(player1.gb.board, 'container-p1', player1.gb);
-
-
-
+//globalThis.boardTest = player1.gb.board;
 
 
 //console.log(computer.gb.ships);
@@ -104,13 +110,13 @@ compContainer.addEventListener ('click', function RandomMove () {
         //check if square is open, if not generate new numbers and check again
         function findOpen (){
             if (player1.gb.checkOpenBoard(randomRow, randomCol) === false) {
-                randomRow = Math.floor(Math.random() * 7);
-                randomCol = Math.floor(Math.random() * 7);
+                randomRow = Math.floor(Math.random() * boardSize);
+                randomCol = Math.floor(Math.random() * boardSize);
                 findOpen(randomRow, randomCol)
             };
         }
-        let randomRow = Math.floor(Math.random() * 7);
-        let randomCol = Math.floor(Math.random() * 7);
+        let randomRow = Math.floor(Math.random() * boardSize);
+        let randomCol = Math.floor(Math.random() * boardSize);
         findOpen();
         player1.gb.receiveAttack(randomRow, randomCol);
         printBoard(player1.gb.board, 'container-p1', player1.gb);

@@ -1,11 +1,11 @@
 import { gameboard } from '../modules/gameboard.js'
 import { ship } from '../modules/ship.js'
-import { boardSize } from './index.js/ship.js'
+import { boardSize } from '../index.js'
 
 //Utility function, random row/col
 const randomNum = {
     get value (){
-        return Math.floor(Math.random() * 7);
+        return Math.floor(Math.random() * boardSize);
     }
 };
 //Utility function, random direction
@@ -21,6 +21,7 @@ export function placeShip (ship, cpu) {
     function tryAgain (){
       let length = cpu.gb.ships.length;
       cpu.gb.placeNewShip(ship, randomNum.value, randomNum.value, randomDir ());
+      //if the ship fails to place on the baord run again
       if (cpu.gb.ships.length === length){
           tryAgain();
       };

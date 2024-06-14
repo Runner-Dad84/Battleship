@@ -1,4 +1,5 @@
-import { gameboard } from './gameboard.js'
+//import { gameboard } from './gameboard.js'
+import { player1 } from '../index.js'
 
 //print player/ computer gameboard
 export function printBoard (board, container, player){
