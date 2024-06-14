@@ -6,6 +6,22 @@ import { placeShip } from './modules/computer.js'
 import './styles/gameboard.style.css';
 import './styles/shipform.style.css';
 
+//welcome form
+(function welcomeForm (){
+    document.addEventListener('DOMContentLoaded', ()=> {
+        const welcomeForm = document.getElementById('welcome');
+        const startBtn = document.getElementById('startBtn');
+        window.onload = function () {
+            welcomeForm.style.display = 'block';
+        };
+        let boardSize = document.getElementById('size').value;
+        welcomeForm.addEventListener ('submit', function (event) {
+            event.preventDefault();
+            console.log(boardSize);
+            welcomeForm.style.display = 'none';
+    })})
+})();
+
 //create players
 let player1 = new humanPlayer('Andrew');
 let computer = new compPlayer('computer', 'easy');
