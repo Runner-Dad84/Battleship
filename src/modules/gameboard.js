@@ -1,6 +1,7 @@
 //const ship = require ('./ship.js')
 import { ship } from '../modules/ship.js'
 import { boardSize } from '../index.js'
+import { shipsDOM } from '../modules/dom.js'
 
 //to access square on board us me board.board[r][c]
 
@@ -77,6 +78,7 @@ export class gameboard {
             for (let i = 0; (r + i) < (r + newShip.length); i++) {
                 this.board[r++][c].value = newShip.id;
             }
+            this.ships.push(newShip);
         }
         if (dir === 'Up'){
             //check if ship on board
@@ -101,6 +103,7 @@ export class gameboard {
             for (let i = 0; (r - i) > (r - newShip.length); i++) {
                 this.board[r--][c].value = newShip.id;
             }
+            this.ships.push(newShip);
         }
         if (dir === 'Right'){
             //check if ship on board
@@ -123,6 +126,7 @@ export class gameboard {
             for (let i = 0; (c + i) < (c + newShip.length); i++) {
                 this.board[r][c++].value = newShip.id;
             }
+            this.ships.push(newShip);
         };
         if (dir === 'Left'){
             //check if ship on board
@@ -146,8 +150,9 @@ export class gameboard {
             for (let i = 0; (c - i) > (c - newShip.length); i++) {
                 this.board[r][c--].value = newShip.id;
             }
+            this.ships.push(newShip);
         };
-        this.ships.push(newShip);
+        
     }
     receiveAttack (r, c) {
 
