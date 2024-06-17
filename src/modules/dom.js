@@ -84,15 +84,12 @@ shipButtons.forEach(btn => {
         let dataShipType = event.target.getAttribute('data-ship-type');
         shipType.innerText = dataShipType;
         placement.style.display = 'grid';
-        //use filter and length to check for mre than 1 ship
-        //let checked = shipsDOM.filter((ship)=> dataShipType);
-        
-       /* if (shipsDOM.filter(ship. => ship.dataShipType.length > 1) === true) {
-            document.getElementById('deployTitle').innerText = dataShipType;
-            placement.style.display = 'none';
-            deployed.style.display = 'grid';
-        } else {placeBtn.style.display = 'block'} */
-        
+        //if ship has been placed already display ship stats
+       if (arrayShips.some(ship => ship.type === dataShipType)){
+        document.getElementById('deployTitle').innerText = dataShipType;
+        placement.style.display = 'none';
+        deployed.style.display = 'grid';
+        }
     })
 })
 })();
