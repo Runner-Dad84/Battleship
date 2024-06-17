@@ -1,7 +1,7 @@
 import { gameboard,  } from './modules/gameboard.js'
 import { ship } from './modules/ship.js'
 import { humanPlayer, compPlayer } from './modules/player.js'
-import { printBoard, shipsDOM } from './modules/dom.js'
+import { printBoard } from './modules/dom.js'
 import { placeShip } from './modules/computer.js'
 import './styles/gameboard.style.css';
 import './styles/shipform.style.css';
@@ -83,12 +83,11 @@ document.addEventListener('DOMContentLoaded', ()=> {
         const row = document.getElementById('shipRow').value;
         const col = document.getElementById('shipCol').value;
         let shipType = document.getElementById('formTitle').innerText;
-        shipsDOM.push(shipType);
         const direction = document.getElementById('direction').value;
         player1.gb.placeNewShip(shipType, row, col, direction);
         printBoard(player1.gb.board, 'container-p1', player1.gb);
-        console.log('click click')
         form.style.display = 'none';
+        document.getElementById('deployed').style = 'none';
     })})
 
 //listen for player turn
