@@ -1,7 +1,7 @@
 //const ship = require ('./ship.js')
 import { ship } from '../modules/ship.js'
 import { boardSize } from '../index.js'
-import { shipsDOM } from '../modules/dom.js'
+//import { shipsDOM } from '../modules/dom.js'
 
 //to access square on board us me board.board[r][c]
 
