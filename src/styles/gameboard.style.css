@@ -5,6 +5,9 @@
     height: 50vh;
     gap: 0;
     border: 2px solid black;
+    border-radius: 5px;
+    background-image: url('../images/Ocean-Board.jpg');
+    background-size: cover;
 }
 #container-p1 .cell,
 #container-p2 .cell,
@@ -22,7 +25,8 @@
 
 #container-p1 .cell,
 #container-p2 .cell {
-    background-color: navy;
+    
+    
     color: white;
 }
 
