@@ -5,6 +5,7 @@ import { printBoard } from './modules/dom.js'
 import { placeShip } from './modules/computer.js'
 import './styles/gameboard.style.css';
 import './styles/shipform.style.css';
+import './styles/startscreen.style.css';
 
 let player1;
 let computer;
@@ -14,14 +15,13 @@ export let boardSize;
 (function welcomeForm (){
     document.addEventListener('DOMContentLoaded', ()=> {
         const welcomeForm = document.getElementById('welcome');
-        const startBtn = document.getElementById('startBtn');
+        const startScreen = document.getElementById('startscreen');
         window.onload = function () {
             welcomeForm.style.display = 'block';
         };
         welcomeForm.addEventListener ('submit', function (event) {
             event.preventDefault();
             boardSize = document.getElementById('size').value;
-            console.log(boardSize);
 
             //create players
             player1 = new humanPlayer('Andrew');
@@ -31,8 +31,9 @@ export let boardSize;
             //print boards
             printBoard(computer.gb.board, 'container-p2', computer.gb);
             printBoard(player1.gb.board, 'container-p1', player1.gb);
-            //remove start screen
+            //remove start screen and 
             welcomeForm.style.display = 'none';
+            startScreen.style.display = 'none';
 
     })})
 })();
