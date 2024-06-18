@@ -15,7 +15,7 @@
       <button class="com">Submarine</button>
       <button class="com">Patrol Boat</button>
     </div>
-    <h3>Player 1</h3>
+    <h3 id="playerName"></h3>
     <div id="container-p1"></div>
     <div class="ships">
       <button class="p1" id="p1-C" data-ship-type="Carrier">Carrier</button>
@@ -25,13 +25,14 @@
       <button class="p1" id="p1-P" data-ship-type="Patrol Boat">Patrol Boat</button>
 
 <div id="startscreen">
-<form id="welcome" title="welcome">
-  <label for="name">Player Name:</label>
-  <input type="text" id="name" name="name">
-  <label for="level">Level</label>
-  <select name="level" id="level">
-    <option value="easy" selected>Easy</option>
-  </select>
+  <img src="" alt="">
+  <form id="welcome" title="welcome">
+    <label for="name">Player Name:</label>
+    <input type="text" id="name" name="name">
+    <label for="level">Level</label>
+    <select name="level" id="level">
+      <option value="easy" selected>Easy</option>
+    </select>
   <label for="boadsize">Board Size</label>
    <select name="size" id="size">
     <option value="7">Small (7 x 7)</option>
@@ -39,7 +40,7 @@
     <option value="12">Large (12 x 12)</option>
    </select>
    <button type="submit" id="startBtn">Start</button>
-</form>
+  </form>
 </div>
 
 

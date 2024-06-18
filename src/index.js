@@ -1,7 +1,7 @@
 import { gameboard,  } from './modules/gameboard.js'
 import { ship } from './modules/ship.js'
 import { humanPlayer, compPlayer } from './modules/player.js'
-import { printBoard } from './modules/dom.js'
+import { welcomeForm, printBoard, welcomeFormDOM } from './modules/dom.js'
 import { placeShip } from './modules/computer.js'
 import './styles/gameboard.style.css';
 import './styles/shipform.style.css';
@@ -15,7 +15,7 @@ export let boardSize;
 (function welcomeForm (){
     document.addEventListener('DOMContentLoaded', ()=> {
         const welcomeForm = document.getElementById('welcome');
-        const startScreen = document.getElementById('startscreen');
+        
         window.onload = function () {
             welcomeForm.style.display = 'block';
         };
@@ -26,15 +26,12 @@ export let boardSize;
             //create players
             player1 = new humanPlayer('Andrew');
             computer = new compPlayer('computer', 'easy');
-            //
+            //place computer ships
             placeComputer(computer);
             //print boards
             printBoard(computer.gb.board, 'container-p2', computer.gb);
             printBoard(player1.gb.board, 'container-p1', player1.gb);
-            //remove start screen and 
-            welcomeForm.style.display = 'none';
-            startScreen.style.display = 'none';
-
+            welcomeFormDOM();
     })})
 })();
 

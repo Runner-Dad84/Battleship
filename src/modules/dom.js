@@ -1,6 +1,21 @@
 //import { gameboard } from './gameboard.js'
 import { player1, boardSize } from '../index.js'
 
+//DOM related functionality for submit on welcome form
+export function welcomeFormDOM (){
+    const welcomeForm = document.getElementById('welcome');
+    const startScreen = document.getElementById('startscreen');
+    
+    //print player name
+    let name = document.getElementById('name').value;
+    document.getElementById('playerName').textContent = name;
+
+    //remove start screen and welcome form
+    welcomeForm.style.display = 'none';
+    startScreen.style.display = 'none';
+};
+
+
 let arrayShips;
 
 //print player/ computer gameboard

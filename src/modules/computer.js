@@ -21,7 +21,7 @@ export function placeShip (ship, cpu) {
     function tryAgain (){
       let length = cpu.gb.ships.length;
       cpu.gb.placeNewShip(ship, randomNum.value, randomNum.value, randomDir ());
-      //if the ship fails to place on the baord run again
+      //if the ship fails to place on the board run again
       if (cpu.gb.ships.length === length){
           tryAgain();
       };
