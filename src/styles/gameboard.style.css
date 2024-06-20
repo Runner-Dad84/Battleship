@@ -32,7 +32,8 @@
 
 #container-p1 .hit,
 #container-p2 .hit {
-    background-color: red;
+    background-image: url('../images/Smoke.jpg');
+    background-size: cover;
 }
 
 #container-p1 .boat,
