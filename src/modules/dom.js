@@ -87,6 +87,7 @@ export function printBoard (board, container, player){
     arrayShips = player.ships;
 }
 
+
 (function shipBtnHander (){
     const placement = document.getElementById('placement');
     const shipType = document.getElementById('formTitle');
@@ -97,6 +98,7 @@ export function printBoard (board, container, player){
 shipButtons.forEach(btn => {
     btn.addEventListener('click', (event)=> {
         let dataShipType = event.target.getAttribute('data-ship-type');
+        let dataShipLength = event.target.getAttribute('data-ship-length');
         shipType.innerText = dataShipType;
         placement.style.display = 'grid';
         //if ship has been placed already display ship stats
@@ -104,6 +106,13 @@ shipButtons.forEach(btn => {
         document.getElementById('deployTitle').innerText = dataShipType;
         placement.style.display = 'none';
         deployed.style.display = 'grid';
+
+        for (let i = 0; i < dataShipLength; i++){
+            let shipDiv = document.createElement('div');
+            shipDiv.classList.add('shipDiv');
+            shipDiv.style.background = 'green';
+            deployed.appendChild(shipDiv);
+        }
         }
     })
 })
