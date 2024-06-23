@@ -155,7 +155,10 @@ export class gameboard {
         
     }
     receiveAttack (r, c) {
-
+        //if already miss record another miss
+        if (this.board[r][c].value === 'X'){
+            return this.board[r][c].value = 'X';
+        }
         //if water record miss
         if (this.board[r][c].value === 0){
             return this.board[r][c].value = 'X';
