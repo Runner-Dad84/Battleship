@@ -1,0 +1,28 @@
+#deployed {
+    flex-direction: column;
+}
+
+#shipDamage {
+    background-color: blue;
+    background-image: linear-gradient(to right, blue 90%, red 10%);
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: auto;
+    align-items: center;
+}
+.shipDiv {
+    border-radius: 90%;
+    border: 1px solid black;
+    height: 2vh;
+    width: 2vw;
+    background: lightseagreen;
+}
+
+.damaged {
+    border-radius: 90%;
+    border: 1px solid black;
+    height: 2vh;
+    width: 2vw;
+    background: red;
+}
