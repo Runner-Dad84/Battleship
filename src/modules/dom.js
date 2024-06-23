@@ -85,6 +85,7 @@ export function printBoard (board, container, player){
         }
     }
     arrayShips = player.ships;
+    console.log(arrayShips);
 }
 
 
@@ -101,22 +102,29 @@ shipButtons.forEach(btn => {
         let dataShipLength = event.target.getAttribute('data-ship-length');
         shipType.innerText = dataShipType;
         placement.style.display = 'grid';
+        deployed.style.display = 'none';
         //if ship has been placed already display ship stats
        if (arrayShips.some(ship => ship.type === dataShipType)){
         document.getElementById('deployTitle').innerText = dataShipType;
         placement.style.display = 'none';
-        deployed.style.display = 'grid';
+        deployed.style.display = 'flex';
 
-        for (let i = 0; i < dataShipLength; i++){
+        const targetShip = arrayShips.find(ship => ship.type === dataShipType);
+        let damage = targetShip.damage;
+        shipDamage.innerHTML = '';
+
+        for (let i = 0; i < (dataShipLength - damage); i++){
             let shipDiv = document.createElement('div');
             shipDiv.classList.add('shipDiv');
-            shipDiv.style.background = 'green';
-            deployed.appendChild(shipDiv);
+            shipDamage.appendChild(shipDiv);
         }
+        for (let j = 0; j < damage; j++){
+            let damaged = document.createElement('div');
+            damaged.classList.add('damaged');
+            shipDamage.appendChild(damaged);
+            
+        };
         }
     })
 })
 })();
-
-
-
