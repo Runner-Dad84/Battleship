@@ -2,13 +2,14 @@ import { gameboard,  } from './modules/gameboard.js'
 import { ship } from './modules/ship.js'
 import { humanPlayer, compPlayer } from './modules/player.js'
 import { welcomeForm, printBoard, welcomeFormDOM } from './modules/dom.js'
-import { placeShip } from './modules/computer.js'
+import { placeShip, targetPoint, lastHit } from './modules/computer.js'
 import './styles/gameboard.style.css';
 import './styles/shipform.style.css';
 import './styles/startscreen.style.css';
+import './styles/buttons.style.css';
 
-let player1;
-let computer;
+export let player1;
+export let computer;
 
 //welcome form
 export let boardSize;
@@ -35,14 +36,25 @@ export let boardSize;
     })})
 })();
 
-//place computer ships randomly
-function placeComputer (com) {
-    placeShip ('Carrier', com);
-    placeShip ('Battleship', com);
-    placeShip ('Submarine', com);
-    placeShip ('Destroyer', com);
-    placeShip ('Patrol Boat', com);
+//place user ships randomly
+function placeComputer (user) {
+    placeShip ('Carrier', user);
+    placeShip ('Battleship', user);
+    placeShip ('Submarine', user);
+    placeShip ('Destroyer', user);
+    placeShip ('Patrol Boat', user);
 };
+//Place player ships randomly on button push
+(function randomSetPlayer (){
+    const randomBtn = document.getElementById('random');
+    randomBtn.addEventListener('click', ()=>{
+        placeComputer(player1);
+        printBoard(computer.gb.board, 'container-p2', computer.gb);
+        printBoard(player1.gb.board, 'container-p1', player1.gb);
+        randomBtn.remove();
+    })
+
+})();
 
 //globalThis.boardTest = player1.gb.board;
 
@@ -115,6 +127,9 @@ compContainer.addEventListener ('click', function RandomMove () {
         let randomRow = Math.floor(Math.random() * boardSize);
         let randomCol = Math.floor(Math.random() * boardSize);
         findOpen();
+        //save coordinate to com if a hit
+        lastHit (player1, randomRow, randomCol);
+
         player1.gb.receiveAttack(randomRow, randomCol);
         printBoard(player1.gb.board, 'container-p1', player1.gb);
         console.log('computer moves');

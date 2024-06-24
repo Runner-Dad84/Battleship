@@ -17,6 +17,7 @@ function randomDir (){
         if (value === 3){ return 'Left' }
 };
 
+//randomly place ship
 export function placeShip (ship, cpu) {
     function tryAgain (){
       let length = cpu.gb.ships.length;
@@ -27,4 +28,21 @@ export function placeShip (ship, cpu) {
       };
    }
    tryAgain();    
+  };
+
+  //
+  export let targetRow;
+  export let targetCol;
+  export function lastHit (user, row, col){
+    if (user.gb.board[row][col].value === 'C' || 
+        user.gb.board[row][col].value === 'B' || 
+        user.gb.board[row][col].value === 'D' ||
+        user.gb.board[row][col].value === 'S' ||
+        user.gb.board[row][col].value === 'P'  
+    ){
+        let targetPoint = user.gb.board[row][col]; 
+        targetRow = targetPoint.r
+        targetCol = targetPoint.c
+    } else {
+        console.log('miss')}
   };
