@@ -9,11 +9,11 @@
     <h3>Computer</h3>
     <div id="container-p2"></div>
     <div class="ships">
-      <button class="com">Carrier</button>
-      <button class="com">Battleship</button>
-      <button class="com">Destroyer</button>
-      <button class="com">Submarine</button>
-      <button class="com">Patrol Boat</button>
+      <button class="com" data-ship-type="Carrier">Carrier</button>
+      <button class="com" data-ship-type="Battleship">Battleship</button>
+      <button class="com" data-ship-type="Destroyer">Destroyer</button>
+      <button class="com" data-ship-type="Submarine">Submarine</button>
+      <button class="com" data-ship-type="Patrol Boat">Patrol Boat</button>
     </div>
     <h3 id="playerName"></h3>
     <div id="container-p1"></div>
@@ -23,7 +23,8 @@
       <button class="p1" id="p1-D" data-ship-type="Destroyer" data-ship-length=3>Destroyer</button>
       <button class="p1" id="p1-S" data-ship-type="Submarine" data-ship-length=3>Submarine</button>
       <button class="p1" id="p1-P" data-ship-type="Patrol Boat" data-ship-length=2>Patrol Boat</button>
-
+    </div>
+    <button id="random">Random Deployment</button>
 <div id="startscreen">
   <img src="" alt="">
   <form id="welcome" title="welcome">
@@ -32,6 +33,7 @@
     <label for="level">Level</label>
     <select name="level" id="level">
       <option value="easy" selected>Easy</option>
+      <option value="medium" selected>Medium</option>
     </select>
   <label for="boadsize">Board Size</label>
    <select name="size" id="size">
@@ -66,7 +68,7 @@
 
 <div id="deployed">
     <h1 id="deployTitle">Ship Title</h1>
-    <div.damage></div>
+    <div id="shipDamage"></div>
 </div>
 
 </body>

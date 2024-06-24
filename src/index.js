@@ -2,7 +2,7 @@ import { gameboard,  } from './modules/gameboard.js'
 import { ship } from './modules/ship.js'
 import { humanPlayer, compPlayer } from './modules/player.js'
 import { welcomeForm, printBoard, welcomeFormDOM } from './modules/dom.js'
-import { placeShip, targetPoint, lastHit } from './modules/computer.js'
+import { placeShip, lastHit, randomRow, randomCol, randomAttack } from './modules/computer.js'
 import './styles/gameboard.style.css';
 import './styles/shipform.style.css';
 import './styles/startscreen.style.css';
@@ -13,6 +13,8 @@ export let computer;
 
 //welcome form
 export let boardSize;
+const level = document.getElementById('level');
+
 (function welcomeForm (){
     document.addEventListener('DOMContentLoaded', ()=> {
         const welcomeForm = document.getElementById('welcome');
@@ -56,34 +58,6 @@ function placeComputer (user) {
 
 })();
 
-//globalThis.boardTest = player1.gb.board;
-
-
-//console.log(computer.gb.ships);
-
-/*
-console.log(boardTest[0][0].value);
-console.log(boardTest[3][4].c);
-console.log(boardTest[3][4].r);
-*/
-//attacks
-/*
-player1.gb.receiveAttack(0, 1);
-player1.gb.receiveAttack(1, 0);
-
-computer.gb.receiveAttack(0, 0);
-computer.gb.receiveAttack(6, 4);
-*/
-//update game board
-
-
-
-//how to print ships
-/*console.log(boardTest);
-console.log(player1.gb.ships);
-console.log(player1.gb.ships[0]);
-*/
-
 //player place ships on board
 
 document.addEventListener('DOMContentLoaded', ()=> {
@@ -116,18 +90,9 @@ document.addEventListener('DOMContentLoaded', ()=> {
 //Listen for computer board click by player, handler is computer attack
 compContainer.addEventListener ('click', function RandomMove () {
     setTimeout(function RandomMove (){
-        //check if square is open, if not generate new numbers and check again
-        function findOpen (){
-            if (player1.gb.checkOpenBoard(randomRow, randomCol) === false) {
-                randomRow = Math.floor(Math.random() * boardSize);
-                randomCol = Math.floor(Math.random() * boardSize);
-                findOpen(randomRow, randomCol)
-            };
-        }
-        let randomRow = Math.floor(Math.random() * boardSize);
-        let randomCol = Math.floor(Math.random() * boardSize);
-        findOpen();
-        //save coordinate to com if a hit
+        //computer randomly attacks player 1
+        randomAttack(player1);
+        //if a hit save the coordinates
         lastHit (player1, randomRow, randomCol);
 
         player1.gb.receiveAttack(randomRow, randomCol);
@@ -135,3 +100,26 @@ compContainer.addEventListener ('click', function RandomMove () {
         console.log('computer moves');
     }, 1000);
 });
+
+
+
+//console.log(computer.gb.ships);
+
+/*
+console.log(boardTest[0][0].value);
+console.log(boardTest[3][4].c);
+console.log(boardTest[3][4].r);
+*/
+//attacks
+/*
+player1.gb.receiveAttack(0, 1);
+player1.gb.receiveAttack(1, 0);
+
+computer.gb.receiveAttack(0, 0);
+computer.gb.receiveAttack(6, 4);
+
+//how to print ships
+console.log(boardTest);
+console.log(player1.gb.ships);
+console.log(player1.gb.ships[0]);
+*/
