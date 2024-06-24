@@ -43,8 +43,6 @@ export function randomAttack (user){
     };
 }
 
-
-
   //utility function & variables to store last hit
   export let targetRow;
   export let targetCol;
@@ -62,6 +60,25 @@ export function randomAttack (user){
         console.log('miss')}
   };
 
-  function seek (enemy, row, col){
-
-  }
+  function seekAttack (player, row, col){
+    if (player.gb.checkOpenBoard(row + 1, col) === true){
+        randomRow = row + 1;
+        randomCol = col;
+        return
+    }
+    if (player.gb.checkOpenBoard(row -1 , col) === true){
+        randomRow = row - 1;
+        randomCol = col;
+        return
+    }
+    if (player.gb.checkOpenBoard(row, col + 1) === true){
+        randomRow = row;
+        randomCol = col + 1;
+        return
+    }
+    if (player.gb.checkOpenBoard(row, col - 1) === true){
+        randomRow = row;
+        randomCol = col - 1;
+        return
+    }
+};
