@@ -29,6 +29,20 @@ export function placeShip (ship, cpu) {
    }
    tryAgain();    
   };
+//computer attack random move
+export let randomRow;
+export let randomCol;
+export function randomAttack (user){
+    randomRow = Math.floor(Math.random() * boardSize);
+    randomCol = Math.floor(Math.random() * boardSize);
+    if (user.gb.checkOpenBoard(randomRow, randomCol) === false) {
+        randomRow = Math.floor(Math.random() * boardSize);
+        randomCol = Math.floor(Math.random() * boardSize);
+        findOpen(randomRow, randomCol)
+    };
+}
+
+
 
   //
   export let targetRow;
