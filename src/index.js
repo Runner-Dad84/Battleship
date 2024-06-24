@@ -59,7 +59,6 @@ function placeComputer (user) {
 })();
 
 //player place ships on board
-
 document.addEventListener('DOMContentLoaded', ()=> {
     const form = document.getElementById('placement')
     form.addEventListener ('submit', function (event) {
@@ -90,8 +89,16 @@ document.addEventListener('DOMContentLoaded', ()=> {
 //Listen for computer board click by player, handler is computer attack
 compContainer.addEventListener ('click', function RandomMove () {
     setTimeout(function RandomMove (){
-        //computer randomly attacks player 1
-        randomAttack(player1);
+        //computer always randomly attacks player 1
+        if (level.value === 'easy'){
+            randomAttack(player1);
+            console.log('level easy');
+        };
+        if (level.value === 'medium'){
+            randomAttack(player1);
+            console.log('level medium');
+        };
+        
         //if a hit save the coordinates
         lastHit (player1, randomRow, randomCol);
 
