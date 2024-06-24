@@ -28,7 +28,8 @@ export function placeShip (ship, cpu) {
       };
    }
    tryAgain();    
-  };
+};
+
 //computer attack random move
 export let randomRow;
 export let randomCol;
@@ -38,13 +39,13 @@ export function randomAttack (user){
     if (user.gb.checkOpenBoard(randomRow, randomCol) === false) {
         randomRow = Math.floor(Math.random() * boardSize);
         randomCol = Math.floor(Math.random() * boardSize);
-        findOpen(randomRow, randomCol)
+        randomAttack(randomRow, randomCol);
     };
 }
 
 
 
-  //
+  //utility function & variables to store last hit
   export let targetRow;
   export let targetCol;
   export function lastHit (user, row, col){
@@ -60,3 +61,7 @@ export function randomAttack (user){
     } else {
         console.log('miss')}
   };
+
+  function seek (enemy, row, col){
+
+  }
