@@ -39,19 +39,19 @@ export function randomAttack (user){
     if (user.gb.checkOpenBoard(randomRow, randomCol) === false) {
         randomRow = Math.floor(Math.random() * boardSize);
         randomCol = Math.floor(Math.random() * boardSize);
-        randomAttack(randomRow, randomCol);
+        randomAttack(user);
     };
 }
 
   //utility function & variables to store last hit
   export let targetRow;
   export let targetCol;
-  export function lastHit (user, row, col){
-    if (user.gb.board[row][col].value === 'C' || 
-        user.gb.board[row][col].value === 'B' || 
-        user.gb.board[row][col].value === 'D' ||
-        user.gb.board[row][col].value === 'S' ||
-        user.gb.board[row][col].value === 'P'  
+  export function lastHit (player, row, col){
+    if (player.gb.board[row][col].value === 'C' || 
+        player.gb.board[row][col].value === 'B' || 
+        player.gb.board[row][col].value === 'D' ||
+        player.gb.board[row][col].value === 'S' ||
+        player.gb.board[row][col].value === 'P'  
     ){
         let targetPoint = user.gb.board[row][col]; 
         targetRow = targetPoint.r
@@ -60,25 +60,26 @@ export function randomAttack (user){
         console.log('miss')}
   };
 
-  function seekAttack (player, row, col){
-    if (player.gb.checkOpenBoard(row + 1, col) === true){
-        randomRow = row + 1;
-        randomCol = col;
-        return
+  export function targetedAttack (player, row, col){
+    switch (true){
+        case player.gb.checkOpenBoard(row + 1, col):
+            randomRow = row + 1;
+            randomCol = col;
+            break;
+        case player.gb.checkOpenBoard(row -1 , col):
+            randomRow = row - 1;
+            randomCol = col;
+            break;
+        case player.gb.checkOpenBoard(row, col + 1):
+            randomRow = row;
+            randomCol = col + 1;
+            break;
+        case player.gb.checkOpenBoard(row, col - 1):
+            randomRow = row;
+            randomCol = col - 1;
+            break;
+        default:
+            randomAttack (player);
     }
-    if (player.gb.checkOpenBoard(row -1 , col) === true){
-        randomRow = row - 1;
-        randomCol = col;
-        return
-    }
-    if (player.gb.checkOpenBoard(row, col + 1) === true){
-        randomRow = row;
-        randomCol = col + 1;
-        return
-    }
-    if (player.gb.checkOpenBoard(row, col - 1) === true){
-        randomRow = row;
-        randomCol = col - 1;
-        return
-    }
+    
 };

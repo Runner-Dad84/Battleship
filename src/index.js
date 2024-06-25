@@ -95,12 +95,12 @@ compContainer.addEventListener ('click', function RandomMove () {
             console.log('level easy');
         };
         if (level.value === 'medium'){
-            randomAttack(player1);
+            targetedAttack(player1);
             console.log('level medium');
         };
         
         //if a hit save the coordinates
-        lastHit (player1, randomRow, randomCol);
+        
 
         player1.gb.receiveAttack(randomRow, randomCol);
         printBoard(player1.gb.board, 'container-p1', player1.gb);
