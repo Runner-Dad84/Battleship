@@ -36,7 +36,7 @@ export let randomCol;
 export function randomAttack (user){
     randomRow = Math.floor(Math.random() * boardSize);
     randomCol = Math.floor(Math.random() * boardSize);
-    if (user.gb.checkOpenBoard(randomRow, randomCol) === false) {
+    if (user.gb.checkOpenBoard(randomRow, randomCol) === 'invalid') {
         randomRow = Math.floor(Math.random() * boardSize);
         randomCol = Math.floor(Math.random() * boardSize);
         randomAttack(user);
@@ -63,7 +63,6 @@ export function randomAttack (user){
   export function targetedAttack (enemy){
     //first move
     if (randomRow  === undefined) {
-        console.log('random');
         return randomAttack (enemy)  
     };
 
@@ -78,49 +77,28 @@ export function randomAttack (user){
         console.log(colPlus);
         console.log(colMinus);
         
-        if (enemy.gb.checkOpenBoard(rowPlus, randomCol) === 'valid'){
+        if (enemy.gb.checkOpenBoard(++randomRow, randomCol) === 'valid'){
             console.log('test condition 1')
             randomRow = rowPlus;
             return
         };
-        if (enemy.gb.checkOpenBoard(rowMinus, randomCol) === 'valid'){
+        if (enemy.gb.checkOpenBoard(--randomRow, randomCol) === 'valid'){
             console.log('test condition 2');
             randomRow = rowMinus;
             return
         };
-        if (enemy.gb.checkOpenBoard(randomRow, colPlus) === 'valid'){
+        if (enemy.gb.checkOpenBoard(randomRow, ++randomCol) === 'valid'){
             console.log('test condition 3');
             randomCol = colPlus;
             return
         }; 
-        if (enemy.gb.checkOpenBoard(randomRow, colMinus) === 'valid'){
+        if (enemy.gb.checkOpenBoard(randomRow, --randomCol) === 'valid'){
             console.log('test condition 4');
             randomCol = colMinus;
             return;
         } else { 
             console.log('Didnt work again!')
             randomAttack (enemy) };
-       
-
-    /*
-    switch (true){
-        case enemy.gb.checkOpenBoard((randomRow + 1), randomCol):
-            randomRow = randomRow + 1;
-            break;
-        case enemy.gb.checkOpenBoard((randomRow - 1), randomCol):
-            randomRow = randomRow - 1;
-            break;
-        case enemy.gb.checkOpenBoard(randomRow, (randomCol + 1)):
-            randomCol = randomCol + 1;
-            break;
-        case enemy.gb.checkOpenBoard(randomRow, (randomCol - 1)):
-            randomCol = randomCol - 1;
-            break;
-        default:
-            console.log('default');
-            randomAttack (enemy);
-    }
-    */
 }
 randomAttack (enemy);
 };
