@@ -41,12 +41,13 @@ export class gameboard {
     }
     
     //utility function
-    checkOpenBoard (r, c){
-        if (this.board[r][c].value === 'X' ||
-        this.board[r][c].value === '!') {
-            console.log('You already fired here!')
-            return false
-        }
+    checkOpenBoard (row, col){
+        if ((row < 0 ) || (row >= boardSize )) { return 'invalid' }
+        if ((col < 0 ) || (col >= boardSize )) { return 'invalid' }
+        if (this.board[row][col].value === 'X' || this.board[row][col].value === '!') {
+            return 'invalid';
+        } else {
+            return 'valid'}
     }
 
     placeNewShip(type, r, c, dir) {

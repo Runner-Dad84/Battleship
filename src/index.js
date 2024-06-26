@@ -2,7 +2,7 @@ import { gameboard,  } from './modules/gameboard.js'
 import { ship } from './modules/ship.js'
 import { humanPlayer, compPlayer } from './modules/player.js'
 import { welcomeForm, printBoard, welcomeFormDOM } from './modules/dom.js'
-import { placeShip, lastHit, randomRow, randomCol, randomAttack } from './modules/computer.js'
+import { placeShip, randomRow, randomCol, randomAttack, targetedAttack } from './modules/computer.js'
 import './styles/gameboard.style.css';
 import './styles/shipform.style.css';
 import './styles/startscreen.style.css';
@@ -89,20 +89,22 @@ document.addEventListener('DOMContentLoaded', ()=> {
 //Listen for computer board click by player, handler is computer attack
 compContainer.addEventListener ('click', function RandomMove () {
     setTimeout(function RandomMove (){
+        
         //computer always randomly attacks player 1
         if (level.value === 'easy'){
             randomAttack(player1);
             console.log('level easy');
+            player1.gb.receiveAttack(randomRow, randomCol);
         };
         if (level.value === 'medium'){
             targetedAttack(player1);
             console.log('level medium');
+            player1.gb.receiveAttack(randomRow, randomCol);
         };
+        console.log(randomRow);
+        console.log(randomCol);
+    
         
-        //if a hit save the coordinates
-        
-
-        player1.gb.receiveAttack(randomRow, randomCol);
         printBoard(player1.gb.board, 'container-p1', player1.gb);
         console.log('computer moves');
     }, 1000);
