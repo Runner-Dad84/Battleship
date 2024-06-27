@@ -65,37 +65,35 @@ export function randomAttack (user){
     if (randomRow  === undefined) {
         return randomAttack (enemy)  
     };
+    let rowPlus =  randomRow + 1;
+    let rowMinus = randomRow -1;
+    let colPlus = randomCol + 1;
+    let colMinus = randomCol -1;
+
+    console.log(rowPlus);
+    console.log(rowMinus);
+    console.log(colPlus);
+    console.log(colMinus)
 
     if (enemy.gb.board[randomRow][randomCol].value === '!') {
         console.log('it was a hit');
-        let rowPlus = randomRow + 1;
-        let rowMinus = randomRow - 1;
-        let colPlus = randomCol + 1;
-        let colMinus = randomCol - 1;
-        console.log(rowPlus);
-        console.log(rowMinus);
-        console.log(colPlus);
-        console.log(colMinus);
         
-        if (enemy.gb.checkOpenBoard(++randomRow, randomCol) === 'valid'){
+        
+        if (enemy.gb.checkOpenBoard(rowPlus, randomCol) === 'valid'){
             console.log('test condition 1')
-            randomRow = rowPlus;
-            return
+            return ++randomRow;
         };
-        if (enemy.gb.checkOpenBoard(--randomRow, randomCol) === 'valid'){
+        if (enemy.gb.checkOpenBoard(rowMinus, randomCol) === 'valid'){
             console.log('test condition 2');
-            randomRow = rowMinus;
-            return
+            return --randomRow;
         };
-        if (enemy.gb.checkOpenBoard(randomRow, ++randomCol) === 'valid'){
+        if (enemy.gb.checkOpenBoard(randomRow, colPlus) === 'valid'){
             console.log('test condition 3');
-            randomCol = colPlus;
-            return
+            return ++randomCol;
         }; 
-        if (enemy.gb.checkOpenBoard(randomRow, --randomCol) === 'valid'){
+        if (enemy.gb.checkOpenBoard(randomRow, colMinus) === 'valid'){
             console.log('test condition 4');
-            randomCol = colMinus;
-            return;
+            return --randomCol;
         } else { 
             console.log('Didnt work again!')
             randomAttack (enemy) };
