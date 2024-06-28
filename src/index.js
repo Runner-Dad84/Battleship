@@ -2,7 +2,7 @@ import { gameboard,  } from './modules/gameboard.js'
 import { ship } from './modules/ship.js'
 import { humanPlayer, compPlayer } from './modules/player.js'
 import { welcomeForm, printBoard, welcomeFormDOM } from './modules/dom.js'
-import { placeShip, randomRow, randomCol, randomAttack, targetedAttack } from './modules/computer.js'
+import { placeShip, randomRow, randomCol, randomAttack, targetedAttack, lastHit, targetCol, targetRow } from './modules/computer.js'
 import './styles/gameboard.style.css';
 import './styles/shipform.style.css';
 import './styles/startscreen.style.css';
@@ -99,10 +99,9 @@ compContainer.addEventListener ('click', function RandomMove () {
         if (level.value === 'medium'){
             targetedAttack(player1);
             console.log('level medium');
+            lastHit(player1, randomRow, randomCol);
             player1.gb.receiveAttack(randomRow, randomCol);
         };
-        console.log(randomRow);
-        console.log(randomCol);
     
         
         printBoard(player1.gb.board, 'container-p1', player1.gb);

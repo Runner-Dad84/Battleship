@@ -46,18 +46,14 @@ export function randomAttack (user){
   //utility function & variables to store last hit
   export let targetRow;
   export let targetCol;
-  export function lastHit (player, row, col){
-    if (player.gb.board[row][col].value === 'C' || 
-        player.gb.board[row][col].value === 'B' || 
-        player.gb.board[row][col].value === 'D' ||
-        player.gb.board[row][col].value === 'S' ||
-        player.gb.board[row][col].value === 'P'  
-    ){
-        let targetPoint = user.gb.board[row][col]; 
-        targetRow = targetPoint.r
-        targetCol = targetPoint.c
+  export function lastHit (enemy, row, col){
+    if (enemy.gb.board[row][col].value === 'C' || 'B' || 'D' || 'S' || 'P'){
+          targetRow = row;
+          targetCol = col;
+        console.log(targetRow);
+        console.log(targetCol);
     } else {
-        console.log('miss')}
+        console.log('no data for hit')}
   };
 
   export function targetedAttack (enemy){
@@ -70,32 +66,20 @@ export function randomAttack (user){
     let colPlus = randomCol + 1;
     let colMinus = randomCol -1;
 
-    console.log(rowPlus);
-    console.log(rowMinus);
-    console.log(colPlus);
-    console.log(colMinus)
-
     if (enemy.gb.board[randomRow][randomCol].value === '!') {
-        console.log('it was a hit');
-        
         
         if (enemy.gb.checkOpenBoard(rowPlus, randomCol) === 'valid'){
-            console.log('test condition 1')
             return ++randomRow;
         };
         if (enemy.gb.checkOpenBoard(rowMinus, randomCol) === 'valid'){
-            console.log('test condition 2');
             return --randomRow;
         };
         if (enemy.gb.checkOpenBoard(randomRow, colPlus) === 'valid'){
-            console.log('test condition 3');
             return ++randomCol;
         }; 
         if (enemy.gb.checkOpenBoard(randomRow, colMinus) === 'valid'){
-            console.log('test condition 4');
             return --randomCol;
         } else { 
-            console.log('Didnt work again!')
             randomAttack (enemy) };
 }
 randomAttack (enemy);
