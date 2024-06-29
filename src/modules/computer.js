@@ -34,6 +34,7 @@ export function placeShip (ship, cpu) {
 export let randomRow;
 export let randomCol;
 export function randomAttack (user){
+    console.log('randomAttack fn')
     randomRow = Math.floor(Math.random() * boardSize);
     randomCol = Math.floor(Math.random() * boardSize);
     if (user.gb.checkOpenBoard(randomRow, randomCol) === 'invalid') {
@@ -47,40 +48,66 @@ export function randomAttack (user){
   export let targetRow;
   export let targetCol;
   export function lastHit (enemy, row, col){
-    if (enemy.gb.board[row][col].value === 'C' || 'B' || 'D' || 'S' || 'P'){
+    if (enemy.gb.board[row][col].value === 'C' || 
+        enemy.gb.board[row][col].value === 'B' ||
+        enemy.gb.board[row][col].value === 'D' ||
+        enemy.gb.board[row][col].value === 'S' ||
+        enemy.gb.board[row][col].value === 'P')
+    {
+        console.log(' lasthit fn - store hit');
+
           targetRow = row;
           targetCol = col;
         console.log(targetRow);
         console.log(targetCol);
     } else {
-        console.log('no data for hit')}
+        console.log('lasthit fn - no data for hit')}
   };
 
   export function targetedAttack (enemy){
+    console.log(targetRow);
+    console.log(targetCol);
     //first move
     if (randomRow  === undefined) {
         return randomAttack (enemy)  
     };
+    //possible adjacent moves from a hit
     let rowPlus =  randomRow + 1;
     let rowMinus = randomRow -1;
     let colPlus = randomCol + 1;
-    let colMinus = randomCol -1;
-
-    if (enemy.gb.board[randomRow][randomCol].value === '!') {
+    let colMinus = randomCol - 1;
+    //If last attack vale was a hit check adjacent moves and pick the first that is open for next move
+    if ((enemy.gb.board[randomRow][randomCol].value === '!')) {
         
         if (enemy.gb.checkOpenBoard(rowPlus, randomCol) === 'valid'){
+            console.log('condition 1');
             return ++randomRow;
         };
         if (enemy.gb.checkOpenBoard(rowMinus, randomCol) === 'valid'){
+            console.log('condition 2');
             return --randomRow;
         };
         if (enemy.gb.checkOpenBoard(randomRow, colPlus) === 'valid'){
+            console.log('condition 3');
             return ++randomCol;
         }; 
         if (enemy.gb.checkOpenBoard(randomRow, colMinus) === 'valid'){
+            console.log('condition 4');
             return --randomCol;
         } else { 
+            console.log('target att fn - reset!');
+            targetRow = "";
+            targetCol = "";
             randomAttack (enemy) };
+    //if there is a stored hit and last move is a miss rerun adjacent checks
+    if (enemy.gb.board[randomRow][randomCol].value === 0){
+            console.log('target att - miss, go back to last hit');
+            return randomAttack(enemy)
+        }
+
 }
-randomAttack (enemy);
+  console.log('target att - default random ')
+  targetRow = "";
+  targetCol = "";
+  randomAttack (enemy);
 };
