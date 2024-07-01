@@ -93,14 +93,15 @@ compContainer.addEventListener ('click', function RandomMove () {
         //computer always randomly attacks player 1
         if (level.value === 'easy'){
             randomAttack(player1);
-            console.log('level easy');
             player1.gb.receiveAttack(randomRow, randomCol);
         };
         if (level.value === 'medium'){
             targetedAttack(player1);
-            console.log('level medium');
             lastHit(player1, randomRow, randomCol);
             player1.gb.receiveAttack(randomRow, randomCol);
+            if (player1.gb.board[randomRow][randomCol].value === 0){
+                console.log('it was a misssss')
+            };
         };
     
         
