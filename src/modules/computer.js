@@ -17,7 +17,7 @@ function randomDir (){
         if (value === 3){ return 'Left' }
 };
 
-//randomly place ship
+//Randomly place ship
 export function placeShip (ship, cpu) {
     function tryAgain (){
       let length = cpu.gb.ships.length;
@@ -30,7 +30,7 @@ export function placeShip (ship, cpu) {
    tryAgain();    
 };
 
-//computer attack random move
+//Computer attack random move
 export let randomRow;
 export let randomCol;
 export function randomAttack (user){
@@ -62,15 +62,36 @@ export function randomAttack (user){
         console.log('lasthit fn - no data for hit')}
   };
 
+  //utility fn - if a ship was sunk last turn go to random attack
+  let lastCount = 0;
+  function postSunkAtt (enemy) {
+    let carSunk = enemy.gb.ships[0].isSunk();
+    let batSunk = enemy.gb.ships[1].isSunk();
+    let disSunk = enemy.gb.ships[2].isSunk();
+    let subSunk = enemy.gb.ships[3].isSunk();
+    let patSunk = enemy.gb.ships[4].isSunk();
+    let ships = [carSunk, batSunk, disSunk, subSunk, patSunk];
+    let countTrue = ships.filter(value => value === true).length
+
+    if (lastCount < countTrue) { 
+        ++lastCount
+        randomAttack (enemy);
+    };
+};
+
   export function targetedAttack (enemy){
-    console.log(targetRow);
-    console.log(targetCol);
-    console.log(typeof targetRow)
+   
+    //console.log(targetRow);
+    //console.log(targetCol);
+    //console.log(typeof targetRow)
    
     //first move
     if (randomRow  === undefined) {
         return randomAttack (enemy)  
     };
+    //check if a ship was sunk last turn
+    postSunkAtt(enemy);
+
     //possible adjacent moves from a hit
     let rowPlus =  randomRow + 1;
     let rowMinus = randomRow -1;
