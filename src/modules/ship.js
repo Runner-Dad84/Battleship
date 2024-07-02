@@ -38,7 +38,7 @@ export class ship {
     isSunk(){
         if (this.damage === this.length){
             return this.sunk = true;
-        }
+        } else { return false }
     }
 };
 
