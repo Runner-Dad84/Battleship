@@ -62,6 +62,24 @@ export function randomAttack (user){
         console.log('lasthit fn - no data for hit')}
   };
 
+  //
+  function targetLine (enemy) {
+    if (savedRow === undefined) {
+        return
+    };
+    if ((enemy.gb.board[randomRow][randomCol].value === '!') && (enemy.gb.board[savedRow][savedCol].value === '!')) {
+        let rowVal = Math.abs(randomRow - savedRow);
+        let colVal = Math.abs(randomCol- savedCol);
+        if (rowVal === 1){
+            console.log('pick rows');
+        }
+        if (colVal === 1){
+            console.log('pick cols');
+        }
+    };
+  }
+
+
   //utility fn - if a ship was sunk last turn go to random attack
   let lastCount = 0;
   function postSunkAtt (enemy) {
@@ -79,6 +97,9 @@ export function randomAttack (user){
     };
 };
 
+  export let savedRow;
+  export let savedCol;
+
   export function targetedAttack (enemy){
    
     //console.log(targetRow);
@@ -92,13 +113,23 @@ export function randomAttack (user){
     //check if a ship was sunk last turn
     postSunkAtt(enemy);
 
+    targetLine(enemy);
+
     //possible adjacent moves from a hit
-    let rowPlus =  randomRow + 1;
-    let rowMinus = randomRow -1;
-    let colPlus = randomCol + 1;
-    let colMinus = randomCol - 1;
+    let rowPlus;
+    let rowMinus;
+    let colPlus;
+    let colMinus;
+
     //If last attack was a hit check adjacent moves and pick the first that is open for next move
     if ( (enemy.gb.board[randomRow][randomCol].value === '!') ) {
+        savedRow = randomRow;
+        savedCol = randomCol;
+
+        rowPlus =  randomRow + 1;
+        rowMinus = randomRow -1;
+        colPlus = randomCol + 1;
+        colMinus = randomCol - 1;
         
         if (enemy.gb.checkOpenBoard(rowPlus, randomCol) === 'valid'){
             console.log('condition 1');
@@ -117,6 +148,7 @@ export function randomAttack (user){
             return --randomCol;
         };
     };
+    
     
 
     //if there is a stored hit and last move is a miss rerun adjacent checks
@@ -147,8 +179,8 @@ export function randomAttack (user){
                 console.log('condition 4');
                 return --randomCol;
             } 
-        }
-
+    }
+    
   console.log('target att - default random ')
   targetRow = "";
   targetCol = "";
