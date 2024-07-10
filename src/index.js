@@ -2,7 +2,7 @@ import { gameboard,  } from './modules/gameboard.js'
 import { ship } from './modules/ship.js'
 import { humanPlayer, compPlayer } from './modules/player.js'
 import { welcomeForm, printBoard, welcomeFormDOM } from './modules/dom.js'
-import { placeShip, randomRow, randomCol, randomAttack, targetedAttack, lastHit, targetCol, targetRow } from './modules/computer.js'
+import { placeShip, randomRow, randomCol, randomAttack, targetedAttack, lastHit, storedHit , targetCol, targetRow, savedRow, savedCol } from './modules/computer.js'
 import './styles/gameboard.style.css';
 import './styles/shipform.style.css';
 import './styles/startscreen.style.css';
@@ -90,21 +90,21 @@ document.addEventListener('DOMContentLoaded', ()=> {
 compContainer.addEventListener ('click', function RandomMove () {
     setTimeout(function RandomMove (){
         
-        //computer always randomly attacks player 1
+        //Level easy - computer always randomly attacks player 1
         if (level.value === 'easy'){
             randomAttack(player1);
             player1.gb.receiveAttack(randomRow, randomCol);
         };
+        //Level medium - computer will check adjacent spaces
         if (level.value === 'medium'){
+            console.log(`randomRow ${randomRow} randomCol ${randomCol}`)
+            console.log(`savedRow ${savedRow} savedCol ${savedCol} `)
+            console.log(`targetdRow ${targetRow} targetCol ${targetCol} `)
+            
             targetedAttack(player1);
             lastHit(player1, randomRow, randomCol);
             player1.gb.receiveAttack(randomRow, randomCol);
-            if (player1.gb.board[randomRow][randomCol].value === 0){
-                console.log('it was a misssss')
-            };
         };
-    
-        
         printBoard(player1.gb.board, 'container-p1', player1.gb);
         console.log('computer moves');
     }, 1000);

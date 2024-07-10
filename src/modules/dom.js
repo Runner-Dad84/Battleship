@@ -85,7 +85,7 @@ export function printBoard (board, container, player){
         }
     }
     arrayShips = player.ships;
-    console.log(arrayShips);
+    //console.log(arrayShips);
 }
 
 

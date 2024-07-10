@@ -45,8 +45,8 @@ export function randomAttack (user){
 }
 
   //utility function & variables to store last hit
-  export let targetRow;
-  export let targetCol;
+  export let targetRow = undefined;
+  export let targetCol = undefined;
   export function lastHit (enemy, row, col){
     if (enemy.gb.board[row][col].value === 'C' || 
         enemy.gb.board[row][col].value === 'B' ||
@@ -62,23 +62,18 @@ export function randomAttack (user){
         console.log('lasthit fn - no data for hit')}
   };
 
-  //
-  function targetLine (enemy) {
-    if (savedRow === undefined) {
+  export let savedRow = undefined;
+  export let savedCol = undefined;
+  export function storedHit (row, col) {
+    if (typeof targetRow === 'number'){
+        savedRow = row;
+        savedCol = col;
         return
+    } else {
+        savedRow = undefined;
+        savedCol = undefined;
     };
-    if ((enemy.gb.board[randomRow][randomCol].value === '!') && (enemy.gb.board[savedRow][savedCol].value === '!')) {
-        let rowVal = Math.abs(randomRow - savedRow);
-        let colVal = Math.abs(randomCol- savedCol);
-        if (rowVal === 1){
-            console.log('pick rows');
-        }
-        if (colVal === 1){
-            console.log('pick cols');
-        }
-    };
-  }
-
+  };
 
   //utility fn - if a ship was sunk last turn go to random attack
   let lastCount = 0;
@@ -93,18 +88,28 @@ export function randomAttack (user){
 
     if (lastCount < countTrue) { 
         ++lastCount
+        targetCol = undefined;
+        targetRow = undefined;
+        savedRow = undefined;
+        savedCol = undefined;
         randomAttack (enemy);
     };
 };
 
-  export let savedRow;
-  export let savedCol;
+//utility fn - check space adjacent to attack for next attack
+function adjacent (enemy, row, col) {
+    if (enemy.gb.checkOpenBoard(rowPlus, randomCol) === 'valid'){
+        return ++randomRow;
+    }
+};
+
+  //possible adjacent moves from a hit
+  let rowPlus;
+  let rowMinus;
+  let colPlus;
+  let colMinus;
 
   export function targetedAttack (enemy){
-   
-    //console.log(targetRow);
-    //console.log(targetCol);
-    //console.log(typeof targetRow)
    
     //first move
     if (randomRow  === undefined) {
@@ -113,44 +118,73 @@ export function randomAttack (user){
     //check if a ship was sunk last turn
     postSunkAtt(enemy);
 
-    targetLine(enemy);
-
-    //possible adjacent moves from a hit
-    let rowPlus;
-    let rowMinus;
-    let colPlus;
-    let colMinus;
-
-    //If last attack was a hit check adjacent moves and pick the first that is open for next move
-    if ( (enemy.gb.board[randomRow][randomCol].value === '!') ) {
-        savedRow = randomRow;
-        savedCol = randomCol;
-
+    //If last attack was a hit
+    if (enemy.gb.board[randomRow][randomCol].value === '!') {
+        
         rowPlus =  randomRow + 1;
         rowMinus = randomRow -1;
         colPlus = randomCol + 1;
         colMinus = randomCol - 1;
         
-        if (enemy.gb.checkOpenBoard(rowPlus, randomCol) === 'valid'){
+        //if there is not a saved hit check each of the adjacent spots
+        if (savedRow === undefined) {
+            
+            if (enemy.gb.checkOpenBoard(rowPlus, randomCol) === 'valid'){
+            storedHit(targetRow, targetCol);
             console.log('condition 1');
             return ++randomRow;
-        };
-        if (enemy.gb.checkOpenBoard(rowMinus, randomCol) === 'valid'){
+            };
+            if (enemy.gb.checkOpenBoard(rowMinus, randomCol) === 'valid'){
+            storedHit(targetRow, targetCol);
             console.log('condition 2');
             return --randomRow;
-        };
-        if (enemy.gb.checkOpenBoard(randomRow, colPlus) === 'valid'){
+            };
+            if (enemy.gb.checkOpenBoard(randomRow, colPlus) === 'valid'){
+            storedHit(targetRow, targetCol);
             console.log('condition 3');
             return ++randomCol;
-        }; 
-        if (enemy.gb.checkOpenBoard(randomRow, colMinus) === 'valid'){
+            }; 
+            if (enemy.gb.checkOpenBoard(randomRow, colMinus) === 'valid'){
+            storedHit(targetRow, targetCol);
             console.log('condition 4');
             return --randomCol;
         };
+        //if there are two hits check to see if adjacent spot on the co/row is open
+       } else {
+            let rowVal = Math.abs(randomRow - savedRow);
+            let colVal = Math.abs(randomCol- savedCol);
+    
+            console.log('stored and random value');
+            
+            rowPlus =  randomRow + 1;
+            rowMinus = randomRow -1;
+            colPlus = randomCol + 1;
+            colMinus = randomCol - 1;
+            
+            if (rowVal > 0){
+                console.log('pick rows');
+                if (enemy.gb.checkOpenBoard(rowPlus, randomCol) === 'valid'){
+                    console.log('condition 1b');
+                    return ++randomRow;
+                };
+                if (enemy.gb.checkOpenBoard(rowMinus, randomCol) === 'valid'){
+                    console.log('condition 2b');
+                    return --randomRow;
+                };
+            }
+            if (colVal > 0){
+                if (enemy.gb.checkOpenBoard(randomRow, colPlus) === 'valid'){
+                    console.log('condition 3b');
+                    return ++randomCol;
+                }; 
+                if (enemy.gb.checkOpenBoard(randomRow, colMinus) === 'valid'){
+                    console.log('condition 4b');
+                    return --randomCol;
+                };
+            }
+        }
     };
     
-    
-
     //if there is a stored hit and last move is a miss rerun adjacent checks
     if ( (enemy.gb.board[randomRow][randomCol].value === 'X') && (typeof targetRow === 'number') ) {
             console.log('target att - miss, go back to last hit');
@@ -180,9 +214,9 @@ export function randomAttack (user){
                 return --randomCol;
             } 
     }
-    
+
   console.log('target att - default random ')
-  targetRow = "";
-  targetCol = "";
+  targetRow = undefined;
+  targetCol = undefined;
   randomAttack (enemy);
 };
