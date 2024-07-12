@@ -1,8 +1,11 @@
-#deployed {
+#deployed-p1,
+#deployed-com {
+    display: none;
     flex-direction: column;
 }
 
-#shipDamage {
+#shipDamage-p1,
+#shipDamage-com {
     background-color: blue;
     background-image: linear-gradient(to right, blue 90%, red 10%);
     display: flex;
@@ -11,7 +14,8 @@
     flex-basis: auto;
     align-items: center;
 }
-.shipDiv {
+.shipDiv-p1,
+.shipDiv-com {
     border-radius: 90%;
     border: 1px solid black;
     height: 2vh;
@@ -19,7 +23,8 @@
     background: lightseagreen;
 }
 
-.damaged {
+.damaged-p1,
+.damaged-com {
     border-radius: 90%;
     border: 1px solid black;
     height: 2vh;

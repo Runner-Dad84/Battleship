@@ -85,46 +85,58 @@ export function printBoard (board, container, player){
         }
     }
     arrayShips = player.ships;
-    //console.log(arrayShips);
 }
 
 
-(function shipBtnHander (){
+function shipBtnHander (btnClass, suffix){
     const placement = document.getElementById('placement');
     const shipType = document.getElementById('formTitle');
     const placeBtn = document.getElementById('placeBtn');
-    const deployed = document.getElementById('deployed')
-    const shipButtons = document.querySelectorAll('.p1');
+    const deployed = document.getElementById('deployed-' + suffix)
+    const shipButtons = document.querySelectorAll(btnClass);
+    const damageContainer = document.createElement('div');
+
+    deployed.appendChild(damageContainer);
+
 
 shipButtons.forEach(btn => {
     btn.addEventListener('click', (event)=> {
         let dataShipType = event.target.getAttribute('data-ship-type');
         let dataShipLength = event.target.getAttribute('data-ship-length');
-        shipType.innerText = dataShipType;
+        
         placement.style.display = 'grid';
-        deployed.style.display = 'none';
         //if ship has been placed already display ship stats
        if (arrayShips.some(ship => ship.type === dataShipType)){
-        document.getElementById('deployTitle').innerText = dataShipType;
+        damageContainer.innerHTML = '';
+        shipType.innerText = dataShipType;
+        document.getElementById('deployTitle-' + suffix).innerText = dataShipType;
         placement.style.display = 'none';
         deployed.style.display = 'flex';
 
         const targetShip = arrayShips.find(ship => ship.type === dataShipType);
         let damage = targetShip.damage;
-        shipDamage.innerHTML = '';
-
+        
+        
         for (let i = 0; i < (dataShipLength - damage); i++){
             let shipDiv = document.createElement('div');
-            shipDiv.classList.add('shipDiv');
-            shipDamage.appendChild(shipDiv);
+            shipDiv.classList.add('shipDiv-' + suffix);
+            damageContainer.appendChild(shipDiv);
         }
         for (let j = 0; j < damage; j++){
             let damaged = document.createElement('div');
-            damaged.classList.add('damaged');
-            shipDamage.appendChild(damaged);
+            damaged.classList.add('damaged-' + suffix);
+            damageContainer.appendChild(damaged);
             
         };
         }
     })
 })
-})();
+};
+
+(function (fn) {
+    fn ('.p1', 'p1');
+})(shipBtnHander);
+
+(function (fn) {
+    fn ('.com', 'com');
+})(shipBtnHander);

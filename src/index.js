@@ -105,7 +105,9 @@ compContainer.addEventListener ('click', function RandomMove () {
             lastHit(player1, randomRow, randomCol);
             player1.gb.receiveAttack(randomRow, randomCol);
         };
+        
         printBoard(player1.gb.board, 'container-p1', player1.gb);
+        //printBoard(computer.gb.board, 'container-p2', computer.gb);
         console.log('computer moves');
     }, 1000);
 });
