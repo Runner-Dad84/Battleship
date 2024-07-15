@@ -9,11 +9,28 @@
     <h3>Computer</h3>
     <div id="container-p2"></div>
     <div class="ships">
-      <button class="com" data-ship-type="Carrier">Carrier</button>
-      <button class="com" data-ship-type="Battleship">Battleship</button>
-      <button class="com" data-ship-type="Destroyer">Destroyer</button>
-      <button class="com" data-ship-type="Submarine">Submarine</button>
-      <button class="com" data-ship-type="Patrol Boat">Patrol Boat</button>
+      <button class="com" data-ship-type="Carrier" data-ship-length=5>Carrier</button>
+      <button class="com" data-ship-type="Battleship" data-ship-length=4>Battleship</button>
+      <button class="com" data-ship-type="Destroyer" data-ship-length=3>Destroyer</button>
+      <button class="com" data-ship-type="Submarine" data-ship-length=3>Submarine</button>
+      <button class="com" data-ship-type="Patrol Boat" data-ship-length=2>Patrol Boat</button>
+    </div>
+    <div class="shipStats">
+      <div class="comShip">
+        <h2>Carrier</h2>
+      </div>
+      <div class="comShip">
+        <h2>Battleship</h2>
+      </div>
+      <div class="comShip">
+        <h2>Destroyer</h2>
+      </div>
+      <div class="comShip">
+        <h2>Submarine</h2>
+      </div>
+      <div class="comShip">
+        <h2>Patrol Boat</h2>
+      </div>
     </div>
     <h3 id="playerName"></h3>
     <div id="container-p1"></div>
@@ -24,7 +41,27 @@
       <button class="p1" id="p1-S" data-ship-type="Submarine" data-ship-length=3>Submarine</button>
       <button class="p1" id="p1-P" data-ship-type="Patrol Boat" data-ship-length=2>Patrol Boat</button>
     </div>
+    <div class="shipStats">
+      <div class="comShip">
+        <h2>Carrier</h2>
+      </div>
+      <div class="comShip">
+        <h2>Battleship</h2>
+      </div>
+      <div class="comShip">
+        <h2>Destroyer</h2>
+      </div>
+      <div class="comShip">
+        <h2>Submarine</h2>
+      </div>
+      <div class="comShip">
+        <h2>Patrol Boat</h2>
+      </div>
+    </div>
     <button id="random">Random Deployment</button>
+
+
+
 <div id="startscreen">
   <img src="" alt="">
   <form id="welcome" title="welcome">
@@ -66,9 +103,14 @@
     <button type="submit" id="placeBtn">Deploy Ship</button>
 </form>
 
-<div id="deployed">
-    <h1 id="deployTitle">Ship Title</h1>
-    <div id="shipDamage"></div>
+<div id="deployed-com">
+    <h1 id="deployTitle-com">Ship Title</h1>
+    <div id="shipDamage-com"></div>
+</div>
+
+<div id="deployed-p1">
+  <h1 id="deployTitle-p1">Ship Title</h1>
+  <div id="shipDamage-p1"></div>
 </div>
 
 </body>
