@@ -88,7 +88,7 @@ export function printBoard (board, container, player){
 }
 
 //Ship buttons hander to display form with correct title
-export function shipBtnHander (){
+export function shipBtnHandler (){
     const shipButtons = document.querySelectorAll('.p1');
     const placement = document.getElementById('placement');
     const formTitle = document.getElementById('formTitle');

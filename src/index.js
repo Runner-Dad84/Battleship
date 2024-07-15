@@ -1,12 +1,13 @@
 import { gameboard,  } from './modules/gameboard.js'
 import { ship } from './modules/ship.js'
 import { humanPlayer, compPlayer } from './modules/player.js'
-import { welcomeForm, printBoard, welcomeFormDOM } from './modules/dom.js'
+import { welcomeForm, printBoard, welcomeFormDOM, shipBtnHandler, getShips } from './modules/dom.js'
 import { placeShip, randomRow, randomCol, randomAttack, targetedAttack, lastHit, storedHit , targetCol, targetRow, savedRow, savedCol } from './modules/computer.js'
 import './styles/gameboard.style.css';
 import './styles/shipform.style.css';
 import './styles/startscreen.style.css';
 import './styles/buttons.style.css';
+
 
 export let player1;
 export let computer;
@@ -70,8 +71,8 @@ document.addEventListener('DOMContentLoaded', ()=> {
         player1.gb.placeNewShip(shipType, row, col, direction);
         printBoard(player1.gb.board, 'container-p1', player1.gb);
         form.style.display = 'none';
-        document.getElementById('deployed').style = 'none';
     })})
+
 
 //listen for player turn
 let playerContainer = document.getElementById('container-p1');
@@ -107,12 +108,13 @@ compContainer.addEventListener ('click', function RandomMove () {
         };
         
         printBoard(player1.gb.board, 'container-p1', player1.gb);
-        //printBoard(computer.gb.board, 'container-p2', computer.gb);
+        shipBtnHander('.p1', 'p1');
+        
         console.log('computer moves');
     }, 1000);
 });
 
-
+shipBtnHandler();
 
 //console.log(computer.gb.ships);
 
