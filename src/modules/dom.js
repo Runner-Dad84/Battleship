@@ -1,5 +1,5 @@
-//import { gameboard } from './gameboard.js'
-import { player1, boardSize } from '../index.js'
+import { player1, computer, boardSize } from '../index.js'
+import { gameboard } from './gameboard.js';
 
 //DOM related functionality for submit on welcome form
 export function welcomeFormDOM (){
@@ -16,7 +16,7 @@ export function welcomeFormDOM (){
 };
 
 
-let arrayShips;
+export let arrayShips = [];
 
 //print player/ computer gameboard
 export function printBoard (board, container, player){
@@ -87,15 +87,36 @@ export function printBoard (board, container, player){
     arrayShips = player.ships;
 }
 
+//Ship buttons hander to display form with correct title
+export function shipBtnHander (){
+    const shipButtons = document.querySelectorAll('.p1');
+    const placement = document.getElementById('placement');
+    const formTitle = document.getElementById('formTitle');
+    
+    shipButtons.forEach(btn => {
+        btn.addEventListener('click', (event)=> {
+            placement.style.display = 'grid';
+            let dataShipType = event.target.getAttribute('data-ship-type');
+            formTitle.innerText = dataShipType;
 
-function shipBtnHander (btnClass, suffix){
+            //if ship has been placed
+            if (arrayShips.some(ship => ship.type === dataShipType)){
+            placement.style.display = 'none';
+    }})})}
+
+
+
+
+
+/*
+export function shipBtnHander (btnClass, suffix){
     const placement = document.getElementById('placement');
     const shipType = document.getElementById('formTitle');
     const placeBtn = document.getElementById('placeBtn');
     const deployed = document.getElementById('deployed-' + suffix)
     const shipButtons = document.querySelectorAll(btnClass);
     const damageContainer = document.createElement('div');
-
+    damageContainer.classList.add('damContain-suffix');
     deployed.appendChild(damageContainer);
 
 
@@ -103,11 +124,17 @@ shipButtons.forEach(btn => {
     btn.addEventListener('click', (event)=> {
         let dataShipType = event.target.getAttribute('data-ship-type');
         let dataShipLength = event.target.getAttribute('data-ship-length');
+        console.log(arrayShips);
         
         placement.style.display = 'grid';
-        //if ship has been placed already display ship stats
-       if (arrayShips.some(ship => ship.type === dataShipType)){
-        damageContainer.innerHTML = '';
+        //if ship has been placed
+       
+        if (arrayShips.some(ship => ship.type === dataShipType)){
+
+
+
+
+        damageContainer.innerHTML = "";
         shipType.innerText = dataShipType;
         document.getElementById('deployTitle-' + suffix).innerText = dataShipType;
         placement.style.display = 'none';
@@ -133,10 +160,15 @@ shipButtons.forEach(btn => {
 })
 };
 
+//Note: Need to move the ships array outside IEF otherwise the function is called without reference to the array
+/*
 (function (fn) {
-    fn ('.p1', 'p1');
+    printBoard(player1.gb.board, 'container-p1', player1.gb);
+    fn (player1, '.p1', 'p1');
 })(shipBtnHander);
 
 (function (fn) {
-    fn ('.com', 'com');
+    printBoard(computer.gb.board, 'container-p1', computer.gb);
+    fn (computer, '.com', 'com');
 })(shipBtnHander);
+*/
