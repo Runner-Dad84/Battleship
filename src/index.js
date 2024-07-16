@@ -54,6 +54,7 @@ function placeComputer (user) {
         placeComputer(player1);
         printBoard(computer.gb.board, 'container-p2', computer.gb);
         printBoard(player1.gb.board, 'container-p1', player1.gb);
+        //remove all buttons
         randomBtn.remove();
         removeShipBtns ();
     })
@@ -63,6 +64,7 @@ function placeComputer (user) {
 //player place ships on board
 document.addEventListener('DOMContentLoaded', ()=> {
     const form = document.getElementById('placement')
+    const randomBtn = document.getElementById('random');
     form.addEventListener ('submit', function (event) {
         event.preventDefault();
         const row = document.getElementById('shipRow').value;
@@ -72,7 +74,9 @@ document.addEventListener('DOMContentLoaded', ()=> {
         player1.gb.placeNewShip(shipType, row, col, direction);
         printBoard(player1.gb.board, 'container-p1', player1.gb);
         form.style.display = 'none';
+        //remove all buttons if all five ships placed
         removeShipBtns();
+        randomBtn.remove()
     })})
 
 
