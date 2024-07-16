@@ -7,7 +7,9 @@
 </head>
 <body>
     <h3>Computer</h3>
+    <!--Computer gameboard div-->
     <div id="container-p2"></div>
+    <!--Computer ship display div-->
     <div class="shipStats">
       <div class="comShip">
         <h2>Carrier</h2>
@@ -26,7 +28,9 @@
       </div>
     </div>
     <h3 id="playerName"></h3>
+    <!--Player gameboard div-->
     <div id="container-p1"></div>
+    <!--Player temporary ship placement buttons-->
     <div id="shipButtons">
       <button class="p1" id="p1-C" data-ship-type="Carrier" data-ship-length=5>Carrier</button>
       <button class="p1" id="p1-B" data-ship-type="Battleship" data-ship-length=4 >Battleship</button>
@@ -34,6 +38,8 @@
       <button class="p1" id="p1-S" data-ship-type="Submarine" data-ship-length=3>Submarine</button>
       <button class="p1" id="p1-P" data-ship-type="Patrol Boat" data-ship-length=2>Patrol Boat</button>
     </div>
+    <button id="random">Random Deployment</button>
+    <!--Player ship display div-->
     <div class="shipStats">
       <div class="comShip">
         <h2>Carrier</h2>
@@ -51,10 +57,7 @@
         <h2>Patrol Boat</h2>
       </div>
     </div>
-    <button id="random">Random Deployment</button>
-
-
-
+<!-- Start screen is first menu screen -->
 <div id="startscreen">
   <img src="" alt="">
   <form id="welcome" title="welcome">
@@ -74,9 +77,7 @@
    <button type="submit" id="startBtn">Start</button>
   </form>
 </div>
-
-
-
+<!-- placyer form that appears on button press to place each ship-->
 <form id="placement" title="Place Ship">
     <h1 id="formTitle">Ship Title</h1>
     
@@ -95,16 +96,5 @@
     </select>
     <button type="submit" id="placeBtn">Deploy Ship</button>
 </form>
-
-<div id="deployed-com">
-    <h1 id="deployTitle-com">Ship Title</h1>
-    <div id="shipDamage-com"></div>
-</div>
-
-<div id="deployed-p1">
-  <h1 id="deployTitle-p1">Ship Title</h1>
-  <div id="shipDamage-p1"></div>
-</div>
-
 </body>
 </html>
