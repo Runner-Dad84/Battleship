@@ -1,7 +1,7 @@
 import { gameboard,  } from './modules/gameboard.js'
 import { ship } from './modules/ship.js'
 import { humanPlayer, compPlayer } from './modules/player.js'
-import { welcomeForm, printBoard, welcomeFormDOM, shipBtnHandler, getShips } from './modules/dom.js'
+import { welcomeForm, printBoard, welcomeFormDOM, shipBtnHandler, removeShipBtns } from './modules/dom.js'
 import { placeShip, randomRow, randomCol, randomAttack, targetedAttack, lastHit, storedHit , targetCol, targetRow, savedRow, savedCol } from './modules/computer.js'
 import './styles/gameboard.style.css';
 import './styles/shipform.style.css';
@@ -55,6 +55,7 @@ function placeComputer (user) {
         printBoard(computer.gb.board, 'container-p2', computer.gb);
         printBoard(player1.gb.board, 'container-p1', player1.gb);
         randomBtn.remove();
+        removeShipBtns ();
     })
 
 })();
@@ -71,6 +72,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
         player1.gb.placeNewShip(shipType, row, col, direction);
         printBoard(player1.gb.board, 'container-p1', player1.gb);
         form.style.display = 'none';
+        removeShipBtns();
     })})
 
 

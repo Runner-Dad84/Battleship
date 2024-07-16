@@ -102,8 +102,15 @@ export function shipBtnHandler (){
             //if ship has been placed
             if (arrayShips.some(ship => ship.type === dataShipType)){
             placement.style.display = 'none';
-    }})})}
+}})})}
 
+
+export function removeShipBtns () {
+    if (arrayShips.length === 5){
+        let shipBtns = document.getElementById('shipButtons');
+        shipBtns.remove();
+    }
+}
 
 
 
@@ -159,16 +166,4 @@ shipButtons.forEach(btn => {
     })
 })
 };
-
-//Note: Need to move the ships array outside IEF otherwise the function is called without reference to the array
-/*
-(function (fn) {
-    printBoard(player1.gb.board, 'container-p1', player1.gb);
-    fn (player1, '.p1', 'p1');
-})(shipBtnHander);
-
-(function (fn) {
-    printBoard(computer.gb.board, 'container-p1', computer.gb);
-    fn (computer, '.com', 'com');
-})(shipBtnHander);
 */
