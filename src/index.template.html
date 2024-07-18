@@ -3,9 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test 1</title>
+    <title>Battleship</title>
+    <style>
+      #mainpage {
+        background-color: black;
+        display: none;
+      }
+      #startscreen {
+        background-color: black;
+      }
+      #placement {
+        display: none;
+      }
+    </style>
+    <script>
+      document.addEventListener('DOMConentLoaded', () => {
+        document.getElementById('startscreen').style.display = "block";
+        document.getElementById('welcome').style.display = "block";
+      });
+    </script>
 </head>
 <body>
+  <div id="mainpage">
     <h3>Computer</h3>
     <!--Computer gameboard div-->
     <div id="container-p2"></div>
@@ -57,6 +76,7 @@
         <h2>Patrol Boat</h2>
       </div>
     </div>
+  </div>
 <!-- Start screen is first menu screen -->
 <div id="startscreen">
   <img src="" alt="">

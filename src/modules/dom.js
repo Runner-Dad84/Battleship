@@ -5,7 +5,7 @@ import { gameboard } from './gameboard.js';
 export function welcomeFormDOM (){
     const welcomeForm = document.getElementById('welcome');
     const startScreen = document.getElementById('startscreen');
-    
+    const mainPage = document.getElementById('mainpage');    
     //print player name
     let name = document.getElementById('name').value;
     document.getElementById('playerName').textContent = name;
@@ -13,6 +13,10 @@ export function welcomeFormDOM (){
     //remove start screen and welcome form
     welcomeForm.style.display = 'none';
     startScreen.style.display = 'none';
+    //reveal the main page
+    mainPage.style.display = 'block';
+    mainPage.style.backgroundColor = 'white';
+    
 };
 
 

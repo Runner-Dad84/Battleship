@@ -16,13 +16,11 @@ export let computer;
 export let boardSize;
 const level = document.getElementById('level');
 
+
 (function welcomeForm (){
-    document.addEventListener('DOMContentLoaded', ()=> {
+   // document.addEventListener('DOMContentLoaded', ()=> {
         const welcomeForm = document.getElementById('welcome');
         
-        window.onload = function () {
-            welcomeForm.style.display = 'block';
-        };
         welcomeForm.addEventListener ('submit', function (event) {
             event.preventDefault();
             boardSize = document.getElementById('size').value;
@@ -36,7 +34,7 @@ const level = document.getElementById('level');
             printBoard(computer.gb.board, 'container-p2', computer.gb);
             printBoard(player1.gb.board, 'container-p1', player1.gb);
             welcomeFormDOM();
-    })})
+    })
 })();
 
 //place user ships randomly
