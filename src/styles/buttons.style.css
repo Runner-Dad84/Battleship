@@ -1,5 +1,4 @@
 
-
 #deployed-p1,
 #deployed-com {
     display: none;
@@ -16,6 +15,26 @@
     flex-basis: auto;
     align-items: center;
 }
+
+
+/* Ships stat displays - may consider moving to a separate style sheet*/
+
+.p1Ship {
+    width: 15vw;
+    margin: 1.5em;
+    padding-left: 0.5em;
+    display: flex;
+    flex-direction: column;
+    background-color: gray;
+    border-radius: 5px;
+    border: 2px black;
+}
+
+.stats {
+    display: flex;
+    
+}
+
 .life {
     border-radius: 90%;
     border: 1px solid black;
