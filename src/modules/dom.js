@@ -116,7 +116,7 @@ export function removeShipBtns () {
     }
 }
 
-export function printStats (player, ship, suffix) {
+export function printStats (player, ship, suffix, prefix) {
     //ship data
     const fleet = player.gb.ships;
     const thisShip = fleet.find(target => target.type === ship);
@@ -125,10 +125,9 @@ export function printStats (player, ship, suffix) {
     //containers for life-damage
 
     const damDiv = document.createElement('div');
-    const statsDiv = document.getElementById('stat-' + suffix);
+    const statsDiv = document.getElementById(prefix + '-stat-' + suffix);
 
     statsDiv.innerHTML = "";
-
 
     for (let i = 0; i < (length - damage); i++){
         let life = document.createElement('div');
@@ -141,7 +140,6 @@ export function printStats (player, ship, suffix) {
         statsDiv.appendChild(damaged);
     }
     
-
 }
 
 
