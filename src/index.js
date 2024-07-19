@@ -1,7 +1,7 @@
 import { gameboard,  } from './modules/gameboard.js'
 import { ship } from './modules/ship.js'
 import { humanPlayer, compPlayer } from './modules/player.js'
-import { welcomeForm, printBoard, welcomeFormDOM, shipBtnHandler, removeShipBtns, printStats } from './modules/dom.js'
+import { welcomeForm, printBoard, welcomeFormDOM, shipBtnHandler, removeShipBtns, printShipStats , printStats } from './modules/dom.js'
 import { placeShip, randomRow, randomCol, randomAttack, targetedAttack, lastHit, storedHit , targetCol, targetRow, savedRow, savedCol } from './modules/computer.js'
 import './styles/gameboard.style.css';
 import './styles/shipform.style.css';
@@ -41,8 +41,8 @@ const level = document.getElementById('level');
 function placeComputer (user) {
     placeShip ('Carrier', user);
     placeShip ('Battleship', user);
-    placeShip ('Submarine', user);
     placeShip ('Destroyer', user);
+    placeShip ('Submarine', user);
     placeShip ('Patrol Boat', user);
 };
 //Place player ships randomly on button push
@@ -88,6 +88,10 @@ document.addEventListener('DOMContentLoaded', ()=> {
         console.log('player moves');
         printBoard(computer.gb.board, 'container-p2', computer.gb);
         printStats(player1, 'Carrier', 'C', 'p1');
+        printStats(player1, 'Battleship', 'B', 'p1');
+        printStats(player1, 'Destroyer', 'D', 'p1');
+        printStats(player1, 'Submarine', 'S', 'p1');
+        printStats(player1, 'Patrol Boat', 'P', 'p1');
     })
 
 }
