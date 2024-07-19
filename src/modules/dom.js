@@ -120,78 +120,23 @@ export function printStats (player, ship, suffix, prefix) {
     //ship data
     const fleet = player.gb.ships;
     const thisShip = fleet.find(target => target.type === ship);
+    console.log(fleet);
     const length = thisShip.length;
     const damage = thisShip.damage;
     //containers for life-damage
-
     const damDiv = document.createElement('div');
     const statsDiv = document.getElementById(prefix + '-stat-' + suffix);
-
+    //prevent reprinting prior data
     statsDiv.innerHTML = "";
-
+    //print damage and life
+    for (let j = 0; j < damage; j++){
+        let damaged = document.createElement('div');
+        damaged.classList.add('damaged');
+        statsDiv.appendChild(damaged);
+    }    
     for (let i = 0; i < (length - damage); i++){
         let life = document.createElement('div');
         life.classList.add('life');
         statsDiv.appendChild(life);
     }
-    for (let j = 0; j < damage; j++){
-        let damaged = document.createElement('div');
-        damaged.classList.add('damaged');
-        statsDiv.appendChild(damaged);
-    }
-    
-}
-
-
-/*
-export function shipBtnHander (btnClass, suffix){
-    const placement = document.getElementById('placement');
-    const shipType = document.getElementById('formTitle');
-    const placeBtn = document.getElementById('placeBtn');
-    const deployed = document.getElementById('deployed-' + suffix)
-    const shipButtons = document.querySelectorAll(btnClass);
-    const damageContainer = document.createElement('div');
-    damageContainer.classList.add('damContain-suffix');
-    deployed.appendChild(damageContainer);
-
-
-shipButtons.forEach(btn => {
-    btn.addEventListener('click', (event)=> {
-        let dataShipType = event.target.getAttribute('data-ship-type');
-        let dataShipLength = event.target.getAttribute('data-ship-length');
-        console.log(arrayShips);
-        
-        placement.style.display = 'grid';
-        //if ship has been placed
-       
-        if (arrayShips.some(ship => ship.type === dataShipType)){
-
-
-
-
-        damageContainer.innerHTML = "";
-        shipType.innerText = dataShipType;
-        document.getElementById('deployTitle-' + suffix).innerText = dataShipType;
-        placement.style.display = 'none';
-        deployed.style.display = 'flex';
-
-        const targetShip = arrayShips.find(ship => ship.type === dataShipType);
-        let damage = targetShip.damage;
-        
-        
-        for (let i = 0; i < (dataShipLength - damage); i++){
-            let shipDiv = document.createElement('div');
-            shipDiv.classList.add('shipDiv-' + suffix);
-            damageContainer.appendChild(shipDiv);
-        }
-        for (let j = 0; j < damage; j++){
-            let damaged = document.createElement('div');
-            damaged.classList.add('damaged-' + suffix);
-            damageContainer.appendChild(damaged);
-            
-        };
-        }
-    })
-})
 };
-*/
