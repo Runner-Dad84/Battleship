@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
     compContainer.addEventListener ('click', ()=> {
         console.log('player moves');
         printBoard(computer.gb.board, 'container-p2', computer.gb);
-        printStats(player1);
+        printStats(player1, 'Carrier', 'C');
     })
 
 }

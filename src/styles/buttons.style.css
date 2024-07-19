@@ -6,7 +6,7 @@
     flex-direction: column;
 }
 
-#shipDamage-p1,
+#shipDamaged,
 #shipDamage-com {
     background-color: blue;
     background-image: linear-gradient(to right, blue 90%, red 10%);
@@ -16,8 +16,7 @@
     flex-basis: auto;
     align-items: center;
 }
-.shipDiv-p1,
-.shipDiv-com {
+.life {
     border-radius: 90%;
     border: 1px solid black;
     height: 2vh;
@@ -25,8 +24,7 @@
     background: lightseagreen;
 }
 
-.damaged-p1,
-.damaged-com {
+.damaged {
     border-radius: 90%;
     border: 1px solid black;
     height: 2vh;

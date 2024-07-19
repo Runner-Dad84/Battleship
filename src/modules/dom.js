@@ -108,7 +108,7 @@ export function shipBtnHandler (){
             placement.style.display = 'none';
 }})})}
 
-
+//if all ships placed remove buttons
 export function removeShipBtns () {
     if (arrayShips.length === 5){
         let shipBtns = document.getElementById('shipButtons');
@@ -116,7 +116,33 @@ export function removeShipBtns () {
     }
 }
 
+export function printStats (player, ship, suffix) {
+    //ship data
+    const fleet = player.gb.ships;
+    const thisShip = fleet.find(target => target.type === ship);
+    const length = thisShip.length;
+    const damage = thisShip.damage;
+    //containers for life-damage
 
+    const damDiv = document.createElement('div');
+    const statsDiv = document.getElementById('stat-' + suffix);
+
+    statsDiv.innerHTML = "";
+
+
+    for (let i = 0; i < (length - damage); i++){
+        let life = document.createElement('div');
+        life.classList.add('life');
+        statsDiv.appendChild(life);
+    }
+    for (let j = 0; j < damage; j++){
+        let damaged = document.createElement('div');
+        damaged.classList.add('damaged');
+        statsDiv.appendChild(damaged);
+    }
+    
+
+}
 
 
 /*
