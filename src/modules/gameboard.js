@@ -180,7 +180,7 @@ export class gameboard {
         if (this.board[r][c].value === 'S'){
             this.ships[3].hit();
         }
-        //if hit submarine record hit
+        //if hit patrol boat record hit
         if (this.board[r][c].value === 'P'){
             this.ships[4].hit();
         }
