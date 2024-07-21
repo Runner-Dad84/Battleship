@@ -87,11 +87,6 @@ document.addEventListener('DOMContentLoaded', ()=> {
     compContainer.addEventListener ('click', ()=> {
         console.log('player moves');
         printBoard(computer.gb.board, 'container-p2', computer.gb);
-        printStats(player1, 'Carrier', 'C', 'p1');
-        printStats(player1, 'Battleship', 'B', 'p1');
-        printStats(player1, 'Destroyer', 'D', 'p1');
-        printStats(player1, 'Submarine', 'S', 'p1');
-        printStats(player1, 'Patrol Boat', 'P', 'p1');
     })
 
 }
@@ -115,8 +110,15 @@ compContainer.addEventListener ('click', function RandomMove () {
             lastHit(player1, randomRow, randomCol);
             player1.gb.receiveAttack(randomRow, randomCol);
         };
-        
+        //print player ship stats
+        printStats(player1, 'Carrier', 'C', 'p1');
+        printStats(player1, 'Battleship', 'B', 'p1');
+        printStats(player1, 'Destroyer', 'D', 'p1');
+        printStats(player1, 'Submarine', 'S', 'p1');
+        printStats(player1, 'Patrol Boat', 'P', 'p1');
+        //print player boad
         printBoard(player1.gb.board, 'container-p1', player1.gb);
+        //Displays form pacement upon btn press
         shipBtnHandler('.p1', 'p1');
         
         console.log('computer moves');
