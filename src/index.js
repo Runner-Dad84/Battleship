@@ -86,6 +86,11 @@ let compContainer = document.getElementById('container-p2');
 document.addEventListener('DOMContentLoaded', ()=> {
     compContainer.addEventListener ('click', ()=> {
         console.log('player moves');
+        printStats(computer, 'Carrier', 'C', 'com');
+        printStats(computer, 'Battleship', 'B', 'com');
+        printStats(computer, 'Destroyer', 'D', 'com');
+        printStats(computer, 'Submarine', 'S', 'com');
+        printStats(computer, 'Patrol Boat', 'P', 'com');
         printBoard(computer.gb.board, 'container-p2', computer.gb);
     })
 
