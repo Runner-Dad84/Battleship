@@ -156,6 +156,8 @@ export class gameboard {
         
     }
     receiveAttack (r, c) {
+        let fleet = this.ships;
+        let thisShip;
         //if already miss record another miss
         if (this.board[r][c].value === 'X'){
             return this.board[r][c].value = 'X';
@@ -166,23 +168,33 @@ export class gameboard {
         }
         //if hit carrier record hit
         if (this.board[r][c].value === 'C'){
-            this.ships[0].hit();
+            thisShip = fleet.find(target => target.id === 'C');
+            let index = (fleet.indexOf(thisShip));
+            this.ships[index].hit();
         }
         //if hit batteship record hit
         if (this.board[r][c].value === 'B'){
-            this.ships[1].hit();
+            thisShip = fleet.find(target => target.id === 'B');
+            let index = (fleet.indexOf(thisShip));
+            this.ships[index].hit();
         }
         //if hit destoryer record hit
         if (this.board[r][c].value === 'D'){
-            this.ships[2].hit();
+            thisShip = fleet.find(target => target.id === 'D');
+            let index = (fleet.indexOf(thisShip));
+            this.ships[index].hit();
         }
         //if hit submarine record hit
         if (this.board[r][c].value === 'S'){
-            this.ships[3].hit();
+            thisShip = fleet.find(target => target.id === 'S');
+            let index = (fleet.indexOf(thisShip));
+            this.ships[index].hit();
         }
         //if hit patrol boat record hit
         if (this.board[r][c].value === 'P'){
-            this.ships[4].hit();
+            thisShip = fleet.find(target => target.id === 'P');
+            let index = (fleet.indexOf(thisShip));
+            this.ships[index].hit();
         }
         //record hit to board
         return this.board[r][c].value = '!';
