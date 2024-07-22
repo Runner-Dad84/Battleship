@@ -19,7 +19,7 @@
 
 /* Ships stat displays - may consider moving to a separate style sheet*/
 
-.p1Ship {
+.p1Ship, .comShip {
     width: 15vw;
     margin: 1.5em;
     padding-left: 0.5em;
