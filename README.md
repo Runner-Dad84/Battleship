@@ -41,12 +41,42 @@ Actions
 (3) New Player Turn
 
 
+
 index = current spot (number space of the ship index)
 start = start position of ship
 end = end of ship (start + ship.length)
 Ex. adding positions
 if (start + index < end) {run code}
 
+Computer Smart
+If computer misses, guess again randomly
+If computer hits at [x, y] store as HIT
+If computer hit last turn:
+  Check [x+1, y]
+  Check [x-1, y]
+  Check [x, y+1]
+  Check [x, y+1]
+If hit again:
+  Compare HIT [x, y] to [x2, y2]
+  If x - x2 = 1
+    Check [x2 - 1, y]
+  If x - x2 = -1
+    Check [x2 + 1, y]
+
+
+
+
+Link for reference
+Carrier
+<a href="https://www.flaticon.com/free-icons/aircraft-carrier" title="aircraft carrier icons">Aircraft carrier icons created by max.icons - Flaticon</a>
+Battleship
+<a href="https://www.flaticon.com/free-icons/warship" title="warship icons">Warship icons created by Leremy - Flaticon</a>
+Destroyer
+<a href="https://www.flaticon.com/free-icons/ship" title="ship icons">Ship icons created by Leremy - Flaticon</a>
+Submarine
+<a href="https://www.flaticon.com/free-icons/submarine" title="submarine icons">Submarine icons created by Leremy - Flaticon</a>
+Patro Boat
+<a href="https://www.freepik.com/icon/ship_13966302#fromView=search&page=3&position=22&uuid=d57b3d53-e7c6-4a4f-b2e6-ff734f01d42a">Icon by Grafixpoint</a>
 
 
 
