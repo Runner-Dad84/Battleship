@@ -30,6 +30,7 @@
     border: .25em solid black;
 }
 
+
 .stats {
     display: flex;
     
@@ -51,13 +52,13 @@
     background: red;
 }
 
-#p1-stat-C, #p1-stat-B, #p1-stat-D, #p1-stat-S, #p1-stat-P {
+#p1-stat-C, #p1-stat-B, #p1-stat-D, #p1-stat-S, #p1-stat-P, #com-stat-C, #com-stat-B, #com-stat-D, #com-stat-S, #com-stat-P {
     display: flex;
     justify-content: space-around;
 
 }
 
-#p1-C, #p1-B, #p1-S, #p1-D, #p1-P   {
+#p1-C, #p1-B, #p1-S, #p1-D, #p1-P, #com-C, #com-B, #com-D, #com-S, #com-P   {
     text-align: center;
     color: white;
     font-weight: bolder;
@@ -67,27 +68,27 @@
     padding: 1em;
 }
 
-#p1-C {
+#p1-C, #com-C {
     background-image: url('../images/carrier.png');
     background-size: 75%;
 }
 
-#p1-B {
+#p1-B, #com-B {
     background-image: url('../images/battleship.png');
     background-size: 100%;
 }
 
-#p1-S {
+#p1-S, #com-S {
     background-image: url('../images/submarine.png');
     background-size: 100%;
 }
 
-#p1-D {
+#p1-D, #com-D {
     background-image: url('../images/destroyer.png');
     background-size: 100%;
 }
 
-#p1-P {
+#p1-P, #com-P {
     background-image: url('../images/patrol.png');
     background-size: 50%;
 }
