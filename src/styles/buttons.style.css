@@ -51,7 +51,7 @@
     background: red;
 }
 
-#p1-stat-S {
+#p1-stat-C, #p1-stat-B, #p1-stat-D, #p1-stat-S, #p1-stat-P {
     display: flex;
     justify-content: space-around;
 
