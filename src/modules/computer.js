@@ -1,5 +1,6 @@
 import { gameboard } from '../modules/gameboard.js'
 import { ship } from '../modules/ship.js'
+import { arrayShips } from '../modules/dom.js'
 import { boardSize } from '../index.js'
 
 //Utility function, random row/col
@@ -17,6 +18,7 @@ function randomDir (){
         if (value === 3){ return 'Left' }
 };
 
+
 //Randomly place ship
 export function placeShip (ship, cpu) {
     function tryAgain (){
@@ -27,7 +29,7 @@ export function placeShip (ship, cpu) {
           tryAgain();
       };
    }
-   tryAgain();    
+   tryAgain();
 };
 
 //Computer attack random move
