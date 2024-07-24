@@ -25,9 +25,9 @@
     padding-left: 0.5em;
     display: flex;
     flex-direction: column;
-    background-color: gray;
+    background-color: rgb(3, 115, 167);
     border-radius: 5px;
-    border: 2px black;
+    border: .25em solid black;
 }
 
 .stats {
@@ -40,14 +40,14 @@
     border: .1em solid black;
     height: 1.5em;
     width: 1.5em;
-    background: lightseagreen;
+    background: green;
 }
 
 .damaged {
-    border-radius: 50%;
+    border-radius: 100%;
     border: 1px solid black;
-    height: 2vh;
-    width: 2vw;
+    height: 1.5em;
+    width: 1.5em;
     background: red;
 }
 
@@ -60,6 +60,7 @@
 #p1-C, #p1-B, #p1-S, #p1-D, #p1-P   {
     text-align: center;
     color: white;
+    font-weight: bolder;
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
