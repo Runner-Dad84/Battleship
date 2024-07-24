@@ -36,17 +36,59 @@
 }
 
 .life {
-    border-radius: 90%;
-    border: 1px solid black;
-    height: 2vh;
-    width: 2vw;
+    border-radius: 100%;
+    border: .1em solid black;
+    height: 1.5em;
+    width: 1.5em;
     background: lightseagreen;
 }
 
 .damaged {
-    border-radius: 90%;
+    border-radius: 50%;
     border: 1px solid black;
     height: 2vh;
     width: 2vw;
     background: red;
 }
+
+#p1-stat-S {
+    display: flex;
+    justify-content: space-around;
+
+}
+
+#p1-C, #p1-B, #p1-S, #p1-D, #p1-P   {
+    text-align: center;
+    color: white;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 1em;
+}
+
+#p1-C {
+    background-image: url('../images/carrier.png');
+    background-size: 75%;
+}
+
+#p1-B {
+    background-image: url('../images/battleship.png');
+    background-size: 100%;
+}
+
+#p1-S {
+    background-image: url('../images/submarine.png');
+    background-size: 100%;
+}
+
+#p1-D {
+    background-image: url('../images/destroyer.png');
+    background-size: 100%;
+}
+
+#p1-P {
+    background-image: url('../images/patrol.png');
+    background-size: 50%;
+}
+
+
