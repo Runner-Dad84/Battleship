@@ -77,6 +77,9 @@ Submarine
 <a href="https://www.flaticon.com/free-icons/submarine" title="submarine icons">Submarine icons created by Leremy - Flaticon</a>
 Patro Boat
 <a href="https://www.freepik.com/icon/ship_13966302#fromView=search&page=3&position=22&uuid=d57b3d53-e7c6-4a4f-b2e6-ff734f01d42a">Icon by Grafixpoint</a>
-
+hit
+<a href="https://www.flaticon.com/free-icons/explosion" title="explosion icons">Explosion icons created by Grafixpoint - Flaticon</a>
+Destroyer
+<a href="https://www.flaticon.com/free-icons/warship" title="warship icons">Warship icons created by smashingstocks - Flaticon</a>
 
 
