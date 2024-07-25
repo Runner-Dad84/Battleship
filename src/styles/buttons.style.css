@@ -49,11 +49,11 @@
 }
 
 .damaged {
-    border-radius: 100%;
-    border: 1px solid black;
-    height: 1.5em;
-    width: 1.5em;
-    background: red;
+    height: 2em;
+    width: 2em;
+    background-position: center;
+    background-size: contain;
+    background-image: url('../images/hit.png')
 }
 
 #p1-stat-C, #p1-stat-B, #p1-stat-D, #p1-stat-S, #p1-stat-P, #com-stat-C, #com-stat-B, #com-stat-D, #com-stat-S, #com-stat-P {
