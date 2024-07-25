@@ -58,6 +58,7 @@ export function printBoard (board, container, player){
             element.textContent === 'S' || 
             element.textContent === 'P'){
                 element.classList.add('boat');
+                element.classList.add(element.textContent);
             }
             
             element.dataset.row = cell.r;
