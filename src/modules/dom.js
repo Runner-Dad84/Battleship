@@ -92,6 +92,41 @@ export function printBoard (board, container, player){
     arrayShips = player.ships;
 }
 
+export function printBoardShips (prefix){
+    let minGridRow = 1000;
+    let maxGridRow = -1000;
+
+    let minGridCol = 1000;
+    let maxGridCol = -1000;
+
+    const targets = document.querySelectorAll(`.${prefix}`);
+    targets.forEach(target => {
+        
+        let currentGridRow = target.dataset.row;
+        if (currentGridRow < minGridRow) {
+            minGridRow = currentGridRow;
+        }
+        if (currentGridRow > maxGridRow) {
+            maxGridRow = currentGridRow;
+        }
+
+        let currentGridCol = target.dataset.col;
+        if (currentGridCol < minGridCol) {
+            minGridCol = currentGridCol;
+        }
+        if (currentGridCol > maxGridCol) {
+            maxGridCol = currentGridCol;
+        }
+
+    }
+)
+console.log(minGridRow);
+console.log(maxGridRow);
+console.log(minGridCol);
+console.log(maxGridCol);
+};
+
+
 //Ship buttons hander to display form with correct title
 export function shipBtnHandler (){
     const shipButtons = document.querySelectorAll('.p1');
