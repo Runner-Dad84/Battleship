@@ -1,7 +1,7 @@
 import { gameboard,  } from './modules/gameboard.js'
 import { ship } from './modules/ship.js'
 import { humanPlayer, compPlayer } from './modules/player.js'
-import { welcomeForm, printBoard, welcomeFormDOM, shipBtnHandler, removeShipBtns, printShipStats , printStats } from './modules/dom.js'
+import { welcomeForm, printBoard, welcomeFormDOM, shipBtnHandler, removeShipBtns, printShipStats , printStats, printBoardShips } from './modules/dom.js'
 import { placeShip, randomRow, randomCol, randomAttack, targetedAttack, lastHit, storedHit , targetCol, targetRow, savedRow, savedCol } from './modules/computer.js'
 import './styles/gameboard.style.css';
 import './styles/shipform.style.css';
@@ -33,6 +33,7 @@ const level = document.getElementById('level');
             //print boards
             printBoard(computer.gb.board, 'container-p2', computer.gb);
             printBoard(player1.gb.board, 'container-p1', player1.gb);
+            printBoardShips('B');
             welcomeFormDOM();
     })
 })();
@@ -71,6 +72,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
         const direction = document.getElementById('direction').value;
         player1.gb.placeNewShip(shipType, row, col, direction);
         printBoard(player1.gb.board, 'container-p1', player1.gb);
+        printBoardShips('B');
         form.style.display = 'none';
         //remove all buttons if all five ships placed
         removeShipBtns();
@@ -92,6 +94,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
         printStats(computer, 'Submarine', 'S', 'com');
         printStats(computer, 'Patrol Boat', 'P', 'com');
         printBoard(computer.gb.board, 'container-p2', computer.gb);
+        printBoardShips('B');
     })
 
 }
@@ -123,6 +126,7 @@ compContainer.addEventListener ('click', function RandomMove () {
         printStats(player1, 'Patrol Boat', 'P', 'p1');
         //print player boad
         printBoard(player1.gb.board, 'container-p1', player1.gb);
+        printBoardShips('B');
         //Displays form pacement upon btn press
         shipBtnHandler('.p1', 'p1');
         

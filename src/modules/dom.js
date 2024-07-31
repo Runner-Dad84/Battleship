@@ -93,38 +93,85 @@ export function printBoard (board, container, player){
 }
 
 export function printBoardShips (prefix){
+    
+    //call min/max outside the possibe range
     let minGridRow = 1000;
     let maxGridRow = -1000;
 
     let minGridCol = 1000;
     let maxGridCol = -1000;
-
+    
+    //return the max/min row/col for ship location
     const targets = document.querySelectorAll(`.${prefix}`);
+    const shipLength = targets.length;
     targets.forEach(target => {
         
         let currentGridRow = target.dataset.row;
         if (currentGridRow < minGridRow) {
-            minGridRow = currentGridRow;
+            minGridRow = parseInt(currentGridRow) + 1;
         }
         if (currentGridRow > maxGridRow) {
-            maxGridRow = currentGridRow;
+            maxGridRow = parseInt(currentGridRow) + 1;
         }
 
         let currentGridCol = target.dataset.col;
         if (currentGridCol < minGridCol) {
-            minGridCol = currentGridCol;
+            minGridCol = parseInt(currentGridCol) + 1;
         }
         if (currentGridCol > maxGridCol) {
-            maxGridCol = currentGridCol;
+            maxGridCol = parseInt(currentGridCol) + 1;
         }
-
     }
 )
+
+
 console.log(minGridRow);
-console.log(maxGridRow);
 console.log(minGridCol);
+console.log(maxGridRow);
 console.log(maxGridCol);
+
+
+let container = document.getElementById('container-p2');
+let shipOverlay = document.createElement('div');
+shipOverlay.id = (`overlay-${prefix}`);
+
+//vertical
+if (minGridCol === maxGridCol){
+    let rowEnd = minGridRow + shipLength;
+    shipOverlay.style.gridColumnStart = minGridCol;
+    shipOverlay.style.gridColumnEnd = minGridCol + 1;
+    shipOverlay.style.gridRowStart = minGridRow;
+    shipOverlay.style.gridRowEnd = rowEnd;
+    console.log(rowEnd);
+//horizontal
+} else {
+    let colEnd =  minGridCol + shipLength;
+    shipOverlay.style.gridRowStart = minGridRow;
+    shipOverlay.style.gridRowEnd = minGridRow + 1;
+    shipOverlay.style.gridColumnStart = minGridCol;
+    shipOverlay.style.gridColumnEnd = colEnd;
+    
+    console.log(colEnd);
+}
+/*
+shipOverlay.style.gridColumnStart =  minGridCol;
+shipOverlay.style.gridColumnEnd = maxGridCol;
+shipOverlay.style.gridRowStart = minGridRow;
+shipOverlay.style.gridRowEnd = maxGridRow;
+*/
+
+//let targetGrid = document.querySelector(`.${prefix}`);
+
+console.log(shipOverlay);
+console.log(container);
+console.log(targets.length);
+
+
+container.appendChild(shipOverlay);
+
 };
+
+
 
 
 //Ship buttons hander to display form with correct title
