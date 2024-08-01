@@ -83,5 +83,6 @@ Battleship2
 <a href="https://www.flaticon.com/free-icons/warship" title="warship icons">Warship icons created by smashingstocks - Flaticon</a>
 Destoryer2
 <a href="https://www.freepik.com/icon/battleship_6175583#fromView=search&page=2&position=88&uuid=a90330a0-d278-4c8c-a00f-eb054f11ccaa">Icon by smashingstocks</a>
-
+Submarine2
+<a href="https://www.flaticon.com/free-icons/submarine" title="submarine icons">Submarine icons created by smashingstocks - Flaticon</a>
 
