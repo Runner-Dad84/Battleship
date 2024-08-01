@@ -135,9 +135,12 @@ let container = document.getElementById('container-p2');
 let shipOverlay = document.createElement('div');
 shipOverlay.id = (`overlay-${prefix}`);
 
+
 //vertical
 if (minGridCol === maxGridCol){
     let rowEnd = minGridRow + shipLength;
+    shipOverlay.classList.add(`vert-overlay-${prefix}`);
+
     shipOverlay.style.gridColumnStart = minGridCol;
     shipOverlay.style.gridColumnEnd = minGridCol + 1;
     shipOverlay.style.gridRowStart = minGridRow;
@@ -146,21 +149,16 @@ if (minGridCol === maxGridCol){
 //horizontal
 } else {
     let colEnd =  minGridCol + shipLength;
+    shipOverlay.classList.add(`horz-overlay-${prefix}`);
+
     shipOverlay.style.gridRowStart = minGridRow;
     shipOverlay.style.gridRowEnd = minGridRow + 1;
     shipOverlay.style.gridColumnStart = minGridCol;
     shipOverlay.style.gridColumnEnd = colEnd;
-    
+
     console.log(colEnd);
 }
-/*
-shipOverlay.style.gridColumnStart =  minGridCol;
-shipOverlay.style.gridColumnEnd = maxGridCol;
-shipOverlay.style.gridRowStart = minGridRow;
-shipOverlay.style.gridRowEnd = maxGridRow;
-*/
 
-//let targetGrid = document.querySelector(`.${prefix}`);
 
 console.log(shipOverlay);
 console.log(container);
