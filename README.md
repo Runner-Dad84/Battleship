@@ -79,7 +79,9 @@ Patro Boat
 <a href="https://www.freepik.com/icon/ship_13966302#fromView=search&page=3&position=22&uuid=d57b3d53-e7c6-4a4f-b2e6-ff734f01d42a">Icon by Grafixpoint</a>
 hit
 <a href="https://www.flaticon.com/free-icons/explosion" title="explosion icons">Explosion icons created by Grafixpoint - Flaticon</a>
-Destroyer
+Battleship2
 <a href="https://www.flaticon.com/free-icons/warship" title="warship icons">Warship icons created by smashingstocks - Flaticon</a>
+Destoryer2
+<a href="https://www.freepik.com/icon/battleship_6175583#fromView=search&page=2&position=88&uuid=a90330a0-d278-4c8c-a00f-eb054f11ccaa">Icon by smashingstocks</a>
 
 
