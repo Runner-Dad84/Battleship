@@ -4,7 +4,6 @@
     grid-template-columns: 4fr 1fr;
 }
 
-
 #container-p1,
 #container-p2 {
     position: relative;
@@ -44,8 +43,8 @@
     background-size: cover;
 }
 
-#container-p1 .boat,
-#container-p2 .boat {
+#container-p1 .boat
+/*#container-p2 .boat */ {
     background-color: darkgray;
 }
 
@@ -54,6 +53,7 @@
     background-color: rgb(109, 109, 244);
 }
 
+/*Ship icons on board*/
 #overlay-B {
     pointer-events: none;
     display: grid;
@@ -61,11 +61,19 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 130%;
+    height: 100%;
     background: url('../images/Battleship2.png');
-    background-size: 100% 100%;
+    background-size: 100% 120%;
     background-repeat: no-repeat;
+}
+
+.horz-overlay-B {
+    height: 130%;
     transform: rotate(-8deg);
     transform-origin: center;
-    outline: 2px solid red;
+}
+
+.vert-overlay-B {
+    transform: translateY(-10%);
+    
 }
