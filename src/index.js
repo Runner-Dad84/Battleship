@@ -33,7 +33,11 @@ const level = document.getElementById('level');
             //print boards
             printBoard(computer.gb.board, 'container-p2', computer.gb);
             printBoard(player1.gb.board, 'container-p1', player1.gb);
+            printBoardShips('P');
             printBoardShips('B');
+            printBoardShips('D');
+            printBoardShips('S');
+            printBoardShips('C');
             welcomeFormDOM();
     })
 })();

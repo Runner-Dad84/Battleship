@@ -115,3 +115,50 @@
     transform-origin: center;
 }
 
+#overlay-P {
+    pointer-events: none;
+    display: grid;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../images/Patrol2.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+/*
+.horz-overlay-P {
+    transform: rotate(-20deg);
+    transform-origin: center;
+}
+
+.horz-overlay-P {
+    transform: rotate(-20deg);
+    transform-origin: center;
+}
+*/
+
+#overlay-C {
+    pointer-events: none;
+    display: grid;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: url('../images/carrier2.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.horz-overlay-C {
+    height: 120%;
+    transform: rotate(-8deg);
+    transform-origin: center;
+    
+}
+
+.vert-overlay-C {
+    height: 100%
+}
+
+

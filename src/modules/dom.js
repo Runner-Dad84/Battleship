@@ -92,8 +92,8 @@ export function printBoard (board, container, player){
     arrayShips = player.ships;
 }
 
-export function printBoardShips (prefix){
-    
+//Creates overlay of ship onto board
+export function printBoardShips (prefix){ 
     //call min/max outside the possibe range
     let minGridRow = 1000;
     let maxGridRow = -1000;
@@ -108,68 +108,46 @@ export function printBoardShips (prefix){
         
         let currentGridRow = target.dataset.row;
         if (currentGridRow < minGridRow) {
-            minGridRow = parseInt(currentGridRow) + 1;
+            minGridRow = parseInt(currentGridRow);
         }
         if (currentGridRow > maxGridRow) {
-            maxGridRow = parseInt(currentGridRow) + 1;
+            maxGridRow = parseInt(currentGridRow);
         }
-
         let currentGridCol = target.dataset.col;
         if (currentGridCol < minGridCol) {
-            minGridCol = parseInt(currentGridCol) + 1;
+            minGridCol = parseInt(currentGridCol);
         }
         if (currentGridCol > maxGridCol) {
-            maxGridCol = parseInt(currentGridCol) + 1;
+            maxGridCol = parseInt(currentGridCol);
         }
+        
     }
 )
-
-
-console.log(minGridRow);
-console.log(minGridCol);
-console.log(maxGridRow);
-console.log(maxGridCol);
-
-
 let container = document.getElementById('container-p2');
 let shipOverlay = document.createElement('div');
 shipOverlay.id = (`overlay-${prefix}`);
 
-
+//Add 1 to all for conversion from squares to grid lines
+//Add 2 to any single length orientation
 //vertical
 if (minGridCol === maxGridCol){
-    let rowEnd = minGridRow + shipLength;
+    let rowEnd = minGridRow + shipLength + 1;
     shipOverlay.classList.add(`vert-overlay-${prefix}`);
-
-    shipOverlay.style.gridColumnStart = minGridCol;
-    shipOverlay.style.gridColumnEnd = minGridCol + 1;
-    shipOverlay.style.gridRowStart = minGridRow;
+    shipOverlay.style.gridColumnStart = minGridCol + 1;
+    shipOverlay.style.gridColumnEnd = minGridCol + 2;
+    shipOverlay.style.gridRowStart = minGridRow + 1;
     shipOverlay.style.gridRowEnd = rowEnd;
-    console.log(rowEnd);
 //horizontal
 } else {
-    let colEnd =  minGridCol + shipLength;
+    let colEnd =  minGridCol + shipLength + 1;
     shipOverlay.classList.add(`horz-overlay-${prefix}`);
-
-    shipOverlay.style.gridRowStart = minGridRow;
-    shipOverlay.style.gridRowEnd = minGridRow + 1;
-    shipOverlay.style.gridColumnStart = minGridCol;
+    shipOverlay.style.gridRowStart = minGridRow + 1;
+    shipOverlay.style.gridRowEnd = minGridRow + 2;
+    shipOverlay.style.gridColumnStart = minGridCol + 1;
     shipOverlay.style.gridColumnEnd = colEnd;
-
-    console.log(colEnd);
 }
-
-
-console.log(shipOverlay);
-console.log(container);
-console.log(targets.length);
-
-
 container.appendChild(shipOverlay);
-
 };
-
-
 
 
 //Ship buttons hander to display form with correct title
