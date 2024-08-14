@@ -58,6 +58,7 @@ export function printBoard (board, container, player){
             element.textContent === 'S' || 
             element.textContent === 'P'){
                 element.classList.add('boat');
+                element.classList.add(container);
                 element.classList.add(element.textContent);
             }
             
@@ -93,7 +94,7 @@ export function printBoard (board, container, player){
 }
 
 //Creates overlay of ship onto board
-export function printBoardShips (prefix){ 
+export function printBoardShips (prefix, targetBoard){ 
     //call min/max outside the possibe range
     let minGridRow = 1000;
     let maxGridRow = -1000;
@@ -102,7 +103,7 @@ export function printBoardShips (prefix){
     let maxGridCol = -1000;
     
     //return the max/min row/col for ship location
-    const targets = document.querySelectorAll(`.${prefix}`);
+    const targets = document.querySelectorAll(`.${targetBoard}.${prefix}`);
     const shipLength = targets.length;
     targets.forEach(target => {
         
@@ -123,7 +124,7 @@ export function printBoardShips (prefix){
         
     }
 )
-let container = document.getElementById('container-p2');
+let container = document.getElementById(targetBoard);
 let shipOverlay = document.createElement('div');
 shipOverlay.id = (`overlay-${prefix}`);
 
