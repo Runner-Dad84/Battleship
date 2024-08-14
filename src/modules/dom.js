@@ -128,10 +128,11 @@ let container = document.getElementById(targetBoard);
 let shipOverlay = document.createElement('div');
 shipOverlay.id = (`overlay-${prefix}`);
 
+//if no values do not overlay - used for player placement
+if (minGridRow === 1000){return};
 //Add 1 to all for conversion from squares to grid lines
 //Add 2 to any single length orientation
 //vertical
-if (minGridRow === 1000){return console.log('no value')};
 if (minGridCol === maxGridCol){
     let rowEnd = minGridRow + shipLength + 1;
     shipOverlay.classList.add(`vert-overlay-${prefix}`);
