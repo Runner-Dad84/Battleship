@@ -149,6 +149,14 @@ if (minGridCol === maxGridCol){
 }
 container.appendChild(shipOverlay);
 };
+//function to overlay all player ships
+export function playerShipOverlay (){
+    printBoardShips('P', 'container-p1');
+    printBoardShips('B', 'container-p1');
+    printBoardShips('D', 'container-p1');
+    printBoardShips('S', 'container-p1');
+    printBoardShips('C', 'container-p1');
+}
 
 
 //Ship buttons hander to display form with correct title
