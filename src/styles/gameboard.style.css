@@ -35,21 +35,31 @@
     color: white;
 }
 
-#container-p1 .hit,
-#container-p2 .hit {
-    background-image: url('../images/Smoke.jpg');
-    background-size: cover;
-}
 
 #container-p1 .boat,
 #container-p2 .boat {
-    background-color: darkgray;
+    outline: red;
 }
 
 #container-p1 .miss,
 #container-p2 .miss {
     background-color: rgb(109, 109, 244);
 }
+
+#container-p1 .C-HIT,
+#container-p1 .B-HIT,
+#container-p1 .D-HIT,
+#container-p1 .S-HIT,
+#container-p1 .P-HIT,
+#container-p2 .C-HIT,
+#container-p2 .B-HIT,
+#container-p2 .D-HIT,
+#container-p2 .S-HIT,
+#container-p2 .P-HIT {
+    background-image: url('../images/hit.png');
+    background-size: cover;
+}
+
 
 /*Ship icons on board*/
 #overlay-B {
@@ -60,7 +70,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('../images/Battleship2.png');
+    background-image: url('../images/Battleship2.png');
     background-size: 100% 120%;
     background-repeat: no-repeat;
 }
@@ -160,5 +170,4 @@
 .vert-overlay-C {
     height: 100%
 }
-
 

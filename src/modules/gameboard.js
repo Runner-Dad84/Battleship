@@ -44,7 +44,13 @@ export class gameboard {
     checkOpenBoard (row, col){
         if ((row < 0 ) || (row >= boardSize )) { return 'invalid' }
         if ((col < 0 ) || (col >= boardSize )) { return 'invalid' }
-        if (this.board[row][col].value === 'X' || this.board[row][col].value === '!') {
+        if (this.board[row][col].value === 'X' || 
+            this.board[row][col].value === 'C-HIT' ||
+            this.board[row][col].value === 'B-HIT' ||
+            this.board[row][col].value === 'D-HIT' ||
+            this.board[row][col].value === 'S-HIT' ||
+            this.board[row][col].value === 'P-HIT'
+        ){
             return 'invalid';
         } else {
             return 'valid'}
@@ -197,7 +203,8 @@ export class gameboard {
             this.ships[index].hit();
         }
         //record hit to board
-        return this.board[r][c].value = '!';
+        let shipHit = this.board[r][c].value;
+        return this.board[r][c].value = `${shipHit}-HIT`;
     }
     checkSunk (){
         let status = [];

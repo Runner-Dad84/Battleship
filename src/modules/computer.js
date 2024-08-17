@@ -121,7 +121,12 @@ function adjacent (enemy, row, col) {
     postSunkAtt(enemy);
 
     //If last attack was a hit
-    if (enemy.gb.board[randomRow][randomCol].value === '!') {
+    if (enemy.gb.board[randomRow][randomCol].value === 'C-HIT' ||
+        enemy.gb.board[randomRow][randomCol].value === 'B-HIT' ||
+        enemy.gb.board[randomRow][randomCol].value === 'D-HIT' ||
+        enemy.gb.board[randomRow][randomCol].value === 'S-HIT' ||
+        enemy.gb.board[randomRow][randomCol].value === 'P-HIT'
+    ) {
         
         rowPlus =  randomRow + 1;
         rowMinus = randomRow -1;

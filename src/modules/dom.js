@@ -19,7 +19,6 @@ export function welcomeFormDOM (){
     
 };
 
-
 export let arrayShips = [];
 
 //print player/ computer gameboard
@@ -45,16 +44,32 @@ export function printBoard (board, container, player){
             if (element.textContent === '0') {
                 element.classList.add('cell');
             };
-            if (element.textContent === '!') {
-                element.classList.add('hit');
-            };
+            if (element.textContent === 'C-HIT'){
+                element.classList.add('C-HIT');
+                element.classList.add(container);
+            }
+            if (element.textContent === 'B-HIT'){
+                element.classList.add('B-HIT');
+                element.classList.add(container);
+            }
+            if (element.textContent === 'D-HIT'){
+                element.classList.add('D-HIT');
+                element.classList.add(container);
+            }
+            if (element.textContent === 'S-HIT'){
+                element.classList.add('S-HIT');
+                element.classList.add(container);
+            }
+            if(element.textContent === 'P-HIT'){
+                element.classList.add('P-HIT');
+                element.classList.add(container);
+            }
             if (element.textContent === 'X') {
                 element.classList.add('miss');
             };
             if (element.textContent === 'C' || 
             element.textContent === 'B' || 
             element.textContent === 'D' || 
-            element.textContent === 'C' || 
             element.textContent === 'S' || 
             element.textContent === 'P'){
                 element.classList.add('boat');
@@ -103,8 +118,10 @@ export function printBoardShips (prefix, targetBoard){
     let maxGridCol = -1000;
     
     //return the max/min row/col for ship location
-    const targets = document.querySelectorAll(`.${targetBoard}.${prefix}`);
+    const targets = document.querySelectorAll(`.${targetBoard}.${prefix}, .${targetBoard}.${prefix}-HIT`);
     const shipLength = targets.length;
+    console.log(targets);
+    //!!CHANGE class name- remove ! and change to 'Hit')
     targets.forEach(target => {
         
         let currentGridRow = target.dataset.row;
