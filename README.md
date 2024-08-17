@@ -89,3 +89,7 @@ Patrol Boat2
 <a href="https://www.flaticon.com/free-icons/battleship" title="battleship icons">Battleship icons created by smashingstocks - Flaticon</a>
 Carrier2
 <a href="https://www.flaticon.com/free-icons/battleship" title="battleship icons">Battleship icons created by smashingstocks - Flaticon</a>
+Anchor
+<a href="https://www.freepik.com/icon/anchor_5757848">Icon by Graphix's Art</a>
+Anchor2
+<a href="https://www.freepik.com/icon/anchor_9511982">Icon by Iconic Panda</a>
