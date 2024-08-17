@@ -41,11 +41,11 @@
 }
 
 .life {
-    border-radius: 100%;
-    border: .1em solid black;
-    height: 1.5em;
-    width: 1.5em;
-    background: green;
+    height: 2em;
+    width: 2em;
+    background-position: center;
+    background-size: contain;
+    background-image: url(../images/Anchor2.png);
 }
 
 .damaged {
