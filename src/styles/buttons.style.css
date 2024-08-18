@@ -56,6 +56,11 @@
     background-image: url('../images/hit.png')
 }
 
+.sunk {
+    background-color: rgb(139, 22, 22);
+    border: 3px solid orange;
+}
+
 #p1-stat-C, #p1-stat-B, #p1-stat-D, #p1-stat-S, #p1-stat-P, #com-stat-C, #com-stat-B, #com-stat-D, #com-stat-S, #com-stat-P {
     display: flex;
     justify-content: space-around;
