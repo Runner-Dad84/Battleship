@@ -19,7 +19,7 @@ const level = document.getElementById('level');
 
 (function welcomeForm (){
    // document.addEventListener('DOMContentLoaded', ()=> {
-        const welcomeForm = document.getElementById('welcome');
+        const welcomeForm = document.getElementById('welcomeForm');
         
         welcomeForm.addEventListener ('submit', function (event) {
             event.preventDefault();

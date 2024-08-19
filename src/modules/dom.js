@@ -3,7 +3,7 @@ import { gameboard } from './gameboard.js';
 
 //DOM related functionality for submit on welcome form
 export function welcomeFormDOM (){
-    const welcomeForm = document.getElementById('welcome');
+    const welcomeForm = document.getElementById('welcomeForm');
     const startScreen = document.getElementById('startscreen');
     const mainPage = document.getElementById('mainpage');    
     //print player name
