@@ -16,12 +16,15 @@
         display: none;
       }
     </style>
+    <!--
     <script>
+       
       document.addEventListener('DOMConentLoaded', () => {
         document.getElementById('startscreen').style.display = "block";
         document.getElementById('welcome').style.display = "block";
       });
     </script>
+    -->
 </head>
 <body>
   <div id="mainpage">
@@ -93,9 +96,10 @@
   </div>
 <!-- Start screen is first menu screen -->
 <div id="startscreen">
-  <img src="" alt="">
-  <form id="welcome" title="welcome">
-    <label for="name">Player Name:</label>
+  <h1 id="welcomeTitle">Battleship</h1>
+  <div id="welcomePic"></div>
+  <form id="welcomeForm" title="welcomeForm">
+    <label for="name">Player Name</label>
     <input type="text" id="name" name="name">
     <label for="level">Level</label>
     <select name="level" id="level">
@@ -105,7 +109,7 @@
   <label for="size">Board Size</label>
    <select name="size" id="size">
     <option value="7">Small (7 x 7)</option>
-    <option value="10">Traditional (10 x 10)</option>
+    <option value="10" selected>Traditional (10 x 10)</option>
     <option value="12">Large (12 x 12)</option>
    </select>
    <button type="submit" id="startBtn">Start</button>
