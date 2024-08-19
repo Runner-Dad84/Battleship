@@ -93,3 +93,5 @@ Anchor
 <a href="https://www.freepik.com/icon/anchor_5757848">Icon by Graphix's Art</a>
 Anchor2
 <a href="https://www.freepik.com/icon/anchor_9511982">Icon by Iconic Panda</a>
+Main Ship
+<a href="https://www.freepik.com/icon/transport_14756327#fromView=image_search_similar&page=1&position=9&uuid=2b2ae036-25aa-4a62-80fc-c311bb54d876">Icon by IconBaandar</a>
