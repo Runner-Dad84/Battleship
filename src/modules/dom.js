@@ -204,7 +204,7 @@ export function removeShipBtns () {
         shipBtns.remove();
     }
 }
-
+//display computer console/board
 export function displayComputer () {
     if (arrayShips.length === 5){
         let computerDisplay = document.getElementById('comConsole');
