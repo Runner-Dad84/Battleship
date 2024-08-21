@@ -193,7 +193,9 @@ export function shipBtnHandler (){
             //if ship has been placed
             if (arrayShips.some(ship => ship.type === dataShipType)){
             placement.style.display = 'none';
+
 }})})}
+
 
 //if all ships placed remove buttons
 export function removeShipBtns () {

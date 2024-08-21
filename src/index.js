@@ -60,6 +60,7 @@ function placeComputer (user) {
 
 })();
 
+
 //player place ships on board
 document.addEventListener('DOMContentLoaded', ()=> {
     const form = document.getElementById('placement')
@@ -74,6 +75,9 @@ document.addEventListener('DOMContentLoaded', ()=> {
         printBoard(player1.gb.board, 'container-p1', player1.gb);
         playerShipOverlay();
         form.style.display = 'none';
+        //add deployed class ship btn
+        let targetBtn = document.getElementById(`btn-${shipType}`);
+        targetBtn.classList.add('deployedShip')
         //remove all buttons if all five ships placed
         removeShipBtns();
         randomBtn.remove()
