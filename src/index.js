@@ -2,7 +2,7 @@ import { gameboard,  } from './modules/gameboard.js'
 import { ship } from './modules/ship.js'
 import { humanPlayer, compPlayer } from './modules/player.js'
 import { welcomeForm, printBoard, welcomeFormDOM, shipBtnHandler, removeShipBtns, printShipStats , printStats, playerShipOverlay } from './modules/dom.js'
-import { placeShip, randomRow, randomCol, randomAttack, targetedAttack, lastHit, storedHit , targetCol, targetRow, savedRow, savedCol } from './modules/computer.js'
+import { placeComputer, randomRow, randomCol, randomAttack, targetedAttack, lastHit, storedHit , targetCol, targetRow, savedRow, savedCol } from './modules/computer.js'
 import './styles/gameboard.style.css';
 import './styles/shipform.style.css';
 import './styles/startscreen.style.css';
@@ -37,14 +37,7 @@ const level = document.getElementById('level');
     })
 })();
 
-//place user ships randomly
-function placeComputer (user) {
-    placeShip ('Carrier', user);
-    placeShip ('Battleship', user);
-    placeShip ('Destroyer', user);
-    placeShip ('Submarine', user);
-    placeShip ('Patrol Boat', user);
-};
+
 //Place player ships randomly on button push
 (function randomSetPlayer (){
     const randomBtn = document.getElementById('random');
@@ -81,7 +74,10 @@ document.addEventListener('DOMContentLoaded', ()=> {
         //remove all buttons if all five ships placed
         removeShipBtns();
         randomBtn.remove()
-    })})
+    })}
+)
+
+//
 
 
 //listen for player turn

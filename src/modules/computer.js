@@ -32,6 +32,14 @@ export function placeShip (ship, cpu) {
    tryAgain();
 };
 
+export function placeComputer (user) {
+    placeShip ('Carrier', user);
+    placeShip ('Battleship', user);
+    placeShip ('Destroyer', user);
+    placeShip ('Submarine', user);
+    placeShip ('Patrol Boat', user);
+};
+
 //Computer attack random move
 export let randomRow;
 export let randomCol;
