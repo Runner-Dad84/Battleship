@@ -1,4 +1,7 @@
-#comConsole,
+#comConsole {
+    display: none;
+    grid-template-columns: 4fr 1fr;
+}
 #p1Console {
     display: grid;
     grid-template-columns: 4fr 1fr;
