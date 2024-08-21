@@ -1,7 +1,7 @@
 import { gameboard,  } from './modules/gameboard.js'
 import { ship } from './modules/ship.js'
 import { humanPlayer, compPlayer } from './modules/player.js'
-import { welcomeForm, printBoard, welcomeFormDOM, shipBtnHandler, removeShipBtns, printShipStats , printStats, playerShipOverlay } from './modules/dom.js'
+import { welcomeForm, printBoard, welcomeFormDOM, displayComputer, shipBtnHandler, removeShipBtns, printShipStats , printStats, playerShipOverlay } from './modules/dom.js'
 import { placeComputer, randomRow, randomCol, randomAttack, targetedAttack, lastHit, storedHit , targetCol, targetRow, savedRow, savedCol } from './modules/computer.js'
 import './styles/gameboard.style.css';
 import './styles/shipform.style.css';
@@ -29,26 +29,29 @@ const level = document.getElementById('level');
             player1 = new humanPlayer('Andrew');
             computer = new compPlayer('computer', 'easy');
             //place computer ships
-            placeComputer(computer);
+            //placeComputer(computer);
             //print boards
-            printBoard(computer.gb.board, 'container-p2', computer.gb);
+            //printBoard(computer.gb.board, 'container-p2', computer.gb);
             printBoard(player1.gb.board, 'container-p1', player1.gb);
             welcomeFormDOM();
     })
 })();
 
 
-//Place player ships randomly on button push
+//Place all player ships randomly on button push
 (function randomSetPlayer (){
     const randomBtn = document.getElementById('random');
     randomBtn.addEventListener('click', ()=>{
         placeComputer(player1);
         printBoard(player1.gb.board, 'container-p1', player1.gb);
         playerShipOverlay();
-        printBoard(computer.gb.board, 'container-p2', computer.gb);
         //remove all buttons
         randomBtn.remove();
         removeShipBtns ();
+        //place and print computer board and ships
+        displayComputer();
+        placeComputer(computer);
+        printBoard(computer.gb.board, 'container-p2', computer.gb);
     })
 
 })();
@@ -76,9 +79,6 @@ document.addEventListener('DOMContentLoaded', ()=> {
         randomBtn.remove()
     })}
 )
-
-//
-
 
 //listen for player turn
 let playerContainer = document.getElementById('container-p1');
