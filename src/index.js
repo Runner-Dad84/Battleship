@@ -46,7 +46,6 @@ const level = document.getElementById('level');
         printBoard(player1.gb.board, 'container-p1', player1.gb);
         playerShipOverlay();
         //remove all buttons
-        randomBtn.remove();
         removeShipBtns ();
         //place and print computer board and ships
         displayComputer();
