@@ -205,6 +205,13 @@ export function removeShipBtns () {
     }
 }
 
+export function displayComputer () {
+    if (arrayShips.length === 5){
+        let computerDisplay = document.getElementById('comConsole');
+        computerDisplay.style.display = 'grid';
+    }
+}
+
 export function printStats (player, ship, suffix, prefix) {
     //ship data
     const fleet = player.gb.ships;
