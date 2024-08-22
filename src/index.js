@@ -69,13 +69,15 @@ document.addEventListener('DOMContentLoaded', ()=> {
         const col = document.getElementById('shipCol').value;
         let shipType = document.getElementById('formTitle').innerText;
         const direction = document.getElementById('direction').value;
+        let shipID = shipType.slice(0, 1);
         //place ship
         player1.gb.placeNewShip(shipType, row, col, direction);
         //ship count after attemtped placement
         let newCount = player1.gb.ships.length;
-        //print and overlay player board
+        //print player board, overlay, ship stats
         printBoard(player1.gb.board, 'container-p1', player1.gb);
         playerShipOverlay();
+        printStats(player1, shipType, shipID, 'p1');
         form.style.display = 'none';
         //remove all buttons if all five ships placed
         removeShipBtns();
