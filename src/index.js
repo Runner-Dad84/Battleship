@@ -24,14 +24,10 @@ const level = document.getElementById('level');
         welcomeForm.addEventListener ('submit', function (event) {
             event.preventDefault();
             boardSize = document.getElementById('size').value;
-
             //create players
             player1 = new humanPlayer('Andrew');
             computer = new compPlayer('computer', 'easy');
-            //place computer ships
-            //placeComputer(computer);
-            //print boards
-            //printBoard(computer.gb.board, 'container-p2', computer.gb);
+            //print player board
             printBoard(player1.gb.board, 'container-p1', player1.gb);
             welcomeFormDOM();
     })
