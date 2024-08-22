@@ -24,10 +24,14 @@ const level = document.getElementById('level');
         welcomeForm.addEventListener ('submit', function (event) {
             event.preventDefault();
             boardSize = document.getElementById('size').value;
+
             //create players
             player1 = new humanPlayer('Andrew');
             computer = new compPlayer('computer', 'easy');
-            //print player board
+            //place computer ships
+            //placeComputer(computer);
+            //print boards
+            //printBoard(computer.gb.board, 'container-p2', computer.gb);
             printBoard(player1.gb.board, 'container-p1', player1.gb);
             welcomeFormDOM();
     })
@@ -77,7 +81,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
         removeShipBtns();
         randomBtn.remove()
         //check if ship was placed
-        if(newCount > startCount){
+        if((newCount > startCount) && (newCount < 5)){
             // if so add deployed class ship btn
             let targetBtn = document.getElementById(`btn-${shipType}`);
             targetBtn.classList.add('deployedShip')
