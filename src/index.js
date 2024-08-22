@@ -76,6 +76,11 @@ document.addEventListener('DOMContentLoaded', ()=> {
         //remove all buttons if all five ships placed
         removeShipBtns();
         randomBtn.remove()
+        if(player1.gb.ships.length === 5){
+            displayComputer();
+            placeComputer(computer);
+            printBoard(computer.gb.board, 'container-p2', computer.gb);
+        }
     })}
 )
 
