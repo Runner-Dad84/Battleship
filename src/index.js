@@ -38,7 +38,7 @@ const level = document.getElementById('level');
 })();
 
 
-//Place all player ships randomly on button push
+//player place all player ships randomly on button push
 (function randomSetPlayer (){
     const randomBtn = document.getElementById('random');
     randomBtn.addEventListener('click', ()=>{
@@ -56,26 +56,37 @@ const level = document.getElementById('level');
 })();
 
 
-//player place ships on board
+//player place ships on board manually
 document.addEventListener('DOMContentLoaded', ()=> {
     const form = document.getElementById('placement')
     const randomBtn = document.getElementById('random');
     form.addEventListener ('submit', function (event) {
         event.preventDefault();
+        //ship count prior to placement
+        let startCount = player1.gb.ships.length;
+        //store vales from input form
         const row = document.getElementById('shipRow').value;
         const col = document.getElementById('shipCol').value;
         let shipType = document.getElementById('formTitle').innerText;
         const direction = document.getElementById('direction').value;
+        //place ship
         player1.gb.placeNewShip(shipType, row, col, direction);
+        //ship count after attemtped placement
+        let newCount = player1.gb.ships.length;
+        //print and overlay player board
         printBoard(player1.gb.board, 'container-p1', player1.gb);
         playerShipOverlay();
         form.style.display = 'none';
-        //add deployed class ship btn
-        let targetBtn = document.getElementById(`btn-${shipType}`);
-        targetBtn.classList.add('deployedShip')
         //remove all buttons if all five ships placed
         removeShipBtns();
         randomBtn.remove()
+        //check if ship was placed
+        if(newCount > startCount){
+            // if so add deployed class ship btn
+            let targetBtn = document.getElementById(`btn-${shipType}`);
+            targetBtn.classList.add('deployedShip')
+        }
+        //if all ships place display computer
         if(player1.gb.ships.length === 5){
             displayComputer();
             placeComputer(computer);
