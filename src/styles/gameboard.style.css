@@ -53,9 +53,9 @@
 
 #container-p1 .miss,
 #container-p2 .miss {
-    font-size: 2em;
-    color: white;
-    font-weight: 1000;
+    background-image: url('../images/miss.png');
+    background-size: cover;
+    
 }
 
 #container-p1 .C-HIT,
