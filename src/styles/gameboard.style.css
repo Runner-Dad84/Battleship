@@ -55,7 +55,6 @@
 #container-p2 .miss {
     background-image: url('../images/miss.png');
     background-size: cover;
-    
 }
 
 #container-p1 .C-HIT,
@@ -70,6 +69,7 @@
 #container-p2 .P-HIT {
     background-image: url('../images/hit.png');
     background-size: cover;
+    color: transparent;
 }
 
 
