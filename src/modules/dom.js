@@ -84,12 +84,14 @@ export function printBoard (board, container, player){
                 let row = Number(element.dataset.row);
                 let col = Number(element.dataset.col);
                 element.textContent = `${row}, ${col}`;
+                element.style.color = 'white';
             })
             //hover out
             element.addEventListener('mouseout', ()=> {
                 let row = element.dataset.row;
                 let col = element.dataset.col;
                 element.textContent = cell.value;
+                element.style.color = 'transparent';
             })
             //click board to attack
             element.addEventListener('click', ()=> {
@@ -212,6 +214,8 @@ export function displayComputer () {
     }
 }
 
+
+//print stats to each ships stat div (life/ damage)
 export function printStats (player, ship, suffix, prefix) {
     //ship data
     const fleet = player.gb.ships;
