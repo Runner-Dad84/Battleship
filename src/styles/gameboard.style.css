@@ -1,24 +1,31 @@
+
 #comConsole {
     display: none;
-    grid-template-columns: 4fr 1fr;
+    grid-template-columns: 3fr 1fr;
 }
 #p1Console {
     display: grid;
-    grid-template-columns: 4fr 1fr;
+    grid-template-columns: 3fr 1fr;
+    row-gap: 5x;
 }
 
 #container-p1,
 #container-p2 {
     position: relative;
     display: grid;
-    width: 70vh;
-    height: 70vh;
+    justify-self: center;
+    aspect-ratio: 1 / 1;
+    height:85vh;
     gap: 0;
     border: 4px solid black;
     border-radius: 5px;
     background-image: url('../images/Ocean-Board.jpg');
     background-size: cover;
 }
+#shipButtons {
+    justify-self: center;
+}
+
 #container-p1 .cell,
 #container-p2 .cell,
 #container-p1 .hit,
