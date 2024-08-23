@@ -29,8 +29,8 @@
 <body>
   <div id="mainpage">
     <!--Computer gameboard div-->
+    <h3>Computer</h3>
     <div id="comConsole">
-      <h3>Computer</h3>
       <div id="container-p2"></div>
       <!--Computer ship display div-->
       <div class="shipStats">
@@ -59,39 +59,39 @@
     <h3 id="playerName"></h3>
     <!--Player gameboard div-->
     <div id="p1Console">
-    <div id="container-p1"></div>
-    <!--Player ship display div-->
-    <div class="shipStats">
-      <div id="p1-C" class="p1Ship" data-ship-type="Carrier" data-ship-length=5>
-        <h2>Carrier</h2>
-        <div id="p1-stat-C" class="stats"></div>
+      <div id="container-p1"></div>
+      <!--Player ship display div-->
+      <div class="shipStats">
+        <div id="p1-C" class="p1Ship" data-ship-type="Carrier" data-ship-length=5>
+          <h2>Carrier</h2>
+          <div id="p1-stat-C" class="stats"></div>
+        </div>
+        <div id="p1-B" class="p1Ship" data-ship-type="Battleship" data-ship-length=4>
+          <h2>Battleship</h2>
+          <div id="p1-stat-B" class="stats"></div>
+        </div>
+        <div id="p1-D" class="p1Ship" data-ship-type="Destroyer" data-ship-length=3>
+          <h2>Destroyer</h2>
+          <div id="p1-stat-D" class="stats"></div>
+        </div>
+        <div id="p1-S" class="p1Ship" data-ship-type="Submarine" data-ship-length=3>
+          <h2>Submarine</h2>
+          <div id="p1-stat-S" class="stats"></div>
+        </div>
+        <div id="p1-P" class="p1Ship" data-ship-type="Patrol Boat" data-ship-length=2>
+          <h2>Patrol Boat</h2>
+          <div id="p1-stat-P" class="stats"></div>
+        </div>
       </div>
-      <div id="p1-B" class="p1Ship" data-ship-type="Battleship" data-ship-length=4>
-        <h2>Battleship</h2>
-        <div id="p1-stat-B" class="stats"></div>
+      <!--Player temporary ship placement buttons-->
+      <div id="shipButtons">
+        <button class="p1" id="btn-Carrier" data-ship-type="Carrier">Carrier</button>
+        <button class="p1" id="btn-Battleship" data-ship-type="Battleship">Battleship</button>
+        <button class="p1" id="btn-Destroyer" data-ship-type="Destroyer">Destroyer</button>
+        <button class="p1" id="btn-Submarine" data-ship-type="Submarine">Submarine</button>
+        <button class="p1" id="btn-Patrol Boat" Data-ship-type="Patrol Boat">Patrol Boat</button>
+        <button id="random">Random Deployment</button>
       </div>
-      <div id="p1-D" class="p1Ship" data-ship-type="Destroyer" data-ship-length=3>
-        <h2>Destroyer</h2>
-        <div id="p1-stat-D" class="stats"></div>
-      </div>
-      <div id="p1-S" class="p1Ship" data-ship-type="Submarine" data-ship-length=3>
-        <h2>Submarine</h2>
-        <div id="p1-stat-S" class="stats"></div>
-      </div>
-      <div id="p1-P" class="p1Ship" data-ship-type="Patrol Boat" data-ship-length=2>
-        <h2>Patrol Boat</h2>
-        <div id="p1-stat-P" class="stats"></div>
-      </div>
-    </div>
-    <!--Player temporary ship placement buttons-->
-    <div id="shipButtons">
-      <button class="p1" id="btn-Carrier" data-ship-type="Carrier">Carrier</button>
-      <button class="p1" id="btn-Battleship" data-ship-type="Battleship">Battleship</button>
-      <button class="p1" id="btn-Destroyer" data-ship-type="Destroyer">Destroyer</button>
-      <button class="p1" id="btn-Submarine" data-ship-type="Submarine">Submarine</button>
-      <button class="p1" id="btn-Patrol Boat" Data-ship-type="Patrol Boat">Patrol Boat</button>
-      <button id="random">Random Deployment</button>
-    </div>
     </div>
   </div>
 <!-- Start screen is first menu screen -->
