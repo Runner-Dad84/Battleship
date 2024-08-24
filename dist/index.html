@@ -16,86 +16,90 @@
         display: none;
       }
     </style>
+    <!--
     <script>
+       
       document.addEventListener('DOMConentLoaded', () => {
         document.getElementById('startscreen').style.display = "block";
         document.getElementById('welcome').style.display = "block";
       });
     </script>
+    -->
 <script defer src="runtime.bundle.js"></script><script defer src="main.bundle.js"></script></head>
 <body>
   <div id="mainpage">
-    <h3>Computer</h3>
     <!--Computer gameboard div-->
+    
     <div id="comConsole">
-    <div id="container-p2"></div>
-    <!--Computer ship display div-->
-    <div class="shipStats">
-      <div id="com-C"  class="comShip">
-        <h2>Carrier</h2>
-        <div id="com-stat-C" class="stats"></div>
+      <div id="container-p2"></div>
+      <!--Computer ship display div-->
+      <div class="shipStats">
+        <div id="com-C"  class="comShip">
+          <h2>Carrier</h2>
+          <div id="com-stat-C" class="stats"></div>
+        </div>
+        <div id="com-B" class="comShip">
+          <h2>Battleship</h2>
+          <div id="com-stat-B" class="stats"></div>
+        </div>
+        <div id="com-D" class="comShip">
+          <h2>Destroyer</h2>
+          <div id="com-stat-D" class="stats"></div>
+        </div>
+        <div id="com-S"class="comShip">
+          <h2>Submarine</h2>
+          <div id="com-stat-S" class="stats"></div>
+        </div>
+        <div id="com-P" class="comShip">
+          <h2>Patrol Boat</h2>
+          <div id="com-stat-P" class="stats"></div>
+        </div>
       </div>
-      <div id="com-B" class="comShip">
-        <h2>Battleship</h2>
-        <div id="com-stat-B" class="stats"></div>
-      </div>
-      <div id="com-D" class="comShip">
-        <h2>Destroyer</h2>
-        <div id="com-stat-D" class="stats"></div>
-      </div>
-      <div id="com-S"class="comShip">
-        <h2>Submarine</h2>
-        <div id="com-stat-S" class="stats"></div>
-      </div>
-      <div id="com-P" class="comShip">
-        <h2>Patrol Boat</h2>
-        <div id="com-stat-P" class="stats"></div>
-      </div>
-    </div>
     </div>
     <h3 id="playerName"></h3>
     <!--Player gameboard div-->
     <div id="p1Console">
-    <div id="container-p1"></div>
-    <!--Player ship display div-->
-    <div class="shipStats">
-      <div id="p1-C" class="p1Ship" data-ship-type="Carrier" data-ship-length=5>
-        <h2>Carrier</h2>
-        <div id="p1-stat-C" class="stats"></div>
+      <div id="container-p1"></div>
+      <!--Player ship display div-->
+      <div class="shipStats">
+        <div id="p1-C" class="p1Ship" data-ship-type="Carrier" data-ship-length=5>
+          <h2>Carrier</h2>
+          <div id="p1-stat-C" class="stats"></div>
+        </div>
+        <div id="p1-B" class="p1Ship" data-ship-type="Battleship" data-ship-length=4>
+          <h2>Battleship</h2>
+          <div id="p1-stat-B" class="stats"></div>
+        </div>
+        <div id="p1-D" class="p1Ship" data-ship-type="Destroyer" data-ship-length=3>
+          <h2>Destroyer</h2>
+          <div id="p1-stat-D" class="stats"></div>
+        </div>
+        <div id="p1-S" class="p1Ship" data-ship-type="Submarine" data-ship-length=3>
+          <h2>Submarine</h2>
+          <div id="p1-stat-S" class="stats"></div>
+        </div>
+        <div id="p1-P" class="p1Ship" data-ship-type="Patrol Boat" data-ship-length=2>
+          <h2>Patrol Boat</h2>
+          <div id="p1-stat-P" class="stats"></div>
+        </div>
       </div>
-      <div id="p1-B" class="p1Ship" data-ship-type="Battleship" data-ship-length=4>
-        <h2>Battleship</h2>
-        <div id="p1-stat-B" class="stats"></div>
+      <!--Player temporary ship placement buttons-->
+      <div id="shipButtons">
+        <button class="p1" id="btn-Carrier" data-ship-type="Carrier">Carrier</button>
+        <button class="p1" id="btn-Battleship" data-ship-type="Battleship">Battleship</button>
+        <button class="p1" id="btn-Destroyer" data-ship-type="Destroyer">Destroyer</button>
+        <button class="p1" id="btn-Submarine" data-ship-type="Submarine">Submarine</button>
+        <button class="p1" id="btn-Patrol Boat" Data-ship-type="Patrol Boat">Patrol Boat</button>
+        <button id="random">Random Deployment</button>
       </div>
-      <div id="p1-D" class="p1Ship" data-ship-type="Destroyer" data-ship-length=3>
-        <h2>Destroyer</h2>
-        <div id="p1-stat-D" class="stats"></div>
-      </div>
-      <div id="p1-S" class="p1Ship" data-ship-type="Submarine" data-ship-length=3>
-        <h2>Submarine</h2>
-        <div id="p1-stat-S" class="stats"></div>
-      </div>
-      <div id="p1-P" class="p1Ship" data-ship-type="Patrol Boat" data-ship-length=2>
-        <h2>Patrol Boat</h2>
-        <div id="p1-stat-P" class="stats"></div>
-      </div>
-    </div>
-    <!--Player temporary ship placement buttons-->
-    <div id="shipButtons">
-      <button class="p1" data-ship-type="Carrier">Carrier</button>
-      <button class="p1" data-ship-type="Battleship">Battleship</button>
-      <button class="p1" data-ship-type="Destroyer">Destroyer</button>
-      <button class="p1" data-ship-type="Submarine">Submarine</button>
-      <button class="p1" Data-ship-type="Patrol Boat">Patrol Boat</button>
-      <button id="random">Random Deployment</button>
-    </div>
     </div>
   </div>
 <!-- Start screen is first menu screen -->
 <div id="startscreen">
-  <img src="" alt="">
-  <form id="welcome" title="welcome">
-    <label for="name">Player Name:</label>
+  <h1 id="welcomeTitle">Battleship</h1>
+  <div id="welcomePic"></div>
+  <form id="welcomeForm" title="welcomeForm">
+    <label for="name">Player Name</label>
     <input type="text" id="name" name="name">
     <label for="level">Level</label>
     <select name="level" id="level">
@@ -105,7 +109,7 @@
   <label for="size">Board Size</label>
    <select name="size" id="size">
     <option value="7">Small (7 x 7)</option>
-    <option value="10">Traditional (10 x 10)</option>
+    <option value="10" selected>Traditional (10 x 10)</option>
     <option value="12">Large (12 x 12)</option>
    </select>
    <button type="submit" id="startBtn">Start</button>

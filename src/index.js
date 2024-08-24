@@ -28,10 +28,6 @@ const level = document.getElementById('level');
             //create players
             player1 = new humanPlayer('Andrew');
             computer = new compPlayer('computer', 'easy');
-            //place computer ships
-            //placeComputer(computer);
-            //print boards
-            //printBoard(computer.gb.board, 'container-p2', computer.gb);
             printBoard(player1.gb.board, 'container-p1', player1.gb);
             welcomeFormDOM();
     })
@@ -48,6 +44,7 @@ const level = document.getElementById('level');
         //remove all buttons
         removeShipBtns ();
         //place and print computer board and ships
+        document.getElementById('mainpage').classList.add('mainPage');
         displayComputer();
         placeComputer(computer);
         printBoard(computer.gb.board, 'container-p2', computer.gb);
