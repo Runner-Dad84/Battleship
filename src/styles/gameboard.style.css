@@ -48,7 +48,8 @@
 
 #container-p1 .boat,
 #container-p2 .boat {
-    background-color: lightgray;
+    background-color: none;
+    color: transparent;
 }
 
 #container-p1 .miss,

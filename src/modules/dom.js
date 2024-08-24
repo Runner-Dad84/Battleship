@@ -14,9 +14,8 @@ export function welcomeFormDOM (){
     welcomeForm.style.display = 'none';
     startScreen.style.display = 'none';
     //reveal the main page
-    mainPage.style.display = 'block';
+    mainPage.style.display = 'flex';
     mainPage.style.backgroundColor = 'white';
-    
 };
 
 export let arrayShips = [];
