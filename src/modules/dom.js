@@ -27,8 +27,8 @@ export function printBoard (board, container, player){
     let shipCol = document.getElementById('shipCol');
 
     //dynamically set the max row/col size on placement form
-    shipRow.max = boardSize;
-    shipCol.max = boardSize;
+    shipRow.max = boardSize-1;
+    shipCol.max = boardSize-1;
 
     //dynamically set the grid size
     gb.style.gridTemplateRows = `repeat(${boardSize}, 1fr)`;
