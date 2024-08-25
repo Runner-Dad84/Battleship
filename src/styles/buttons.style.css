@@ -24,13 +24,28 @@
 }
 /*ship pacement form*/
 #placement {
+    width: 25vw;
     gap: .2em;
     background-color: cadetblue;
     font-family: 'Courier New', Courier, monospace;
     border-radius: 10px;
     padding: 2%;
 }
+#placement select {
+    font-family: 'Courier New', Courier, monospace;
+    color: black;
+    font-weight: bolder;
+    height: 2.5vh;
+    width: 4em;
+    background-color: white;
+}
+#placement .formInput {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+}
 #placeBtn {
+    width: 13em;
+    height: 2.5em;
     background-color: var(--deployButtons);
     font-family: 'Courier New', Courier, monospace;
     border-radius: 10px;
