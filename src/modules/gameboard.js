@@ -5,15 +5,17 @@ import { boardSize } from '../index.js'
 
 //to access square on board us me board.board[r][c]
 
-//utility: converts column letter to number for lookUp
+//Never used utility: converts column letter to number for lookUp
 function colConvert (letter){
     const alphabet = [...Array(boardSize)].map((_,i) => String.fromCharCode(i +97));
         const item = (el) => el === letter;
         const num = alphabet.findIndex(item);
         return num
 };
-//utility: board as variablename.board, only works for first row
-export function lookUp (Let, Num, array){
+
+
+//Never used utility: board as variablename.board, only works for first row
+function lookUp (Let, Num, array){
     const c = colConvert(Let);
     const r = Num;
     const target = array.board[c][r];
