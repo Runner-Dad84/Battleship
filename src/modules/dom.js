@@ -132,8 +132,7 @@ export function printBoardShips (prefix, targetBoard){
     //return the max/min row/col for ship location
     const targets = document.querySelectorAll(`.${targetBoard}.${prefix}, .${targetBoard}.${prefix}-HIT`);
     const shipLength = targets.length;
-    console.log(targets);
-    //!!CHANGE class name- remove ! and change to 'Hit')
+
     targets.forEach(target => {
         
         let currentGridRow = target.dataset.row;
