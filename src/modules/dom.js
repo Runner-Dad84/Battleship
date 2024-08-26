@@ -20,6 +20,13 @@ export function welcomeFormDOM (){
 
 export let arrayShips = [];
 
+//utility fn - convert row coordinate from # to letter
+function rowConv (number){
+    const alphabet = [...Array(26)].map((_,i) => String.fromCharCode(i +97));
+        let letter = alphabet[number];
+        return letter;
+};
+
 //print player/ computer gameboard
 export function printBoard (board, container, player){
     let gb = document.getElementById(container);
@@ -78,12 +85,16 @@ export function printBoard (board, container, player){
             
             element.dataset.row = cell.r;
             element.dataset.col = cell.c;
+            
             //hover to reveal space dataset
             element.addEventListener('mouseover', ()=> {
                 let row = Number(element.dataset.row);
-                let col = Number(element.dataset.col);
-                element.textContent = `${row}, ${col}`;
+                let col = Number(element.dataset.col) + 1;
+                let rowConverted = rowConv(row).toUpperCase();
+                element.textContent = `${rowConverted}${col}`;
                 element.style.color = 'white';
+                element.style.fontWeight = 'bolder';
+                
             })
             //hover out
             element.addEventListener('mouseout', ()=> {
