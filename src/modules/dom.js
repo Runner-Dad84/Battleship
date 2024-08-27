@@ -105,6 +105,10 @@ export function printBoard (board, container, player){
             })
             //click board to attack
             element.addEventListener('click', ()=> {
+                //if player hasn't place all ships do not log attack
+                if (player.ships.length < 5) {
+                    return
+                };
                 let row = element.dataset.row;
                 let col = element.dataset.col;
                 //record attack
