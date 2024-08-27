@@ -186,25 +186,41 @@ export function playerShipOverlay (){
     printBoardShips('D', 'container-p1');
     printBoardShips('S', 'container-p1');
     printBoardShips('C', 'container-p1');
-}
-
+};
 
 //Ship buttons hander to display form with correct title
 export function shipBtnHandler (){
     const shipButtons = document.querySelectorAll('.p1');
     const placement = document.getElementById('placement');
     const formTitle = document.getElementById('formTitle');
-    
+    const columenSelect = document.getElementById('shipCol');
+    const rowSelect = document.getElementById('shipRow');
+
     shipButtons.forEach(btn => {
         btn.addEventListener('click', (event)=> {
             placement.style.display = 'grid';
             let dataShipType = event.target.getAttribute('data-ship-type');
             formTitle.innerText = dataShipType;
-
-            //if ship has been placed
+            columenSelect.innerHTML = "";
+            rowSelect.innerHTML = "";
+            //add options text for column - add 1 to convert from 0 base
+            for (let i = 0; i < boardSize; i++){
+                let opt = document.createElement('option');
+                opt.value = i;
+                opt.textContent = i + 1;
+                columenSelect.appendChild(opt);
+            }
+            //add options text for row - convert number to letter
+            for (let j = 0; j < boardSize; j++){
+                let optR = document.createElement('option');
+                let converted = rowConv(j).toUpperCase();
+                optR.value = j;
+                optR.textContent = converted;
+                rowSelect.appendChild(optR);
+            }
+            //if ship has already been placed
             if (arrayShips.some(ship => ship.type === dataShipType)){
             placement.style.display = 'none';
-
 }})})}
 
 
