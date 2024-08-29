@@ -1,7 +1,8 @@
 //const ship = require ('./ship.js')
 import { ship } from '../modules/ship.js'
-import { boardSize } from '../index.js'
+import { boardSize, AudioEventFn, audioEvent } from '../index.js'
 //import { shipsDOM } from '../modules/dom.js'
+
 
 //to access square on board us me board.board[r][c]
 
@@ -166,6 +167,9 @@ export class gameboard {
     receiveAttack (r, c) {
         let fleet = this.ships;
         let thisShip;
+        //Missile fired audio event create and dispatched
+        AudioEventFn ('Missile');
+        document.dispatchEvent(audioEvent);
         //if already miss record another miss
         if (this.board[r][c].value === 'X'){
             return this.board[r][c].value = 'X';
