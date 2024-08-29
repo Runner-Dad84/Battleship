@@ -10,6 +10,23 @@ import './styles/buttons.style.css';
 
 export let player1;
 export let computer;
+export let audioEvent;
+
+//custom audio events - creates audio event
+export function AudioEventFn (EventName){
+    audioEvent = new CustomEvent('AudioEvent', {
+        detail: {
+            type: EventName,
+            message: `Success - execute ${EventName}`,
+            status: 'success'
+        }
+    })
+};
+
+document.addEventListener('AudioEvent', ()=> {
+    //const missileSound = document.getElementById('missileSound');
+    console.log(audioEvent);
+})
 
 //welcome form
 export let boardSize;
