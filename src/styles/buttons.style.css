@@ -50,10 +50,15 @@
     font-family: 'Courier New', Courier, monospace;
     border-radius: 10px;
 }
+#placeBtn:hover {
+        color: white;
+        font-weight: 1000;
+}
 #pacement input {
     background-color: rgb(103, 103, 230);
-
 }
+
+
 
 
 .p1:hover, #random:hover{

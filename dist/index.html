@@ -115,15 +115,20 @@
    <button type="submit" id="startBtn">Start</button>
   </form>
 </div>
-<!-- placyer form that appears on button press to place each ship-->
+<!-- player form that appears on button press to place each ship-->
 <form id="placement" title="Place Ship">
     <h1 id="formTitle">Ship Title</h1>
     
-    <label for="shipRow" class="formLabel">Row:</label>
-    <input type="number" id="shipRow" name="shipRow" min="0" max="6" class="formInput"required>
+    <label for="shipRow" class="formLabel">Row</label>
+    <select type="select" id="shipRow" name="shipRow" required>
+    </select>
+    <!-- <input type="number" id="shipRow" name="shipRow" min="0" max="6" class="formInput"required> -->
     
-    <label for="shipCol" class="formLabel">Column:</label>
-    <input type="number" id="shipCol" name="shipCol" class="formInput" min="0" max="6" required>
+    <label for="shipCol" class="formLabel">Column</label>
+    <select type="select" id="shipCol" name="shipCol" required>
+    </select>
+    
+    <!-- <input type="number" id="shipCol" name="shipCol" class="formInput" min="0" max="6" required> -->
     
     <label for="direction" class="formLabel">Direction</label>
     <select type="select" id="direction" name="diretion" required>
@@ -134,5 +139,8 @@
     </select>
     <button type="submit" id="placeBtn">Deploy Ship</button>
 </form>
+<!--Audio-->
+<audio id="missileSound" src="./audio/missileFired.wav" preload="auto"></audio>
+
 </body>
 </html>

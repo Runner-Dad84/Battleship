@@ -1,6 +1,7 @@
 import { player1, computer, boardSize } from '../index.js'
 import { gameboard } from './gameboard.js';
 
+
 //DOM related functionality for submit on welcome form
 export function welcomeFormDOM (){
     const welcomeForm = document.getElementById('welcomeForm');
@@ -249,7 +250,6 @@ export function printStats (player, ship, suffix, prefix) {
     //ship data
     const fleet = player.gb.ships;
     const thisShip = fleet.find(target => target.type === ship);
-    console.log(fleet);
     const length = thisShip.length;
     const damage = thisShip.damage;
     //containers for life-damage
