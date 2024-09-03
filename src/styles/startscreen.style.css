@@ -53,7 +53,7 @@
 }
 #welcomeForm select {
     font-family: var(--welcomeFontFam);
-    color: black;
+    color: white;
     font-weight: bolder;
     height: 2.5vh;
     border: var(--btnInputBorder);

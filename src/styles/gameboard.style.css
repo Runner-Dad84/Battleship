@@ -7,7 +7,7 @@
 #p1Console {
     display: grid;
     grid-template-columns: 3fr 1fr;
-    background-color: rgb(103, 103, 230);
+    background-color: rgb(111, 111, 231);
 }
 
 #container-p1,

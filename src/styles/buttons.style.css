@@ -106,7 +106,7 @@
     width: 2em;
     background-position: center;
     background-size: contain;
-    background-image: url(../images/Anchor2.png);
+    background-image: url('../images/Anchor2.png');
 }
 .damaged {
     height: 2.8em;
