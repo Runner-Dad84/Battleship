@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { hash } = require('crypto');
 
 module.exports = {
     mode: 'development',
@@ -39,6 +40,28 @@ module.exports = {
       {
       test: /\.css$/i,
       use: ['style-loader', 'css-loader' ],
+      },
+      /*
+      {
+        test: /\.(png|jpg|gif|svg)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name.[hash].[ext]',
+              outputPath: 'images/',
+            }
+          }
+        ]
+      }
+      */
+      {
+        test:/\.(mp3|wav|ogg)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: '[name].[ext]'
+        },
+        exclude: /\.(png|jpe?g|gif|svg)$/i,
       }
     ]
   },
