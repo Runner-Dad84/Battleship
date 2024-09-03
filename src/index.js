@@ -7,27 +7,15 @@ import './styles/gameboard.style.css';
 import './styles/shipform.style.css';
 import './styles/startscreen.style.css';
 import './styles/buttons.style.css';
-import missileFired from './audio/missileFired.wav'
+//import { }
+import missileFired from './audio/missileFired.wav';
 
 export let player1;
 export let computer;
-export let audioEvent;
 
-//custom audio events - creates audio event
-export function AudioEventFn (EventName){
-    audioEvent = new CustomEvent('AudioEvent', {
-        detail: {
-            type: EventName,
-            message: `Success - execute ${EventName}`,
-            status: 'success'
-        }
-    })
-};
 
 document.addEventListener('AudioEvent', ()=> {
-    //const missileSound = document.getElementById('missileSound');
     const missileSound = new Audio(missileFired);
-    console.log(audioEvent);
     missileSound.play();
 })
 

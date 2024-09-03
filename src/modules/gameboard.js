@@ -1,6 +1,7 @@
 //const ship = require ('./ship.js')
 import { ship } from '../modules/ship.js'
-import { boardSize, AudioEventFn, audioEvent } from '../index.js'
+import { boardSize } from '../index.js'
+import { AudioEventFn, audioEvent } from '../modules/audio.js'
 //import { shipsDOM } from '../modules/dom.js'
 
 
