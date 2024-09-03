@@ -147,7 +147,7 @@ compContainer.addEventListener ('click', function RandomMove () {
         shipBtnHandler('.p1', 'p1');
         
         console.log('computer moves');
-    }, 1000);
+    }, 5500);
 });
 
 shipBtnHandler();
