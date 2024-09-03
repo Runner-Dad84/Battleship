@@ -7,6 +7,7 @@ import './styles/gameboard.style.css';
 import './styles/shipform.style.css';
 import './styles/startscreen.style.css';
 import './styles/buttons.style.css';
+import missileFired from './audio/missileFired.wav'
 
 export let player1;
 export let computer;
@@ -25,7 +26,9 @@ export function AudioEventFn (EventName){
 
 document.addEventListener('AudioEvent', ()=> {
     //const missileSound = document.getElementById('missileSound');
+    const missileSound = new Audio(missileFired);
     console.log(audioEvent);
+    missileSound.play();
 })
 
 //welcome form
