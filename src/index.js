@@ -14,9 +14,11 @@ export let player1;
 export let computer;
 
 
-document.addEventListener('AudioEvent', ()=> {
+document.addEventListener('AudioEvent', (e)=> {
+    if (e.detail.type === 'Missile'){
     const missileSound = new Audio(missileFired);
     missileSound.play();
+    }
 })
 
 //welcome form
