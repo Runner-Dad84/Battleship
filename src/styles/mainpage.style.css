@@ -1,13 +1,14 @@
 
 
-
 #comConsole {
     display: none;
+    align-items: center;
     grid-template-columns: 4fr 1fr;
     background-color: rgb(218, 164, 64);
 }
 #p1Console {
     display: grid;
+    align-items: center;
     grid-template-columns: 4fr 1fr;
     background-color: rgb(111, 111, 231);
 }
