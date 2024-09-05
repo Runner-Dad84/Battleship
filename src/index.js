@@ -3,22 +3,30 @@ import { ship } from './modules/ship.js'
 import { humanPlayer, compPlayer } from './modules/player.js'
 import { printBoard, welcomeFormDOM, displayComputer, shipBtnHandler, removeShipBtns, printStats, playerShipOverlay } from './modules/dom.js'
 import { placeComputer, randomRow, randomCol, randomAttack, targetedAttack, lastHit, storedHit , targetCol, targetRow, savedRow, savedCol } from './modules/computer.js'
+import { AudioEventFn } from './modules/audio.js'
 import './styles/gameboard.style.css';
 import './styles/shipform.style.css';
 import './styles/startscreen.style.css';
 import './styles/buttons.style.css';
-//import { }
 import missileFired from './audio/missileFired.wav';
+import boathorn from './audio/boathorn.wav';
+
 
 export let player1;
 export let computer;
 
 
 document.addEventListener('AudioEvent', (e)=> {
+
     if (e.detail.type === 'Missile'){
-    const missileSound = new Audio(missileFired);
-    missileSound.play();
+        const missileSound = new Audio(missileFired);
+        missileSound.play();
     }
+    if (e.detail.type === 'horn'){
+        const hornSound = new Audio(boathorn);
+        hornSound.play();
+    }
+    
 })
 
 //welcome form
@@ -54,6 +62,8 @@ const level = document.getElementById('level');
         displayComputer();
         placeComputer(computer);
         printBoard(computer.gb.board, 'container-p2', computer.gb);
+        let hornSound = AudioEventFn ('horn');
+        document.dispatchEvent(hornSound);
     })
 
 })();
@@ -85,13 +95,16 @@ document.addEventListener('DOMContentLoaded', ()=> {
         removeShipBtns();
         randomBtn.remove()
         //check if ship was placed
+        let hornSound = AudioEventFn ('horn');
         if((newCount > startCount) && (newCount < 5)){
+            document.dispatchEvent(hornSound);
             // if so add deployed class ship btn
             let targetBtn = document.getElementById(`btn-${shipType}`);
             targetBtn.classList.add('deployedShip')
         }
         //if all ships place display computer
         if(player1.gb.ships.length === 5){
+            document.dispatchEvent(hornSound);
             displayComputer();
             placeComputer(computer);
             printBoard(computer.gb.board, 'container-p2', computer.gb);
