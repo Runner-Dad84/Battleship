@@ -8,6 +8,7 @@ import './styles/gameboard.style.css';
 import './styles/shipform.style.css';
 import './styles/startscreen.style.css';
 import './styles/buttons.style.css';
+import './styles/mainpage.style.css';
 import missileFired from './audio/missileFired.wav';
 import boathorn from './audio/boathorn.wav';
 import explosion from './audio/explosion.wav';
