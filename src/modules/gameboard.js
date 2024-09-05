@@ -209,6 +209,9 @@ export class gameboard {
             let index = (fleet.indexOf(thisShip));
             this.ships[index].hit();
         }
+        //custom sound event explosion
+        let boardhit = AudioEventFn ('explosion');
+        document.dispatchEvent(boardhit);
         //record hit to board
         let shipHit = this.board[r][c].value;
         return this.board[r][c].value = `${shipHit}-HIT`;
