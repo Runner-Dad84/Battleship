@@ -28,7 +28,9 @@ document.addEventListener('AudioEvent', (e)=> {
     }
     if (e.detail.type === 'explosion'){
         const explosionSound = new Audio(explosion);
-        explosionSound.play();
+        setTimeout(() => {
+            explosionSound.play();
+        }, 3000)
     }
     
 })
