@@ -10,7 +10,7 @@ import './styles/startscreen.style.css';
 import './styles/buttons.style.css';
 import missileFired from './audio/missileFired.wav';
 import boathorn from './audio/boathorn.wav';
-
+import explosion from './audio/explosion.wav';
 
 export let player1;
 export let computer;
@@ -25,6 +25,10 @@ document.addEventListener('AudioEvent', (e)=> {
     if (e.detail.type === 'horn'){
         const hornSound = new Audio(boathorn);
         hornSound.play();
+    }
+    if (e.detail.type === 'explosion'){
+        const explosionSound = new Audio(explosion);
+        explosionSound.play();
     }
     
 })
