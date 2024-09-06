@@ -244,7 +244,6 @@ export function displayComputer () {
     }
 }
 
-
 //print stats to each ships stat div (life/ damage)
 export function printStats (player, ship, suffix, prefix) {
     //ship data
@@ -273,4 +272,12 @@ export function printStats (player, ship, suffix, prefix) {
         console.log(thisID);
         thisID.classList.add('sunk');
     }
+};
+
+export function printPlayerStats(){
+    printStats(player1, 'Carrier', 'C', 'p1');
+    printStats(player1, 'Battleship', 'B', 'p1');
+    printStats(player1, 'Destroyer', 'D', 'p1');
+    printStats(player1, 'Submarine', 'S', 'p1');
+    printStats(player1, 'Patrol Boat', 'P', 'p1');
 };
