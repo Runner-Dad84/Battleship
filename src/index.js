@@ -132,11 +132,11 @@ document.addEventListener('DOMContentLoaded', ()=> {
         printStats(computer, 'Destroyer', 'D', 'com');
         printStats(computer, 'Submarine', 'S', 'com');
         printStats(computer, 'Patrol Boat', 'P', 'com');
-        printBoard(computer.gb.board, 'container-p2', computer.gb);
+        setTimeout(() => {printBoard(computer.gb.board, 'container-p2', computer.gb)
+        }, 3000)
+        }) 
     })
 
-}
-);
 //Listen for computer board click by player, handler is computer attack
 compContainer.addEventListener ('click', function RandomMove () {
     setTimeout(function RandomMove (){
