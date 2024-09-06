@@ -1,7 +1,7 @@
 import { gameboard,  } from './modules/gameboard.js'
 import { ship } from './modules/ship.js'
 import { humanPlayer, compPlayer } from './modules/player.js'
-import { printBoard, welcomeFormDOM, displayComputer, shipBtnHandler, removeShipBtns, printStats, printPlayerStats, playerShipOverlay } from './modules/dom.js'
+import { printBoard, welcomeFormDOM, displayComputer, shipBtnHandler, removeShipBtns, printStats, printPlayerStats, printComStats, playerShipOverlay } from './modules/dom.js'
 import { placeComputer, randomRow, randomCol, randomAttack, targetedAttack, lastHit, storedHit , targetCol, targetRow, savedRow, savedCol } from './modules/computer.js'
 import { AudioEventFn } from './modules/audio.js'
 import './styles/gameboard.style.css';
@@ -127,12 +127,12 @@ let compContainer = document.getElementById('container-p2');
 document.addEventListener('DOMContentLoaded', ()=> {
     compContainer.addEventListener ('click', ()=> {
         console.log('player moves');
-        printStats(computer, 'Carrier', 'C', 'com');
-        printStats(computer, 'Battleship', 'B', 'com');
-        printStats(computer, 'Destroyer', 'D', 'com');
-        printStats(computer, 'Submarine', 'S', 'com');
-        printStats(computer, 'Patrol Boat', 'P', 'com');
-        setTimeout(() => {printBoard(computer.gb.board, 'container-p2', computer.gb)
+        //print board and stats after sec delay (no overlay on computer board)
+        function printComBoardStats(){
+            printComStats();
+            printBoard(computer.gb.board, 'container-p2', computer.gb)
+        };
+        setTimeout(() => {printComBoardStats()
         }, 3000)
         }) 
     })
@@ -172,7 +172,7 @@ compContainer.addEventListener ('click', function RandomMove () {
 
 shipBtnHandler();
 
-//console.log(computer.gb.ships);
+
 
 /*
 console.log(boardTest[0][0].value);

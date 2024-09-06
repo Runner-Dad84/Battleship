@@ -281,3 +281,11 @@ export function printPlayerStats(){
     printStats(player1, 'Submarine', 'S', 'p1');
     printStats(player1, 'Patrol Boat', 'P', 'p1');
 };
+
+export function printComStats() {
+    printStats(computer, 'Carrier', 'C', 'com');
+    printStats(computer, 'Battleship', 'B', 'com');
+    printStats(computer, 'Destroyer', 'D', 'com');
+    printStats(computer, 'Submarine', 'S', 'com');
+    printStats(computer, 'Patrol Boat', 'P', 'com');
+};
