@@ -162,12 +162,14 @@ compContainer.addEventListener ('click', function RandomMove () {
         printStats(player1, 'Destroyer', 'D', 'p1');
         printStats(player1, 'Submarine', 'S', 'p1');
         printStats(player1, 'Patrol Boat', 'P', 'p1');
-        //print player boad
-        printBoard(player1.gb.board, 'container-p1', player1.gb);
-        playerShipOverlay();
-        //Displays form pacement upon btn press
-        shipBtnHandler('.p1', 'p1');
+        //print player boad and ship overlays 3 sec delay from audio
+        function printBoardandOverlays(){
+            printBoard(player1.gb.board, 'container-p1', player1.gb);
+            playerShipOverlay()
+        };
+        setTimeout(() => {printBoardandOverlays()}, 3000)
         
+        shipBtnHandler('.p1', 'p1');
         console.log('computer moves');
     }, 5500);
 });
