@@ -157,18 +157,22 @@ compContainer.addEventListener ('click', function RandomMove () {
             player1.gb.receiveAttack(randomRow, randomCol);
         };
         //print player ship stats
+        function printPlayerStats(){
         printStats(player1, 'Carrier', 'C', 'p1');
         printStats(player1, 'Battleship', 'B', 'p1');
         printStats(player1, 'Destroyer', 'D', 'p1');
         printStats(player1, 'Submarine', 'S', 'p1');
         printStats(player1, 'Patrol Boat', 'P', 'p1');
+        }
+        
         //print player boad and ship overlays 3 sec delay from audio
         function printBoardandOverlays(){
             printBoard(player1.gb.board, 'container-p1', player1.gb);
             playerShipOverlay()
+            printPlayerStats()
         };
         setTimeout(() => {printBoardandOverlays()}, 3000)
-        
+
         shipBtnHandler('.p1', 'p1');
         console.log('computer moves');
     }, 5500);
