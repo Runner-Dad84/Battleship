@@ -127,7 +127,6 @@ let compContainer = document.getElementById('container-p2');
 //Listen for player click on computer board to log attack
 document.addEventListener('DOMContentLoaded', ()=> {
     compContainer.addEventListener ('click', ()=> {
-        console.log('player moves');
         //print board and stats after sec delay (no overlay on computer board)
         function printComBoardStats(){
             printComStats();
@@ -135,7 +134,10 @@ document.addEventListener('DOMContentLoaded', ()=> {
         };
         setTimeout(() => {printComBoardStats()
         }, 3000)
-        }) 
+        if (computer.gb.checkSunk() === true){
+            console.log('YOU WIN');
+        }
+    }) 
     })
 
 //Listen for computer board click by player, handler is computer attack
@@ -146,16 +148,21 @@ compContainer.addEventListener ('click', function RandomMove () {
         if (level.value === 'easy'){
             randomAttack(player1);
             player1.gb.receiveAttack(randomRow, randomCol);
+            if (player1.gb.checkSunk() === true){
+                console.log('YOU LOSE');
+            }
         };
         //Level medium - computer will check adjacent spaces
         if (level.value === 'medium'){
-            console.log(`randomRow ${randomRow} randomCol ${randomCol}`)
-            console.log(`savedRow ${savedRow} savedCol ${savedCol} `)
-            console.log(`targetdRow ${targetRow} targetCol ${targetCol} `)
-            
+            //console.log(`randomRow ${randomRow} randomCol ${randomCol}`)
+            //console.log(`savedRow ${savedRow} savedCol ${savedCol} `)
+            //console.log(`targetdRow ${targetRow} targetCol ${targetCol} `)
             targetedAttack(player1);
             lastHit(player1, randomRow, randomCol);
             player1.gb.receiveAttack(randomRow, randomCol);
+            if (player1.gb.checkSunk() === true){
+                console.log('YOU LOSE');
+            }
         };
         
         //print player boad, ship overlays & ship stats with 3 sec delay from audio
@@ -165,13 +172,14 @@ compContainer.addEventListener ('click', function RandomMove () {
             printPlayerStats()
         };
         setTimeout(() => {printBoardandOverlays()}, 3000)
-
-        shipBtnHandler('.p1', 'p1');
         console.log('computer moves');
+        shipBtnHandler('.p1', 'p1');
     }, 5500);
 });
 
 shipBtnHandler();
+
+//Listen fr 
 
 
 
