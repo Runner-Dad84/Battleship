@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
         }, 3000)
         if (computer.gb.checkSunk() === true){
             let winAlert = document.getElementById('winner');
-            winAlert.style.display = "block";
+            winAlert.style.display = "flex";
             console.log('YOU WIN');
         }
     }) 
@@ -152,6 +152,8 @@ compContainer.addEventListener ('click', function RandomMove () {
             randomAttack(player1);
             player1.gb.receiveAttack(randomRow, randomCol);
             if (player1.gb.checkSunk() === true){
+                let loseAlert = document.getElementById('loser');
+                loseAlert.style.display = "flex";
                 console.log('YOU LOSE');
             }
         };
@@ -164,6 +166,8 @@ compContainer.addEventListener ('click', function RandomMove () {
             lastHit(player1, randomRow, randomCol);
             player1.gb.receiveAttack(randomRow, randomCol);
             if (player1.gb.checkSunk() === true){
+                let loseAlert = document.getElementById('loser');
+                loseAlert.style.display = "flex";
                 console.log('YOU LOSE');
             }
         };
