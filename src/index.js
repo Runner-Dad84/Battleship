@@ -10,6 +10,7 @@ import './styles/startscreen.style.css';
 import './styles/buttons.style.css';
 import './styles/mainpage.style.css';
 import './styles/shipstats.style.css';
+import './styles/endgame.style.css';
 import missileFired from './audio/missileFired.wav';
 import boathorn from './audio/boathorn.wav';
 import explosion from './audio/explosion.wav';
@@ -135,6 +136,8 @@ document.addEventListener('DOMContentLoaded', ()=> {
         setTimeout(() => {printComBoardStats()
         }, 3000)
         if (computer.gb.checkSunk() === true){
+            let winAlert = document.getElementById('winner');
+            winAlert.style.display = "block";
             console.log('YOU WIN');
         }
     }) 
