@@ -269,7 +269,7 @@ export function printStats (player, ship, suffix, prefix) {
     }
     if (length === damage){
         let thisID = document.getElementById(prefix + '-' + suffix);
-        console.log(thisID);
+        //console.log(thisID);
         thisID.classList.add('sunk');
     }
 };
@@ -289,3 +289,5 @@ export function printComStats() {
     printStats(computer, 'Submarine', 'S', 'com');
     printStats(computer, 'Patrol Boat', 'P', 'com');
 };
+
+//ending the game
