@@ -184,9 +184,21 @@ compContainer.addEventListener ('click', function RandomMove () {
     }, 5500);
 });
 
+//event listener for reset button
+
+(function gameReset (){
+    const resetBtn = document.querySelectorAll('.resetBtn');
+    
+    resetBtn.forEach((element)=>
+        element.addEventListener('click', ()=> {
+            window.location.reload();
+        })
+    )
+
+ })();
+
 shipBtnHandler();
 
-//Listen fr 
 
 
 
