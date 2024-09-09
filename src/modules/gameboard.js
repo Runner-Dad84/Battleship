@@ -5,7 +5,7 @@ import { AudioEventFn } from '../modules/audio.js'
 //import { shipsDOM } from '../modules/dom.js'
 
 
-//to access square on board us me board.board[r][c]
+//to access square on board use gb.board[r][c]
 
 //Never used utility: converts column letter to number for lookUp
 function colConvert (letter){
