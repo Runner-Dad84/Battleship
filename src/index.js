@@ -67,6 +67,7 @@ const level = document.getElementById('level');
         //remove all buttons
         removeShipBtns ();
         //place and print computer board and ships
+        document.getElementById('placement').style.display = 'none';
         document.getElementById('mainpage').classList.add('mainPage');
         displayComputer();
         placeComputer(computer);
