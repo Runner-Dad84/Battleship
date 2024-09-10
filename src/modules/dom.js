@@ -7,9 +7,10 @@ export function welcomeFormDOM (){
     const welcomeForm = document.getElementById('welcomeForm');
     const startScreen = document.getElementById('startscreen');
     const mainPage = document.getElementById('mainpage');    
+    const playerName = document.getElementById('playerName');
     //print player name
     let name = document.getElementById('name').value;
-    document.getElementById('playerName').textContent = name;
+    playerName.textContent = name;
 
     //remove start screen and welcome form
     welcomeForm.style.display = 'none';
