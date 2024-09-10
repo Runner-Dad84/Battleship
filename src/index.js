@@ -60,6 +60,7 @@ const level = document.getElementById('level');
 //player place all player ships randomly on button push
 (function randomSetPlayer (){
     const randomBtn = document.getElementById('random');
+    const playerName = document.getElementById('playerName');
     randomBtn.addEventListener('click', ()=>{
         placeComputer(player1);
         printBoard(player1.gb.board, 'container-p1', player1.gb);
@@ -67,6 +68,7 @@ const level = document.getElementById('level');
         //remove all buttons
         removeShipBtns ();
         //place and print computer board and ships
+        playerName.style.left = '90%';
         document.getElementById('placement').style.display = 'none';
         document.getElementById('mainpage').classList.add('mainPage');
         displayComputer();
@@ -114,6 +116,8 @@ document.addEventListener('DOMContentLoaded', ()=> {
         }
         //if all ships place display computer
         if(player1.gb.ships.length === 5){
+            const playerName = document.getElementById('playerName');
+            playerName.style.left = '90%';
             document.dispatchEvent(hornSound);
             displayComputer();
             placeComputer(computer);
