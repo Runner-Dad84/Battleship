@@ -47,3 +47,13 @@ body #mainpage {
     flex-basis: 5%;
     flex-grow: 1;
 }
+
+#playerName {
+    background-color: rgb(111, 111, 231);
+    position: fixed;
+    top: 0%;
+    left: 60%;
+    font-size: 2em;
+    font-weight: 600;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
