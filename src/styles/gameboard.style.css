@@ -15,11 +15,13 @@
 #container-p1 .cell,
 #container-p2 .cell {
     color: transparent;
+    user-select: none;
 }
 #container-p1 .boat,
 #container-p2 .boat {
     background-color: none;
     color: transparent;
+    user-select: none;
 }
 #container-p1 .miss,
 #container-p2 .miss {
@@ -39,6 +41,7 @@
     background-image: url('../images/hit.png');
     background-size: cover;
     color: transparent;
+    user-select: none;
 }
 /*Ship icons on board*/
 #overlay-B {
