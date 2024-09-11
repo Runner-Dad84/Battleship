@@ -29,7 +29,6 @@
 <body>
   <div id="mainpage">
     <!--Computer gameboard div-->
-    
     <div id="comConsole">
       <h3 id="comName">Computer</h3>
       <div id="container-p2"></div>
@@ -57,7 +56,6 @@
         </div>
       </div>
     </div>
-   
     <!--Player gameboard div-->
     <div id="p1Console">
       <h3 id="playerName"></h3>
@@ -120,18 +118,14 @@
 <!-- player form that appears on button press to place each ship-->
 <form id="placement" title="Place Ship">
     <h1 id="formTitle">Ship Title</h1>
-    
     <label for="shipRow" class="formLabel">Row</label>
     <select type="select" id="shipRow" name="shipRow" required>
     </select>
     <!-- <input type="number" id="shipRow" name="shipRow" min="0" max="6" class="formInput"required> -->
-    
     <label for="shipCol" class="formLabel">Column</label>
     <select type="select" id="shipCol" name="shipCol" required>
     </select>
-    
     <!-- <input type="number" id="shipCol" name="shipCol" class="formInput" min="0" max="6" required> -->
-    
     <label for="direction" class="formLabel">Direction</label>
     <select type="select" id="direction" name="diretion" required>
       <option value="Up">Up</option>
@@ -143,17 +137,12 @@
 </form>
 <!--End of game screens-->
 <div id="winner">
-  <img src="" alt="">
   <span>You are victorious!</span>
   <button class="resetBtn">Play Again</button>
 </div>
-
 <div id="loser">
-  <img src="" alt="">
   <span>Your fleet is sunk!</span>
   <button class="resetBtn">Play again</button>
 </div>
-
-
 </body>
 </html>
