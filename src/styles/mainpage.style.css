@@ -62,7 +62,7 @@ body #mainpage {
     border-radius: .05em;
 }
 #playerName {
-    top: 0%;
+    top: -3%;
     background-color:var(--computerTrim);
 }
 #comName {
