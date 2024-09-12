@@ -31,6 +31,7 @@
     font-weight: bolder;
     font-size: 3.8em;
     font-style: italic;
+    margin-top: 3em;
 }
 #welcomePic {
     position: fixed;
@@ -45,7 +46,8 @@
     background-color: white;
 }
 #welcomeForm {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     color: white;
     font-family: var(--welcomeFontFam);
     gap: 1em;
@@ -67,7 +69,7 @@
     background-color:rgb(170, 218, 218);
 }
 
-#startBtn {
+#startBtn, #credits {
     height: 5vh;
     margin-top: 2em;
     background-color: var(--welcomeTextColor);
