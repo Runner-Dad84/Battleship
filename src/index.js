@@ -1,6 +1,6 @@
 import { humanPlayer, compPlayer } from './modules/player.js'
 import { printBoard, welcomeFormDOM, displayComputer, shipBtnHandler, removeShipBtns, printStats, printPlayerStats, printComStats, playerShipOverlay } from './modules/dom.js'
-import { placeComputer, randomRow, randomCol, randomAttack, targetedAttack, lastHit, storedHit , targetCol, targetRow, savedRow, savedCol } from './modules/computer.js'
+import { placeComputer, randomRow, randomCol, randomAttack, targetedAttack, lastHit } from './modules/computer.js'
 import { AudioEventFn } from './modules/audio.js'
 import './styles/gameboard.style.css';
 import './styles/shipform.style.css';
