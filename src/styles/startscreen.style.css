@@ -69,7 +69,7 @@
     background-color:rgb(170, 218, 218);
 }
 
-#startBtn, #credits {
+#startBtn, #creditsBtn {
     height: 5vh;
     margin-top: 2em;
     background-color: var(--welcomeTextColor);
@@ -84,5 +84,4 @@
     position: fixed;
     background-color: white;
     color: black;
-   
 }
