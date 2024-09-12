@@ -1,5 +1,3 @@
-import { gameboard,  } from './modules/gameboard.js'
-import { ship } from './modules/ship.js'
 import { humanPlayer, compPlayer } from './modules/player.js'
 import { printBoard, welcomeFormDOM, displayComputer, shipBtnHandler, removeShipBtns, printStats, printPlayerStats, printComStats, playerShipOverlay } from './modules/dom.js'
 import { placeComputer, randomRow, randomCol, randomAttack, targetedAttack, lastHit, storedHit , targetCol, targetRow, savedRow, savedCol } from './modules/computer.js'
@@ -143,7 +141,6 @@ document.addEventListener('DOMContentLoaded', ()=> {
         if (computer.gb.checkSunk() === true){
             let winAlert = document.getElementById('winner');
             winAlert.style.display = "flex";
-            console.log('YOU WIN');
         }
     }) 
     })
@@ -159,21 +156,16 @@ compContainer.addEventListener ('click', function RandomMove () {
             if (player1.gb.checkSunk() === true){
                 let loseAlert = document.getElementById('loser');
                 loseAlert.style.display = "flex";
-                console.log('YOU LOSE');
             }
         };
         //Level medium - computer will check adjacent spaces
         if (level.value === 'medium'){
-            //console.log(`randomRow ${randomRow} randomCol ${randomCol}`)
-            //console.log(`savedRow ${savedRow} savedCol ${savedCol} `)
-            //console.log(`targetdRow ${targetRow} targetCol ${targetCol} `)
             targetedAttack(player1);
             lastHit(player1, randomRow, randomCol);
             player1.gb.receiveAttack(randomRow, randomCol);
             if (player1.gb.checkSunk() === true){
                 let loseAlert = document.getElementById('loser');
                 loseAlert.style.display = "flex";
-                console.log('YOU LOSE');
             }
         };
         
@@ -184,7 +176,6 @@ compContainer.addEventListener ('click', function RandomMove () {
             printPlayerStats()
         };
         setTimeout(() => {printBoardandOverlays()}, 3000)
-        console.log('computer moves');
         shipBtnHandler('.p1', 'p1');
     }, 5500);
 });
@@ -206,20 +197,12 @@ shipBtnHandler();
 
 
 
-
-/*
-console.log(boardTest[0][0].value);
-console.log(boardTest[3][4].c);
-console.log(boardTest[3][4].r);
-*/
 //attacks
 /*
 player1.gb.receiveAttack(0, 1);
 player1.gb.receiveAttack(1, 0);
-
 computer.gb.receiveAttack(0, 0);
 computer.gb.receiveAttack(6, 4);
-
 //how to print ships
 console.log(boardTest);
 console.log(player1.gb.ships);
