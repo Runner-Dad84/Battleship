@@ -79,3 +79,10 @@
     border: var(--btnInputBorder);
     border-radius: 5px;
 }
+#creditScreen {
+    display: none;
+    position: fixed;
+    background-color: white;
+    color: black;
+   
+}
