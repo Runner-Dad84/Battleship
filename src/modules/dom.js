@@ -1,7 +1,6 @@
 import { player1, computer, boardSize } from '../index.js'
 import { gameboard } from './gameboard.js';
 
-
 //DOM related functionality for submit on welcome form
 export function welcomeFormDOM (){
     const welcomeForm = document.getElementById('welcomeForm');
@@ -11,7 +10,6 @@ export function welcomeFormDOM (){
     //print player name
     let name = document.getElementById('name').value;
     playerName.textContent = name;
-
     //remove start screen and welcome form
     welcomeForm.style.display = 'none';
     startScreen.style.display = 'none';
@@ -115,10 +113,6 @@ export function printBoard (board, container, player){
                 let col = element.dataset.col;
                 //record attack
                 player.receiveAttack(row, col);
-                //check if player wins game
-                if (player.checkSunk() === true) {
-                    return alert('Game Over!');
-                };
             })
             gb.appendChild(element);
         }
@@ -131,7 +125,6 @@ export function printBoardShips (prefix, targetBoard){
     //call min/max outside the possibe range
     let minGridRow = 1000;
     let maxGridRow = -1000;
-
     let minGridCol = 1000;
     let maxGridCol = -1000;
     
@@ -193,7 +186,6 @@ export function playerShipOverlay (){
     printBoardShips('S', 'container-p1');
     printBoardShips('C', 'container-p1');
 };
-
 //Ship buttons hander to display form with correct title
 export function shipBtnHandler (){
     const shipButtons = document.querySelectorAll('.p1');
@@ -229,7 +221,6 @@ export function shipBtnHandler (){
             placement.style.display = 'none';
 }})})}
 
-
 //if all ships placed remove buttons
 export function removeShipBtns () {
     if (arrayShips.length === 5){
@@ -244,7 +235,6 @@ export function displayComputer () {
         computerDisplay.style.display = 'grid';
     }
 }
-
 //print stats to each ships stat div (life/ damage)
 export function printStats (player, ship, suffix, prefix) {
     //ship data
@@ -270,11 +260,9 @@ export function printStats (player, ship, suffix, prefix) {
     }
     if (length === damage){
         let thisID = document.getElementById(prefix + '-' + suffix);
-        //console.log(thisID);
         thisID.classList.add('sunk');
     }
 };
-
 export function printPlayerStats(){
     printStats(player1, 'Carrier', 'C', 'p1');
     printStats(player1, 'Battleship', 'B', 'p1');
@@ -282,7 +270,6 @@ export function printPlayerStats(){
     printStats(player1, 'Submarine', 'S', 'p1');
     printStats(player1, 'Patrol Boat', 'P', 'p1');
 };
-
 export function printComStats() {
     printStats(computer, 'Carrier', 'C', 'com');
     printStats(computer, 'Battleship', 'B', 'com');
@@ -290,5 +277,3 @@ export function printComStats() {
     printStats(computer, 'Submarine', 'S', 'com');
     printStats(computer, 'Patrol Boat', 'P', 'com');
 };
-
-//ending the game
