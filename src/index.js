@@ -181,7 +181,6 @@ compContainer.addEventListener ('click', function RandomMove () {
 });
 
 //event listener for reset button
-
 (function gameReset (){
     const resetBtn = document.querySelectorAll('.resetBtn');
     
@@ -195,6 +194,16 @@ compContainer.addEventListener ('click', function RandomMove () {
 
 shipBtnHandler();
 
+//event credits
+(function creditScreen (){
+    const creditSn = document.getElementById('creditScreen');
+    document.getElementById('creditsBtn').addEventListener('click', ()=> {
+        creditSn.style.display = 'block';
+    })
+    document.getElementById('closeCredits').addEventListener('click', ()=> {
+        creditSn.style.display = 'none';
+    })
+})();
 
 
 //attacks
