@@ -68,8 +68,7 @@
     border: var(--btnInputBorder);
     background-color:rgb(170, 218, 218);
 }
-
-#startBtn, #creditsBtn {
+#startBtn, #creditsBtn, #closeCreditsBtn {
     height: 5vh;
     margin-top: 2em;
     background-color: var(--welcomeTextColor);
@@ -79,14 +78,24 @@
     border: var(--btnInputBorder);
     border-radius: 5px;
 }
+/*credit screen*/
 #creditScreen {
     display: none;
     position: fixed;
-    top:10%;
     z-index: 1001;
     height:100vh;
     width: 100vw;
     background-color: black;
     color: white;
+}
+#creditScreen {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding-left: 48%;
+}
 
+.creditLi {
+    list-style: none;
+}
+#closeCredits {
+    margin: auto;
 }
