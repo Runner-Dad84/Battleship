@@ -200,7 +200,7 @@ shipBtnHandler();
     document.getElementById('creditsBtn').addEventListener('click', ()=> {
         creditSn.style.display = 'block';
     })
-    document.getElementById('closeCredits').addEventListener('click', ()=> {
+    document.getElementById('closeCreditsBtn').addEventListener('click', ()=> {
         creditSn.style.display = 'none';
     })
 })();
