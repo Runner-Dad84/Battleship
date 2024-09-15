@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battleship</title>
+    <style>
+      #mainpage {
+        background-color: black;
+        display: none;
+      }
+      #startscreen {
+        background-color: black;
+      }
+      #placement {
+        display: none;
+      }
+    </style>
+<script defer src="runtime.bundle.js"></script><script defer src="main.bundle.js"></script></head>
+<body>
+  <div id="mainpage">
+    <!--Computer gameboard div-->
+    <div id="comConsole">
+      <h3 id="comName">Computer</h3>
+      <div id="container-p2"></div>
+      <!--Computer ship display div-->
+      <div class="shipStats">
+        <div id="com-C"  class="comShip">
+          <h2>Carrier</h2>
+          <div id="com-stat-C" class="stats"></div>
+        </div>
+        <div id="com-B" class="comShip">
+          <h2>Battleship</h2>
+          <div id="com-stat-B" class="stats"></div>
+        </div>
+        <div id="com-D" class="comShip">
+          <h2>Destroyer</h2>
+          <div id="com-stat-D" class="stats"></div>
+        </div>
+        <div id="com-S"class="comShip">
+          <h2>Submarine</h2>
+          <div id="com-stat-S" class="stats"></div>
+        </div>
+        <div id="com-P" class="comShip">
+          <h2>Patrol Boat</h2>
+          <div id="com-stat-P" class="stats"></div>
+        </div>
+      </div>
+    </div>
+    <!--Player gameboard div-->
+    <div id="p1Console">
+      <div id="container-p1"></div>
+      <!--Player ship display div-->
+      <div class="shipStats">
+        <h3 id="playerName"></h3>
+        <div id="p1-C" class="p1Ship" data-ship-type="Carrier" data-ship-length=5>
+          <h2>Carrier</h2>
+          <div id="p1-stat-C" class="stats"></div>
+        </div>
+        <div id="p1-B" class="p1Ship" data-ship-type="Battleship" data-ship-length=4>
+          <h2>Battleship</h2>
+          <div id="p1-stat-B" class="stats"></div>
+        </div>
+        <div id="p1-D" class="p1Ship" data-ship-type="Destroyer" data-ship-length=3>
+          <h2>Destroyer</h2>
+          <div id="p1-stat-D" class="stats"></div>
+        </div>
+        <div id="p1-S" class="p1Ship" data-ship-type="Submarine" data-ship-length=3>
+          <h2>Submarine</h2>
+          <div id="p1-stat-S" class="stats"></div>
+        </div>
+        <div id="p1-P" class="p1Ship" data-ship-type="Patrol Boat" data-ship-length=2>
+          <h2>Patrol Boat</h2>
+          <div id="p1-stat-P" class="stats"></div>
+        </div>
+      </div>
+      <!--Player temporary ship placement buttons-->
+      <div id="shipButtons">
+        <button class="p1" id="btn-Carrier" data-ship-type="Carrier">Carrier</button>
+        <button class="p1" id="btn-Battleship" data-ship-type="Battleship">Battleship</button>
+        <button class="p1" id="btn-Destroyer" data-ship-type="Destroyer">Destroyer</button>
+        <button class="p1" id="btn-Submarine" data-ship-type="Submarine">Submarine</button>
+        <button class="p1" id="btn-Patrol Boat" Data-ship-type="Patrol Boat">Patrol Boat</button>
+        <button id="random">Random Deployment</button>
+      </div>
+    </div>
+  </div>
+<!-- Start screen is first menu screen -->
+<div id="startscreen">
+  <h1 id="welcomeTitle">Battleship</h1>
+  <div id="welcomePic"></div>
+  <form id="welcomeForm" title="welcomeForm">
+    <label for="name">Call Sign</label>
+    <input type="text" id="name" name="name" maxlength="9" required>
+    <label for="level">Level</label>
+    <select name="level" id="level">
+      <option value="easy" selected>Easy</option>
+      <option value="medium" selected>Medium</option>
+    </select>
+  <label for="size">Board Size</label>
+   <select name="size" id="size">
+    <option value="7">Small (7 x 7)</option>
+    <option value="10" selected>Traditional (10 x 10)</option>
+    <option value="12">Large (12 x 12)</option>
+   </select>
+   <button type="submit" id="startBtn">Start</button>
+   <button id="creditsBtn" type ="button">Credits</button>
+  </form>
+</div>
+<!-- player form that appears on button press to place each ship-->
+<form id="placement" title="Place Ship">
+    <h1 id="formTitle">Ship Title</h1>
+    <label for="shipRow" class="formLabel">Row</label>
+    <select type="select" id="shipRow" name="shipRow" required>
+    </select>
+    <!-- <input type="number" id="shipRow" name="shipRow" min="0" max="6" class="formInput"required> -->
+    <label for="shipCol" class="formLabel">Column</label>
+    <select type="select" id="shipCol" name="shipCol" required>
+    </select>
+    <!-- <input type="number" id="shipCol" name="shipCol" class="formInput" min="0" max="6" required> -->
+    <label for="direction" class="formLabel">Direction</label>
+    <select type="select" id="direction" name="diretion" required>
+      <option value="Up">Up</option>
+      <option value="Down">Down</option>
+      <option value="Right">Right</option>
+      <option value="Left">Left</option>
+    </select>
+    <button type="submit" id="placeBtn">Deploy Ship</button>
+</form>
+<!--End of game screens-->
+<div id="winner">
+  <span>You are victorious!</span>
+  <button class="resetBtn">Play Again</button>
+</div>
+<div id="loser">
+  <span>Your fleet is sunk!</span>
+  <button class="resetBtn">Play again</button>
+</div>
+<!--Credits Screen-->
+<div id="creditScreen">
+  <h1 id="creditTitle">Credits</h1>
+  <ul id="imageList">
+    <h3>Images</h3>
+    <li class="creditLi"><a href="https://www.flaticon.com/free-icons/aircraft-carrier" title="aircraft carrier icons">Aircraft carrier icons created by max.icons - Flaticon</a></li>
+    <li class="creditLi"><a href="https://www.flaticon.com/free-icons/warship" title="warship icons">Warship icons created by Leremy - Flaticon</a></li>
+    <li class="creditLi"><a href="https://www.flaticon.com/free-icons/ship" title="ship icons">Ship icons created by Leremy - Flaticon</a></li>
+    <li class="creditLi"><a href="https://www.flaticon.com/free-icons/submarine" title="submarine icons">Submarine icons created by Leremy - Flaticon</a></li>
+    <li class="creditLi"><a href="https://www.freepik.com/icon/ship_13966302#fromView=search&page=3&position=22&uuid=d57b3d53-e7c6-4a4f-b2e6-ff734f01d42a">Icon by Grafixpoint</a></li>
+    <li class="creditLi"><a href="https://www.flaticon.com/free-icons/explosion" title="explosion icons">Explosion icons created by Grafixpoint - Flaticon</a></li>
+    <li class="creditLi"><a href="https://www.freepik.com/icon/web_16632503#fromView=search&page=1&position=15&uuid=9843629e-d1c5-45e4-b6b2-b814221eb9a7">Icon by iconsmind</a></li>
+    <li class="creditLi"><a href="https://www.flaticon.com/free-icons/warship" title="warship icons">Warship icons created by smashingstocks - Flaticon</a></li>
+    <li class="creditLi"><a href="https://www.freepik.com/icon/battleship_6175583#fromView=search&page=2&position=88&uuid=a90330a0-d278-4c8c-a00f-eb054f11ccaa">Icon by smashingstocks</a></li>
+    <li class="creditLi"><a href="https://www.flaticon.com/free-icons/submarine" title="submarine icons">Submarine icons created by smashingstocks - Flaticon</a></li>
+    <li class="creditLi"><a href="https://www.flaticon.com/free-icons/battleship" title="battleship icons">Battleship icons created by smashingstocks - Flaticon</a></li>
+    <li class="creditLi"><a href="https://www.flaticon.com/free-icons/battleship" title="battleship icons">Battleship icons created by smashingstocks - Flaticon</a></li>
+    <li class="creditLi"><a href="https://www.freepik.com/icon/anchor_5757848">Icon by Graphix's Art</a></li>
+    <li class="creditLi"><a href="https://www.freepik.com/icon/transport_14756327#fromView=image_search_similar&page=1&position=9&uuid=2b2ae036-25aa-4a62-80fc-c311bb54d876">Icon by IconBaandar</a></li>
+  </ul>
+  <ul id="audioList">
+    <h3>Audio</h3>
+    <li class="creditLi">missile.wav by BananaMilkshake -- https://freesound.org/s/632703/ -- License: Attribution 4.0</li>
+  </ul>
+  <ul id="audioList">
+    <h3>Missing Audio Credit</h3>
+    <li class="creditLi">Ship Foghorn, from freesound.org</li>
+    <li class="creditLi">Explosion, from freesound.org</li>
+  </ul>
+  <button id="closeCreditsBtn">Close Credits</button>
+</div>
+</body>
+</html>
